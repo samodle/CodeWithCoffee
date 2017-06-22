@@ -1,0 +1,440 @@
+﻿<Window
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    
+    xmlns:s="clr-namespace:System.Collections;assembly=mscorlib"
+    xmlns:p="clr-namespace:System;assembly=mscorlib"
+     x:Class="WindowMain_prstory"
+ xmlns:awe="http://schemas.awesomium.com/winfx" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+    
+     DataContext="{Binding RelativeSource={RelativeSource Self}}"
+   
+Title="prstory"  Height="706" Width="1250" Background="White" Foreground="#FF5D5A5A" ResizeMode="CanResize" MinHeight="451" MinWidth="800" 
+    Loaded="prstory_onstart" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style TargetType="telerik:RadBusyIndicator" >
+            <Setter Property="telerik:StyleManager.Theme" Value="Windows8Touch"/>
+        </Style>
+        <Style x:Key="Link" TargetType="Button">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Foreground" Value="Blue"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <TextBlock TextDecorations="Underline" 
+                    Text="{TemplateBinding Content}"
+                    Background="{TemplateBinding Background}"/>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Foreground" Value="Red"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <telerik:RadBusyIndicator x:Name="BusyIndicator" BusyContent="Logging In..." IsBusy="False">
+        <Viewbox Stretch="Fill">
+            <Grid Margin="0,0,0,0" RenderTransformOrigin="-0.000,0.000">
+                <Image x:Name="MenuIcon" HorizontalAlignment="Center" Height="13" Margin="11,10,1165,0" VerticalAlignment="Top" Width="18" Source="/img/menu1.png" Cursor="Hand" MouseLeave="Generalmouseleave" MouseMove="Generalmousemove" MouseDown="ShowMenu" Stretch="Fill" Visibility="hidden" />
+
+
+                <Image x:Name="prstory_Main_icon" HorizontalAlignment="Left" Height="111" Margin="461,0,0,0" VerticalAlignment="Top" Width="272" RenderTransformOrigin="0.196,0.468" Source="/img/lossstory icon.png"/>
+                <Canvas x:Name="maincanvas" HorizontalAlignment="Left" Height="574" Margin="10,92,0,0" VerticalAlignment="Top" Width="1167" Background="#FFEBEBEB" ForceCursor="True" >
+                    <Rectangle x:Name="SensitivityRectangle" Height="505" Width="1167" MouseDown="CleanUI" Fill="#FFEBEBEB"/>
+
+
+
+
+                    <Image x:Name="prstory_Settings_Icon" Height="144" Canvas.Left="300" Canvas.Top="200" Width="192" Source="/img/prstory_settings_icon_refreshed.png" MouseDown="prstory_Settings_Icon_MouseDown" MouseMove="IconMouseMove" MouseLeave="IconMouseLeave" />
+                    <Image x:Name="prstory_Analyze_Icon" Height="144" Canvas.Left="500" Canvas.Top="200" Width="192" Source="/img/Analyze_Main.png" MouseDown="Do_Analyze" MouseMove="IconMouseMove" MouseLeave="IconMouseLeave" />
+                    <Image x:Name="prstory_Target_Icon" Height="144" Canvas.Left="700" Canvas.Top="200" Width="192" Source="/img/About_Main.png" MouseDown="LaunchAboutWindow" MouseMove="IconMouseMove" MouseLeave="IconMouseLeave" />
+
+                    <Image x:Name="GreenCheck" Height="47" Canvas.Left="565" Canvas.Top="116" Width="71" Source="/img/icon_greenCheck.png" Visibility="Hidden" />
+
+                    <Label x:Name="LineDefaultQueryLabel" Content="Do you want prstory to remember this line as the default selection?" Height="44" Canvas.Left="406" Canvas.Top="456" Width="372" HorizontalContentAlignment="Center" FontStyle="Italic" Background="#FFFBF3CD" Foreground="#FF5D5D5D" BorderBrush="#FFCBCBCB" BorderThickness="1" Visibility="Hidden" >
+                        <Label.Effect>
+                            <DropShadowEffect Color="#FFAAAAAA" BlurRadius="10" Opacity="0.52"/>
+                        </Label.Effect>
+                    </Label>
+                    <Label x:Name="LineDefaultYesButton" Content="Yes" Height="14" Canvas.Left="464" Canvas.Top="482" FontSize="9" HorizontalContentAlignment="Center" Padding="1" Width="42" Background="#FFBFEA8C" Foreground="White" VerticalContentAlignment="Center" Cursor="Hand" MouseDown="LineDefaultYesClicked"  Visibility="Hidden" />
+                    <Label x:Name="LineDefaultNoButton" Content="No" Height="14" Canvas.Left="558" Canvas.Top="482" FontSize="9" HorizontalContentAlignment="Center" Padding="1" Width="42" Background="#FFFB9160" Foreground="White" VerticalContentAlignment="Center" Cursor="Hand" MouseDown="HideLineDefaultQuery"  Visibility="Hidden"   />
+                    <Label x:Name="LineDefaultCancelButton" Content="I'll decide later" Height="14" Canvas.Left="647" Canvas.Top="482" FontSize="9" HorizontalContentAlignment="Center" Padding="1" Width="92" Background="#FFEABF8C" Foreground="White" VerticalContentAlignment="Center" Cursor="Hand" MouseDown="HideLineDefaultQuery"  Visibility="Hidden"   />
+
+
+                    <Label x:Name="DateSelection_Alert" Content="A date range needs to be selected... (Month to Date is selected by default)" Height="39" Canvas.Left="339" Canvas.Top="140" Width="507" HorizontalContentAlignment="Center" FontStyle="Italic" Background="#FFFBF3CD" Foreground="#FF5D5D5D" Visibility="Hidden">
+                        <Label.Effect>
+                            <DropShadowEffect Color="#FFAAAAAA" BlurRadius="10" Opacity="0.52"/>
+                        </Label.Effect>
+                    </Label>
+                    <Label x:Name="LineSelection_Alert" Content="A line needs to be selected to enter targets!" Height="39" Canvas.Left="460" Canvas.Top="466" Width="277" HorizontalContentAlignment="Center"  FontStyle="Italic" VerticalAlignment="Center"  Background="#FFFBF3CD" Foreground="#FF5D5D5D" Visibility="Hidden" >
+                        <Label.Effect>
+                            <DropShadowEffect Color="#FFAAAAAA" BlurRadius="10" Opacity="0.52"/>
+                        </Label.Effect>
+                    </Label>
+                    <Label x:Name="prstory_settingsLabel"  Content="SETTINGS" Height="35" Canvas.Left="360" Canvas.Top="350" Width="86" FontFamily="Segoe UI Light" FontSize="16"/>
+                    <Label x:Name="prstory_analyzeLabel"  Content="ANALYZE" Height="35" Canvas.Left="560" Canvas.Top="350" Width="86" FontFamily="Segoe UI Light" FontSize="16"/>
+                    <Label x:Name="prstory_targetLabel"  Content="ABOUT" Height="35" Canvas.Left="766" Canvas.Top="350" Width="86" FontFamily="Segoe UI Light" FontSize="16"/>
+                    <Rectangle x:Name="prstorySettingsForm" Fill="#FFF4F4F5" Height="287" Canvas.Left="339" Canvas.Top="165" Width="228" Opacity="0.65">
+                        <Rectangle.Effect>
+                            <DropShadowEffect/>
+                        </Rectangle.Effect>
+                    </Rectangle>
+
+
+                    <Rectangle x:Name="prstorySettingsForm_Aux" Fill="#FFF4F4F5" Height="287" Canvas.Left="567" Canvas.Top="165" Width="279" Opacity="0.65" Visibility="Hidden">
+                        <Rectangle.Effect>
+                            <DropShadowEffect/>
+                        </Rectangle.Effect>
+                    </Rectangle>
+
+
+
+
+
+                    <awe:WebControl x:Name="speedUpTest" Source="file:///C:/Users/Public/card21.html" ClipToBounds="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Hidden" FontFamily="Segoe UI" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Canvas.Left="974" Canvas.Top="33" Height="132" Width="158" Visibility="Hidden">
+                        <awe:WebControl.Effect>
+                            <DropShadowEffect/>
+                        </awe:WebControl.Effect>
+                    </awe:WebControl>
+                    <Rectangle Fill="#FF9B9B9B" Height="64" Canvas.Top="510" Width="1167" MouseDown="maincanvasmousedown"/>
+                    <Label x:Name="VersionLabel" Content="v6.0.1 November 2016" Canvas.Left="538" Canvas.Top="553" Width="104" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="9" Foreground="White" RenderTransformOrigin="0.543,1.29" Cursor="Hand" />
+                    <Label x:Name="NewsFlashLabel" MouseDown="NewsFlashLabel_MouseDown" Content="Learn more on http://prstory.pg.com" Canvas.Left="454" Canvas.Top="515" Width="267" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Foreground="White" RenderTransformOrigin="0.543,1.29" Cursor="Hand" />
+                    <ProgressBar x:Name="MainProgressBar" Height="8" Canvas.Left="339" Canvas.Top="466" Width="507" Background="#FFE0E0E0" BorderBrush="#FFACACAC" Foreground="#FF32CDF0" BorderThickness="0.5" Visibility="Hidden" />
+                    <ComboBox x:Name="MappingSelectionCombo" Visibility="Collapsed" Canvas.Left="606" Canvas.Top="184" Width="169" Background="#FFEEEEEE" BorderBrush="#FF2C99C3" SelectionChanged="MappingSelectionChange" FontFamily="Segoe UI Light" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Cursor="Hand" RenderTransformOrigin="0.476,0.43" Height="29"/>
+                    <Label x:Name="prstoryGoButton" Content="Confirm" Canvas.Left="362" Canvas.Top="390" Width="84" Background="#FFEEEEEE" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" MouseDown="settingsDONE" Cursor="Hand" BorderBrush="#FF2C99C3" BorderThickness="2" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" FontFamily="Segoe UI Light"/>
+                    <Label x:Name="prstoryCancelButton" Content="Cancel" Canvas.Left="469" Canvas.Top="390" Width="84" Background="#FFEEEEEE" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" MouseDown="prstoryCancelButton_MouseDown" Cursor="Hand" BorderBrush="#FF2C99C3" BorderThickness="2" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" FontFamily="Segoe UI Light"/>
+                    <Label x:Name="prstorydayoption" Content="Pick Date Range" Canvas.Left="387" Canvas.Top="184" Width="141" Background="#FFEEEEEE" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" MouseDown="prstorydayoption_MouseDown" Cursor="Hand" BorderBrush="#FF2C99C3" BorderThickness="2" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" FontFamily="Segoe UI Light" Height="29" />
+                    <Label x:Name="TargetLaunchButton" ToolTip="Create targets for your line. NOTE: Targets can only be set by SPOCs." Content="Targets" Canvas.Left="387" Canvas.Top="343" Width="141" Background="#FFEEEEEE" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" MouseDown="Appclick_targets" Cursor="Hand" BorderBrush="#FF2C99C3" BorderThickness="2" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" FontFamily="Segoe UI Light" Height="29"/>
+                    <Label x:Name="LineConfigExportButton" ToolTip="Create a .csv file containing the server configurations for every line available in prstory." Content="Export Line Config" Canvas.Left="387" Canvas.Top="237" Width="141" Background="#FFEEEEEE" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  Cursor="Hand" BorderBrush="#FF2C99C3" BorderThickness="2" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" MouseDown="ExportAllLineData" FontFamily="Segoe UI Light" Height="29"/>
+                    <Label x:Name="AdvancedSettingsButton" Content="Advanced Options" Canvas.Left="387" Canvas.Top="290" Width="141" Background="#FFEEEEEE" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Cursor="Hand" BorderBrush="#FF2C99C3" BorderThickness="2" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" MouseDown="launchprstoryAdvancedOptions_settingsaux"  FontFamily="Segoe UI Light" Height="29"/>
+
+                    <Label x:Name="Multilinelaunchlabel" Content="Want to analyze multiple lines? Click Here." Canvas.Left="409" Canvas.Top="115" Width="378" FontFamily="Segoe UI Light" FontSize="13.333" Padding="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="29" Foreground="#FF666666" Cursor="Hand" MouseDown="LaunchMultiLineWindow" MouseMove="Multilinemousemove" MouseLeave="Multilinemouseleave"/>
+
+                    <Canvas x:Name="DateSettings" Visibility="Hidden">
+                        <Label x:Name="prstoryyesterdayopion" Content="Yesterday" Canvas.Left="606" Canvas.Top="257" Width="169" Background="#FFEEEEEE" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" MouseDown="prstoryyesterdayoption_MouseDown" Cursor="Hand" BorderBrush="#FF2C99C3" BorderThickness="2" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" FontFamily="Segoe UI Light" Height="29" RenderTransformOrigin="0.166,3" />
+                        <Label x:Name="prstorymtdoption" Content="Month to Date" Canvas.Left="606" Canvas.Top="184" Width="169" Background="#FFEEEEEE" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" MouseDown="prstorymtdoption_MouseDown" Cursor="Hand" BorderBrush="#FF2C99C3" BorderThickness="2" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" FontFamily="Segoe UI Light" Height="29" />
+                        <Label x:Name="prstorylast7daysoption" Content="Last 7 days" Canvas.Left="606" Canvas.Top="219" Width="169" Background="#FFEEEEEE" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" MouseDown="prstorylast7daysoption_MouseDown" Cursor="Hand" BorderBrush="#FF2C99C3" BorderThickness="2" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" FontFamily="Segoe UI Light" Height="29" RenderTransformOrigin="0.166,3" />
+
+                        <Ellipse x:Name="closeauxbutton" Fill="#FFE05656" Height="14" Canvas.Left="821" Canvas.Top="177" Width="15" Cursor="Hand" MouseLeave="Generalmouseleave" MouseMove="Generalmousemove" MouseDown="hideauxmenu" ToolTip="Close"/>
+                        <ComboBox x:Name="LanguageSelectionCombo" Visibility="Collapsed" Canvas.Left="594" Canvas.Top="185" Width="98" Background="#FFEEEEEE" BorderBrush="#FF2C99C3" SelectionChanged="LanguageSelectionChange" FontFamily="Segoe UI Light" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Cursor="Hand" RenderTransformOrigin="0.476,0.43" Height="29" />
+                        <ComboBox x:Name="starthour" Canvas.Left="628" Canvas.Top="343" Width="47" Background="White" BorderBrush="White" Foreground="#FF1D1D1D" Height="20" FontSize="11" FontFamily="Segoe UI Light" Cursor="Hand" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                        <ComboBox x:Name="startmin" Canvas.Left="692" Canvas.Top="343" Width="47" Background="White" BorderBrush="White" Foreground="#FF1D1D1D" Height="20" FontSize="11" FontFamily="Segoe UI Light" Cursor="Hand" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                        <ComboBox x:Name="endhour" Canvas.Left="628" Canvas.Top="415" Width="47" Background="White" BorderBrush="White" Foreground="#FF1D1D1D" Height="20" FontSize="11" FontFamily="Segoe UI Light" Cursor="Hand" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                        <ComboBox x:Name="endmin" Canvas.Left="692" Canvas.Top="415" Width="47" Background="White" BorderBrush="White" Foreground="#FF1D1D1D" Height="20" FontSize="11" FontFamily="Segoe UI Light" Cursor="Hand" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                        <DatePicker x:Name="prstory_datepicker_enddate" Height="26" Canvas.Left="601" Canvas.Top="384" Width="190" SelectedDateFormat="Long" Cursor="Hand" FontFamily="Segoe UI Light"/>
+                        <DatePicker x:Name="prstory_datepicker_startdate" Height="26" Canvas.Left="601" Canvas.Top="312" Width="190" SelectedDateFormat="Long" Cursor="Hand" FontFamily="Segoe UI Light"/>
+
+                        <Label x:Name="prstorystartdate_label" Content="Start date &amp; time" Height="27" Canvas.Left="597" Canvas.Top="291" Width="190" FontFamily="Segoe UI Light"/>
+                        <Label x:Name="prstoryenddate_label" Content="End date &amp; time" Height="27" Canvas.Left="595" Canvas.Top="364" Width="190" FontFamily="Segoe UI Light"/>
+
+                        <Image x:Name="TimeRangeIcon" ToolTip="Time Span Exclusion Settings" Height="31" Canvas.Left="801" Canvas.Top="416" Width="33" Source="/img/time_span.png" MouseDown="launchDateExclusionSettings" MouseMove="IconMouseMove" MouseLeave="IconMouseLeave" />
+                    </Canvas>
+
+                    <Canvas x:Name="DateExclusion" Visibility="Hidden">
+
+                        <TextBlock   TextWrapping="Wrap" FontFamily="Segoe UI Light" Height="70" Canvas.Left="590" Canvas.Top="173" Text="When enabled, this feature excludes all production and downtime events starting before the Start Time as well as all events starting after the End Time (regardless of day)."  Width="238"  RenderTransformOrigin="0.709,0.558" />
+
+
+                        <Label x:Name="dateexcludeconfirm" ToolTip="If checkbox is checked, enable Time Span Exclusion For Selected Times and Return To Date Range Menu" Content="Confirm" Canvas.Left="620" Canvas.Top="376" Width="169" Background="#FFEEEEEE" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" MouseDown="DateExcludeConfirmed" Cursor="Hand" BorderBrush="#FF2C99C3" BorderThickness="2" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" FontFamily="Segoe UI Light" Height="29" RenderTransformOrigin="0.166,3" />
+                        <Label x:Name="dateexcludeback" ToolTip="Return To Date Range Menu And Disable Time Span Exclusion" Content="Cancel" Canvas.Left="620" Canvas.Top="417" Width="169" Background="#FFEEEEEE" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" MouseDown="DateExcludeCanceled" Cursor="Hand" BorderBrush="#FF2C99C3" BorderThickness="2" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" FontFamily="Segoe UI Light" Height="29" RenderTransformOrigin="0.166,3" />
+
+                        <ComboBox x:Name="Estarthour" Canvas.Left="648" Canvas.Top="269" Width="47" Background="White" BorderBrush="White" Foreground="#FF1D1D1D" Height="20" FontSize="11" FontFamily="Segoe UI Light" Cursor="Hand" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                        <ComboBox x:Name="Estartmin" Canvas.Left="712" Canvas.Top="269" Width="47" Background="White" BorderBrush="White" Foreground="#FF1D1D1D" Height="20" FontSize="11" FontFamily="Segoe UI Light" Cursor="Hand" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                        <ComboBox x:Name="Eendhour" Canvas.Left="648" Canvas.Top="315" Width="47" Background="White" BorderBrush="White" Foreground="#FF1D1D1D" Height="20" FontSize="11" FontFamily="Segoe UI Light" Cursor="Hand" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                        <ComboBox x:Name="Eendmin" Canvas.Left="712" Canvas.Top="315" Width="47" Background="White" BorderBrush="White" Foreground="#FF1D1D1D" Height="20" FontSize="11" FontFamily="Segoe UI Light" Cursor="Hand" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+
+                        <Label  Content="Start Time (Hour &amp; Minutes)" Height="27" Canvas.Left="617" Canvas.Top="243" Width="190" FontFamily="Segoe UI Light"/>
+                        <Label  Content="End Time (Hour &amp; Minutes)" Height="27" Canvas.Left="615" Canvas.Top="290" Width="190" FontFamily="Segoe UI Light"/>
+
+
+                        <CheckBox x:Name="EnableDateExcludeBox" Content="Enable Time Span Exlusion" Height="21" Canvas.Left="620" Canvas.Top="346" Width="179" FontFamily="Segoe UI Light" IsChecked="False"  ToolTip="This box MUST be checked if you want these settings to take effect." Cursor="Hand"  />
+                    </Canvas>
+
+                    <Canvas x:Name="AdvancedSettings" Visibility="Hidden">
+                        <CheckBox x:Name="SnakeCheckBox" Content="Run Snake While Loading" Height="21" Canvas.Left="612" Canvas.Top="180" Width="179" FontFamily="Segoe UI Light" IsChecked="True" Cursor="Hand" />
+                        <CheckBox x:Name="SAPnameCheckBox" Visibility="Collapsed" Content="Display Line SAP Names" Height="21" Canvas.Left="612" Canvas.Top="201" Width="179" FontFamily="Segoe UI Light" IsChecked="False" Cursor="Hand" />
+                        <CheckBox x:Name="AvailabilityTrueBox" Content="Availability mode" Height="21" Canvas.Left="612" Canvas.Top="222" Width="179" FontFamily="Segoe UI Light" IsChecked="False" ToolTip="Runs all reports using scheduled time calculated from uptime/downtime data and not production data." Cursor="Hand" />
+                        <CheckBox x:Name="TargetsEnabledTrueBox" Content="Targets Enabled" Height="21" Canvas.Left="612" Canvas.Top="243" Width="179" FontFamily="Segoe UI Light" IsChecked="false"  ToolTip="Show targets in report?" Cursor="Hand" />
+                        <CheckBox x:Name="NotesBox" Content="Notes Enabled" Height="21" Canvas.Left="612" Canvas.Top="264" Width="179" FontFamily="Segoe UI Light" IsChecked="False"  ToolTip="Enable realtime action planning and notes tracking" Cursor="Hand" />
+                        <CheckBox x:Name="LossAllocationBox" Visibility="Collapsed" Content="Simulation Enabled" Height="21" Canvas.Left="612" Canvas.Top="285" Width="179" FontFamily="Segoe UI Light" IsChecked="False"  ToolTip="" Cursor="Hand"  />
+                        <CheckBox x:Name="IncludeExcludeBox" Content="Include ALL events" Height="21" Canvas.Left="612" Canvas.Top="201" Width="179" FontFamily="Segoe UI Light" IsChecked="False"  ToolTip="Check only if you want to include all 'PR in', 'Excluded' and 'PR Out' events in PR/Availability calculation." Cursor="Hand"  />
+
+                        <CheckBox x:Name="TimeSettingsProdBox" Content="Save Start/End Min (PR)" Height="21" Canvas.Left="612" Canvas.Top="305" Width="179" FontFamily="Segoe UI Light" IsChecked="false"  ToolTip="Show targets in report?" Cursor="Hand" />
+                        <CheckBox x:Name="TimeSettingsAvailBox" Content="Save Start/End Min (Avail)" Height="21" Canvas.Left="612" Canvas.Top="285" Width="179" FontFamily="Segoe UI Light" IsChecked="False"  ToolTip="Enable realtime action planning and notes tracking" Cursor="Hand" />
+
+                        <TextBox x:Name="PDTbox" Visibility="Collapsed" Height="21" Canvas.Left="721" TextWrapping="Wrap" Text="TextBox" Canvas.Top="312" Width="54" TextAlignment="Center"/>
+                        <Label x:Name="PDTminLabel" Visibility="Collapsed" Content="Min C/O Gap(min)" Height="23" Canvas.Left="615" Canvas.Top="312" Width="106" FontFamily="Segoe UI Light"/>
+                        <TextBox x:Name="DTcutoffbox" Height="21" Canvas.Left="721" TextWrapping="Wrap" Text="TextBox" Canvas.Top="327" Width="54" TextAlignment="Center"/>
+                        <Label x:Name="DTcutoffLabel" Content="DT cutoff(min)" Height="23" Canvas.Left="614" Canvas.Top="324" Width="107" FontFamily="Segoe UI Light"/>
+                        <TextBox x:Name="UTcutoffbox" Height="21" Canvas.Left="721" TextWrapping="Wrap" Text="TextBox" Canvas.Top="350" Width="54" TextAlignment="Center"/>
+                        <Label x:Name="UTcutoffLabel" Content="UT cutoff(min)" Height="23" Canvas.Left="614" Canvas.Top="348" Width="107" FontFamily="Segoe UI Light"/>
+
+                        <Label x:Name="Set_Default_Line_Button" Content="Set Selected Line as Default" Canvas.Left="606" Canvas.Top="378" Width="165" Background="#FFEEEEEE" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Cursor="Hand" BorderBrush="#FF2C99C3" BorderThickness="2" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" MouseDown="LineDefaultYesClicked"  FontFamily="Segoe UI Light" Height="32"  />
+                        <Label x:Name="Page2GoButton" Content="More Advanced Options &gt;" Canvas.Left="606" Canvas.Top="416" Width="165" Background="#FFEEEEEE" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Cursor="Hand" BorderBrush="#FF2C99C3" BorderThickness="2" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" MouseDown="Page2GoButton_MouseDown"  FontFamily="Segoe UI Light" Height="32" />
+                        <Label x:Name="inControlSettingsButton" Visibility="Collapsed" Content="inControl Settings &gt;" Canvas.Left="606" Canvas.Top="341" Width="165" Background="#FFEEEEEE" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  Cursor="Hand" BorderBrush="#FF2C99C3" BorderThickness="2" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" MouseDown="launchinctonrolOptions_settingsaux" FontFamily="Segoe UI Light" Height="32"/>
+                    </Canvas>
+
+                    <Canvas x:Name="AdvancedSettings2" Visibility="Hidden">
+                        <!-- Change #Days Of Data To Pull -->
+                        <Label  Content="# Days Of Data To Query:" Height="32" Canvas.Left="603" Canvas.Top="168" Width="160" FontFamily="Segoe UI Light"/>
+                        <ComboBox Name="QueryDaysBox" Canvas.Left="748" Canvas.Top="173" SelectionChanged="QueryDaysBox_SelectionChanged" IsReadOnly="true"></ComboBox>
+
+                        <!-- First Shift Start Time (FSST) Override -->
+                        <Label  Content="First Shift Start Time Override" Height="32" Canvas.Left="611" Canvas.Top="192" Width="160" FontFamily="Segoe UI Light" ToolTip="In prstory, the start and end time of each day/week/month in Trends is determined by a preconfigured"/>
+                        <Label  Content="Hour" Height="23" Canvas.Left="633" Canvas.Top="206" Width="36" FontFamily="Segoe UI Light"/>
+                        <Label  Content="Min" Height="23" Canvas.Left="697" Canvas.Top="206" Width="36" FontFamily="Segoe UI Light"/>
+                        <CheckBox x:Name="EnableFSSTOverrideBox" Content="Enable" Height="21" Canvas.Left="753" Canvas.Top="229" Width="56" FontFamily="Segoe UI Light" IsChecked="False"  ToolTip="Check only if you want to override the default first shift start time." Cursor="Hand"  />
+                        <ComboBox Name="FSSTMinBox" Canvas.Left="697" Canvas.Top="229" IsReadOnly="true"></ComboBox>
+                        <ComboBox Name="FSSTHourBox" Canvas.Left="639" Canvas.Top="228" IsReadOnly="true"></ComboBox>
+
+
+                        <!-- Custom Mapping -->
+                        <Label  Content="Custom Mapping Parameters" Height="32" Canvas.Left="621" Canvas.Top="268" Width="160" FontFamily="Segoe UI Light"/>
+                        <Label  Content="Tier 1" Height="23" Canvas.Left="597" Canvas.Top="281" Width="107" FontFamily="Segoe UI Light"/>
+                        <ComboBox Name="Tier1RemapBox"
+   Canvas.Left="590" Canvas.Top="309"
+            Text="Tier 1"
+            IsEditable="true"
+            IsReadOnly="true">
+                            <ComboBoxItem Name="cbi11">Reason 1</ComboBoxItem>
+                            <ComboBoxItem  Name="cbi12">Reason 2</ComboBoxItem>
+                            <ComboBoxItem Name="cbi13">Reason 3</ComboBoxItem>
+                            <ComboBoxItem Name="cbi14">Reason 4</ComboBoxItem>
+                            <ComboBoxItem Name="cbi15">Fault</ComboBoxItem>
+                            <ComboBoxItem  Name="cbi16">Tier 1</ComboBoxItem>
+                            <ComboBoxItem Name="cbi17">Tier 2</ComboBoxItem>
+                            <ComboBoxItem Name="cbi18">Tier 3</ComboBoxItem>
+                        </ComboBox>
+                        <Label  Content="Tier 2" Height="23" Canvas.Left="680" Canvas.Top="286" Width="107" FontFamily="Segoe UI Light"/>
+                        <ComboBox Name="Tier2RemapBox"
+   Canvas.Left="674" Canvas.Top="309"
+            Text="Tier 2"
+            IsEditable="true"
+            IsReadOnly="true">
+                            <ComboBoxItem Name="cbi21">Reason 1</ComboBoxItem>
+                            <ComboBoxItem  Name="cbi22">Reason 2</ComboBoxItem>
+                            <ComboBoxItem Name="cbi23">Reason 3</ComboBoxItem>
+                            <ComboBoxItem Name="cbi24">Reason 4</ComboBoxItem>
+                            <ComboBoxItem Name="cbi25">Fault</ComboBoxItem>
+                            <ComboBoxItem  Name="cbi26">Tier 1</ComboBoxItem>
+                            <ComboBoxItem Name="cbi27">Tier 2</ComboBoxItem>
+                            <ComboBoxItem Name="cbi28">Tier 3</ComboBoxItem>
+                        </ComboBox>
+                        <Label  Content="Tier 3" Height="23" Canvas.Left="758" Canvas.Top="286" Width="107" FontFamily="Segoe UI Light"/>
+                        <ComboBox Name="Tier3RemapBox"
+   Canvas.Left="753" Canvas.Top="309"
+            Text="Tier 3"
+            IsEditable="true"
+            IsReadOnly="true" RenderTransformOrigin="1.938,0.667">
+                            <ComboBoxItem Name="cbi1">Reason 1</ComboBoxItem>
+                            <ComboBoxItem  Name="cbi2">Reason 2</ComboBoxItem>
+                            <ComboBoxItem Name="cbi3">Reason 3</ComboBoxItem>
+                            <ComboBoxItem Name="cbi4">Reason 4</ComboBoxItem>
+                            <ComboBoxItem Name="cbi5">Fault</ComboBoxItem>
+                            <ComboBoxItem  Name="cbi6">Tier 1</ComboBoxItem>
+                            <ComboBoxItem Name="cbi7">Tier 2</ComboBoxItem>
+                            <ComboBoxItem Name="cbi8">Tier 3</ComboBoxItem>
+                        </ComboBox>
+                        <CheckBox x:Name="EnableRemapBox" Content="Enable Remapping" Height="21" Canvas.Left="614" Canvas.Top="341" Width="179" FontFamily="Segoe UI Light" IsChecked="False"  ToolTip="Check only if you want to include all 'PR in', 'Excluded' and 'PR Out' events in PR/Availability calculation. If you don't check this, NOTHING WILL HAPPEN!" Cursor="Hand"  />
+
+                        <!-- Navigation -->
+                        <Label x:Name="AdvancedSettings_MultiConstraint_Go" Content="Multi-Constraint Options &gt;" Canvas.Left="606" Canvas.Top="376" Width="165" Background="#FFEEEEEE" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Cursor="Hand" BorderBrush="#FF2C99C3" BorderThickness="2" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" MouseDown="launchprstoryAdvancedOptionsMC_settingsaux"  FontFamily="Segoe UI Light" Height="32" />
+                        <Label x:Name="Page1GoButton" ToolTip="Go back to the first Advanced Options Sc" Content="Back To First Page &gt;" Canvas.Left="606" Canvas.Top="416" Width="165" Background="#FFEEEEEE" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Cursor="Hand" BorderBrush="#FF2C99C3" BorderThickness="2" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" MouseDown="Page1GoButton_MouseDown"  FontFamily="Segoe UI Light" Height="32" />
+
+                    </Canvas>
+
+                    <Canvas x:Name="inControlSettings" Visibility="Hidden">
+                        <CheckBox x:Name="inControlRuleOneBox" Content="Rule One" Height="21" Canvas.Left="612" Canvas.Top="223" Width="179" FontFamily="Segoe UI Light" IsChecked="True" Click="inControlBoxesCheckUncheck" />
+                        <CheckBox x:Name="inControlRuleTwoBox" Content="Rule Two" Height="21" Canvas.Left="612" Canvas.Top="248" Width="179" FontFamily="Segoe UI Light" IsChecked="True" RenderTransformOrigin="1.119,6.653" Click="inControlBoxesCheckUncheck" />
+                        <CheckBox x:Name="inControlRuleThreeBox" Content="Rule Three" Height="21" Canvas.Left="612" Canvas.Top="273" Width="179" FontFamily="Segoe UI Light" IsChecked="True" RenderTransformOrigin="1.119,6.653" Click="inControlBoxesCheckUncheck" />
+                        <CheckBox x:Name="inControlRuleFourBox" Content="Rule Four" Height="21" Canvas.Left="697" Canvas.Top="223" Width="179" FontFamily="Segoe UI Light" IsChecked="True" RenderTransformOrigin="1.119,6.653" Click="inControlBoxesCheckUncheck" />
+                        <CheckBox x:Name="inControlRuleFiveBox" Content="Rule Five" Height="21" Canvas.Left="697" Canvas.Top="248" Width="179" FontFamily="Segoe UI Light" RenderTransformOrigin="1.119,6.653" Click="inControlBoxesCheckUncheck" />
+                        <CheckBox x:Name="inControlRuleSixBox" Content="Rule Six" Height="21" Canvas.Left="697" Canvas.Top="273" Width="179" FontFamily="Segoe UI Light" RenderTransformOrigin="1.119,6.653" Click="inControlBoxesCheckUncheck" />
+                        <Label x:Name="inControlTitleLabel" Content="inControl Stability Rules" Height="27" Canvas.Left="619" Canvas.Top="192" Width="190" FontFamily="Segoe UI Light" />
+                        <Slider x:Name="inControlSlider" Height="31" Canvas.Left="621" Canvas.Top="326" Width="154" Minimum="1" Maximum="3" Value="1" TickPlacement="BottomRight" Cursor="Hand" ValueChanged="SliderAct" SmallChange="1" IsSnapToTickEnabled="True"/>
+                        <Label x:Name="inControlSliderLabelOne" Content="Default" Height="27" Canvas.Left="606" Canvas.Top="347" Width="52" FontFamily="Segoe UI Light" RenderTransformOrigin="1.423,0.667" FontSize="9" ToolTipService.InitialShowDelay="0"/>
+                        <Label x:Name="inControlSliderLabelTwo" Content="Custom" Height="27" Canvas.Left="678" Canvas.Top="348" Width="52" FontFamily="Segoe UI Light" RenderTransformOrigin="1.423,0.667" FontSize="9" ToolTipService.InitialShowDelay="0"/>
+                        <Label x:Name="inControlSliderLabelThree" Content="Western" Height="27" Canvas.Left="746" Canvas.Top="348" Width="52" FontFamily="Segoe UI Light" RenderTransformOrigin="1.423,0.667" FontSize="9" ToolTipService.InitialShowDelay="0"/>
+                        <Label x:Name="inControlSliderLabelThree_Copy" Content="Electric" Height="27" Canvas.Left="747" Canvas.Top="357" Width="52" FontFamily="Segoe UI Light" RenderTransformOrigin="1.423,0.667" FontSize="9" ToolTipService.InitialShowDelay="0"/>
+
+                        <Label x:Name="inControlSettingsButton2"  Content="xinControl Settings" Canvas.Left="620" Canvas.Top="396" Width="165" Background="#FFEEEEEE" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  Cursor="Hand" BorderBrush="#FF2C99C3" BorderThickness="2" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" MouseDown="launchinctonrolOptions_settingsaux2" FontFamily="Segoe UI Light" Height="32"/>
+
+                    </Canvas>
+
+                    <Canvas x:Name="MultiSettings" Visibility="Hidden">
+                        <Label x:Name="AdvancedSettings_MultiConstraint_Return" Content="&lt;  Advanced Options" Canvas.Left="606" Canvas.Top="390" Width="165" Background="#FFEEEEEE" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Cursor="Hand" BorderBrush="#FF2C99C3" BorderThickness="2" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" MouseDown="launchprstoryAdvancedOptions_settingsaux"  FontFamily="Segoe UI Light" Height="32" />
+                        <RadioButton x:Name="MultiConstraint_ModeAButton" Content="Model line as single constraint" Height="25" Canvas.Left="601" Canvas.Top="184" Width="211" FontFamily="Micorsoft sans seriff" FontWeight="Bold" GroupName="df" />
+                        <RadioButton x:Name="MultiConstraint_ModeBButton" Content="Standard multi-constraint model" Height="25" Canvas.Left="606" Canvas.Top="254" Width="211" FontFamily="Micorsoft sans seriff" FontWeight="Bold" GroupName="df" IsChecked="True" />
+                        <RadioButton x:Name="MultiConstraint_ModeCButton" Content="Model rate loss events as stops" Height="25" Canvas.Left="606" Canvas.Top="318" Width="211" FontFamily="Micorsoft sans seriff" FontWeight="Bold" GroupName="df" />
+
+                        <TextBlock  x:Name="MultiConstraint_ModeALabel" TextWrapping="Wrap" FontFamily="Segoe UI Light" Height="43" Canvas.Left="614" Text="Analyze line without considering downtime events that contribute to constraint rate loss" Canvas.Top="202" Width="189" FontStyle="Italic" RenderTransformOrigin="0.709,0.558" />
+                        <TextBlock  x:Name="MultiConstraint_ModeBLabel" TextWrapping="Wrap" FontFamily="Segoe UI Light" Height="43" Canvas.Left="619" Text="Equipment stops causing rate loss used to break up rate loss but not counted as line stops" Canvas.Top="272" Width="189" FontStyle="Italic" RenderTransformOrigin="0.709,0.558" />
+                        <TextBlock  x:Name="MultiConstraint_ModeCLabel" TextWrapping="Wrap" FontFamily="Segoe UI Light" Height="43" Canvas.Left="619" Text="Any equipment stop causing a fixed line rate loss modeled as line stop" Canvas.Top="335" Width="189" FontStyle="Italic" RenderTransformOrigin="0.709,0.558" />
+                    </Canvas>
+
+                    <TextBlock x:Name="StockBlockA" Height="37" Canvas.Left="1000" TextWrapping="Wrap" Text=" " Canvas.Top="10" Width="157" HorizontalAlignment="Right" />
+
+                    <Label x:Name="LanguageButton_English" Content="EN" Canvas.Left="1100" Canvas.Top="510" Width="26" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#FF45FF45" Cursor="Hand" MouseDown="SetLanguage_main" FontWeight="Bold" />
+                    <Label x:Name="LanguageButton_Chinese" Content="CN" Canvas.Left="1131" Canvas.Top="510" Width="26" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White" Cursor="Hand" MouseDown="SetLanguage_main" FontWeight="Bold" />
+                    <Canvas x:Name="LineDropDown_Canvas"  Height="100" Canvas.Left="407" Width="384" >
+                        <Label x:Name="SectorLabel" Content="All Sectors" Canvas.Left="4" Canvas.Top="12" Width="135" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#FF666666" Cursor="Hand" MouseDown="SectorLabel_Click" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" Background="#FFE2E2E2"/>
+                        <Label x:Name="SiteLabel" Content="All Sites" Canvas.Left="248" Canvas.Top="12" Width="136" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#FF666666"  Cursor="Hand" MouseDown="SiteLabel_Click" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" Background="#FFE2E2E2" />
+                        <ComboBox x:Name="prstory_linedropdown" Height="48" Canvas.Left="2" Canvas.Top="42" Width="382" FontFamily="Segoe UI Light" FontSize="18" FontStretch="UltraExpanded" HorizontalContentAlignment="Center"  SelectionChanged="prstory_linedropdown_SelectionChanged" VerticalContentAlignment="Center" MouseMove="IconMouseMove" MouseLeave="IconMouseLeave" Background="#FFF1F1F1" BorderBrush="#FF2C99C3" BorderThickness="3" Foreground="#FF616161" >
+                            <ComboBox.Effect>
+                                <BlurEffect Radius="1" RenderingBias="Quality"/>
+                            </ComboBox.Effect>
+                        </ComboBox>
+                        <Image x:Name="SectorMenu_DropUpbtn" Height="20" Canvas.Left="117" Canvas.Top="16" Width="20" Source="/img/UpArrowMenu.png" Cursor="Hand" MouseDown="SectorLabel_Close" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" Visibility="Hidden" />
+                        <Image x:Name="SectorMenu_DropDownbtn" Height="20" Canvas.Left="117" Canvas.Top="16" Width="20" Source="/img/DownArrow.png" Cursor="Hand" MouseDown="SectorLabel_Click" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" />
+
+                        <Image x:Name="SiteMenu_DropUpbtn" Height="20" Canvas.Left="360" Canvas.Top="16" Width="20" Source="/img/UpArrowMenu.png" Cursor="Hand" MouseDown="SiteLabel_Close" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" Visibility="Hidden"/>
+                        <Image x:Name="SiteMenu_DropDownbtn" Height="20" Canvas.Left="360" Canvas.Top="16" Width="20" Source="/img/DownArrow.png" Cursor="Hand" MouseDown="SiteLabel_Click" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" />
+                        <ListView x:Name="SectorMenu" Height="162" Canvas.Left="4" Canvas.Top="38" Width="135"
+					ItemsSource="{Binding SectorCollection}" Opacity="0.9" HorizontalAlignment="Center"
+					SelectionChanged="SectorSelected" Visibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                      >
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Name}" 
+								Header="Sector"
+								Width="130"/>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                        <ListView x:Name="SiteMenu" Height="157" Canvas.Left="248" Canvas.Top="38" Width="136" 
+					ItemsSource="{Binding SiteCollection}" Opacity="0.9" RenderTransformOrigin="1.594,0.504" HorizontalAlignment="Center"
+					SelectionChanged="siteSelectedSimple" Visibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                      >
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Name}" 
+								Header="Sites"
+								Width="132"/>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                        <TextBlock x:Name="UseLineSearchBar_textblock" Canvas.Left="125" TextWrapping="Wrap" Text="Use the search bar instead." Canvas.Top="95" Width="143" FontFamily="Segoe UI Light" HorizontalAlignment="Center" Height="16" TextDecorations="Underline" Foreground="#FF37B3CF" Cursor="Hand" MouseDown="ShowSeachBarandHideDropDown" FontSize="10.667" Visibility="Hidden"/>
+
+                    </Canvas>
+
+
+
+
+                    <Image x:Name="LineSelection_icongreencheck" Height="20" Canvas.Left="831" Canvas.Top="40" Width="21" Source="/img/greencheckmark.png" ToolTip="Line name is ok!" Visibility="Hidden"/>
+                    <Image x:Name="LineSelection_iconrederror" Height="20" Canvas.Left="831" Canvas.Top="40" Width="21" Source="/img/redexclamationmark.png" ToolTip="Line name doesn't match records" Visibility="Hidden" />
+                    <telerik:RadAutoCompleteBox WatermarkContent="Enter a line name -  ex. Albany Fam AK09" 
+											 x:Name="LineSelection_AutoComplete"
+											 TextSearchMode="Contains"
+											 SelectionMode="Single"
+											
+											 ItemsSource="{Binding LinesList}" Background="#FFEBEBEB" BorderBrush="#FFA0A0A0" BorderThickness="0,0,0,2"
+											
+                                             SelectionChanged="LineSelection_AutoCompletechanged" FontSize="18.667" FontFamily="Segoe UI Light" VerticalContentAlignment="Center" Padding="0,0,3,0" Canvas.Left="413" Canvas.Top="21" Width="374" Height="46" HorizontalContentAlignment="Center"/>
+                    <TextBlock x:Name="UseLineDropDown_textblock" Canvas.Left="518" TextWrapping="Wrap" Text="Use the drop down menu instead." Canvas.Top="70" Width="184" FontFamily="Segoe UI Light" HorizontalAlignment="Center" Height="16" TextDecorations="Underline" Foreground="#FF37B3CF" Cursor="Hand" MouseDown="ShowDropDownandHideSeachBar" FontSize="10.667" Visibility="Hidden"/>
+                    <awe:WebControl x:Name="About_webcontrol" Height="505" Width="1167"  Visibility="Hidden"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="1"/>
+                    <Label x:Name="gobackbutton" Content="GO BACK" Width="78" Height="18" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FFD1D1D1" FontFamily="Segoe UI Light" FontSize="10" Cursor="Hand" MouseLeave="Generalmouseleave" MouseMove="Generalmousemove" MouseDown="hideaboutwebcontrol" Foreground="#FF3E3E3E"/>
+
+                </Canvas>
+                <Label x:Name="prstory_dateselectionLabel" Content="Date Selection" HorizontalAlignment="Center" Height="72" Margin="978,10,51,0" VerticalAlignment="Top" Width="165" FontFamily="Segoe UI" HorizontalContentAlignment="Center" MouseDown="dateSelectionShortcut"  Foreground="#FF474747" FontSize="11"/>
+                <Label x:Name="UpdateNewsLaunchButton" Content="Help!" ToolTip="Something not working? Urgent question? Click here to email the prstory team directly." HorizontalAlignment="Left" Margin="1132,61,0,0" VerticalAlignment="Top" Width="40" Background="#FF32CDF0" Foreground="White" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" Cursor="Hand" MouseDown="LoadSplashCanvas"/>
+
+                <Canvas x:Name="NotificationCanvas" Margin="1143,10,-56,616">
+                    <Image x:Name ="NotificationIcon" Source="/img/Notification.png" Height="25" Width="40" Canvas.Top="5" ToolTip="Notifications available" ToolTipService.InitialShowDelay="0" Cursor="Hand" MouseDown="ShowNotificationDetails" />
+                    <Image x:Name ="NotificationIcon_inactive" Source="/img/NotificationIcon_Inactive.png" Height="22" Width="39" Canvas.Top="5" ToolTip="No Notifications" ToolTipService.InitialShowDelay="0" Canvas.Left="4"  />
+
+                    <Label x:Name="NotificationCountLabel"  Content="1" Canvas.Left="7" Canvas.Top="14" Height="16" Width="13" Padding="1" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" FontWeight="Bold" Cursor="Hand" ToolTipService.InitialShowDelay="0" MouseDown="ShowNotificationDetails"/>
+                    <Label x:Name="NotificationDetailsLabel" Content="There is an update available for prstory. &#xA;&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Top="41" Height="74" Width="248" Foreground="#FF636363" BorderBrush="#FFB2B2B2" BorderThickness="1" Canvas.Left="-214">
+                        <Label.Background>
+                            <SolidColorBrush Color="#FFFBF3CD" Opacity="0.8"/>
+                        </Label.Background>
+                    </Label>
+
+                    <Label x:Name="GetUpdateButton" Content="Get Update Now!" Canvas.Left="-207" Canvas.Top="73" Width="117" Background="#FF32CDF0" Foreground="White" FontFamily="Segoe UI Light" Cursor="Hand" MouseMove="GeneralMouseMove" MouseLeave="GeneralMouseLeave" Height="32" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MouseDown="InstallUpdateSyncWithInfo"/>
+                    <Image x:Name="NotificationCloseButton" Height="32" Canvas.Left="25" Canvas.Top="27" Width="17" Source="/img/Losebutton.png" Cursor="Hand" MouseDown="HideNotificationDetails"/>
+                </Canvas>
+                <Canvas x:Name="SplashCanvas" Visibility="Hidden" 
+                    HorizontalAlignment="Left" Height="666" VerticalAlignment="Top" Width="1194"  >
+                    <Rectangle x:Name="SplashRectangle" Fill="White" Height="666" Width="1194" Opacity="0.98"/>
+                    <Label x:Name="label" Content="Welcome to prstory!" Canvas.Left="10" Canvas.Top="46" Height="74" Width="1174" FontFamily="Segoe UI Light" FontSize="33.333" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                    <Canvas x:Name="IntroCanvas" Visibility="Hidden"  
+                        Height="487" Canvas.Left="67" Canvas.Top="149" Width="1073" >
+                        <Label x:Name="WhatsNewButton" Content="What's new in this update?" Canvas.Left="10" Canvas.Top="387" Width="313" Background="#FF65DEC8" Foreground="White" FontSize="21.333" Padding="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="52" Cursor="Hand" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" MouseDown="LoadWhatsNewCanvas"/>
+                        <Image x:Name="image" Height="100" Canvas.Left="105" Canvas.Top="38" Width="100" Source="/img/LightBulb.png" RenderTransformOrigin="0.5,0.5">
+                            <Image.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="180"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Image.RenderTransform>
+                        </Image>
+                        <TextBlock x:Name="textBlock" Canvas.Left="10" TextWrapping="Wrap" Text="Your prstory application gets an update every few weeks. These updates keep the application current with new line additions, bug fixes and exciting features that continue to make PR analysis fast, insightful and fun for you." Canvas.Top="216" Width="313" Height="167" FontFamily="Segoe UI Light" FontSize="18.667" TextTrimming="CharacterEllipsis" LineStackingStrategy="BlockLineHeight"/>
+                        <Label x:Name="PRCalculationsButton" Content="Learn about PR calculations" Canvas.Left="365" Canvas.Top="387" Width="326" Background="#FF65DEC8" Foreground="White" FontSize="21.333" Padding="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="52" Cursor="Hand" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" MouseDown="LoadPRcalculationCanvas"/>
+                        <Image x:Name="image_Copy" Height="100" Canvas.Left="462" Canvas.Top="38" Width="100" Source="/img/Calculator.png" RenderTransformOrigin="0.5,0.5"/>
+                        <TextBlock x:Name="textBlock_Copy" Canvas.Left="365" TextWrapping="Wrap" Text="Prstory strives to make data analysis in manufacturing easy and accessible by everyone. So it is very important to compute accurate results. Prstory's PR calculations are standard, up-to-date with corporate guidelines and transparent." Canvas.Top="216" Width="326" Height="167" FontFamily="Segoe UI Light" FontSize="18.667" TextTrimming="CharacterEllipsis" LineStackingStrategy="BlockLineHeight"/>
+                        <Label x:Name="SuggestionButton" Content="How to suggest an idea?" Canvas.Left="731" Canvas.Top="387" Width="324" Background="#FF65DEC8" Foreground="White" FontSize="21.333" Padding="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="52" Cursor="Hand" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" MouseDown="LoadSuggestionCanvas"/>
+                        <Image x:Name="image_Copy1" Height="100" Canvas.Left="826" Canvas.Top="38" Width="100" Source="/img/usericon.png" RenderTransformOrigin="0.5,0.5"/>
+                        <TextBlock x:Name="textBlock_Copy1" Canvas.Left="729" TextWrapping="Wrap" Text="Prstory is inspired by its users all over the world. Users like you, and not just experts, decide what stays in prstory and what doesn't. Users have suggested more than 100 ideas that have shaped how prstory runs, looks and feels today." Canvas.Top="216" Width="326" Height="167" FontFamily="Segoe UI Light" FontSize="18.667" TextTrimming="CharacterEllipsis" LineStackingStrategy="BlockLineHeight"/>
+                        <Label x:Name="label_Copy" Content="Always up to date." Canvas.Left="10" Canvas.Top="153" Height="55" Width="313" FontSize="29.333" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                        <Label x:Name="label_Copy1" Content="Simple and transparent." Canvas.Left="365" Canvas.Top="153" Height="55" Width="313" FontSize="29.333" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                        <Label x:Name="label_Copy2" Content="You drive prstory." Canvas.Left="729" Canvas.Top="153" Height="55" Width="313" FontSize="29.333" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                    </Canvas>
+                    <Canvas x:Name="WhatsNewCanvas"  Visibility="Visible"  Height="487" Canvas.Left="67" Canvas.Top="122" Width="1073" >
+                        <Label x:Name="WhatsNewHeader" Content="What's new in this update?" Canvas.Left="379" Width="305" HorizontalContentAlignment="Center" FontSize="20"/>
+                        <TextBlock x:Name="textBlock1" Canvas.Left="10" TextWrapping="Wrap" Cursor="Hand" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" MouseDown="ShowFamilyCareVideo" Canvas.Top="48" Height="36" Width="1053" FontFamily="Segoe UI Light" FontSize="17.333"><Run Text="Click here to see the new prstory Family Care rollout video!" TextDecorations="Underline"/><LineBreak/><Run/><LineBreak/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
+
+                        <TextBlock x:Name="textBlock1_Copy" Canvas.Left="6" TextWrapping="Wrap" Canvas.Top="96" Height="142" Width="509" FontFamily="Segoe UI Light" FontSize="17.333"
+                               Text="In the past two weeks we've welcomed three new sites (Santiago, Villa Mercedes, ICOC) and added new lines to a few existing sites. We've resolved the connectivity issues a few of our users were experiencing and officially launched our pilot for testing production data from MAPLE systems. "/>
+                        <TextBlock x:Name="textBlock1_Copy1" Canvas.Left="542" TextWrapping="Wrap" Canvas.Top="96" Height="246" Width="509" FontFamily="Segoe UI Light" FontSize="17.333" 
+                               Text="Prstory / GBS (Global Business services) update: we are working to get prstory integrated with eSupport so in the future you will be able to download and install prstory the same way you get your other programs. We still plan to keep the website after the transition so nothing will have to change with how you share prstory."/>
+                        <Rectangle Fill="LightGray" Height="2" Canvas.Left="10" Canvas.Top="82" Width="1041"/>
+                        <Rectangle Fill="LightGray" Height="2" Canvas.Left="461" Canvas.Top="168" Width="141" RenderTransformOrigin="0.5,0.5">
+                            <Rectangle.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Rectangle.RenderTransform>
+                        </Rectangle>
+                        <Rectangle Fill="LightGray" Height="2" Canvas.Left="10" Canvas.Top="243" Width="1041"/>
+                        <TextBlock x:Name="textBlock1_Copy2" Canvas.Left="6" TextWrapping="Wrap" Canvas.Top="261" Height="96" Width="1045" FontFamily="Segoe UI Light" FontSize="17.333"><Run Text="Look for our next update on Friday, April 29."/></TextBlock>
+                        <Label x:Name="label1" Content="April 15, 2016" Canvas.Left="6" Canvas.Top="8" Width="108" FontFamily="Segoe UI Light"/>
+                    </Canvas>
+
+                    <Canvas x:Name="SuggestionCanvas"  Height="487" Canvas.Left="67" Canvas.Top="122" Width="1073" Visibility="Hidden"  >
+                        <Label x:Name="SuggestionHeader" Content="How to suggest an idea?" Canvas.Left="379" Width="305" HorizontalContentAlignment="Center" FontSize="20"/>
+                        <Image x:Name="image4" Height="342" Canvas.Top="83" Width="483" Source="/img/Quick Elegant Succinct.png"/>
+                        <TextBlock x:Name="textBlock2" Canvas.Left="519" TextWrapping="Wrap" Canvas.Top="83" Height="394" Width="544" FontFamily="Segoe UI Light" FontSize="17.333">
+                        <Run Text="Prstory's development and maintenance team are very accessible. If you have an idea for a new feature or a new way of visualizing an existing analysis, feel free to write to das.l@pg.com directly. "/><LineBreak/><Run/><LineBreak/><Run Text="If you have a site or sector specific need for certain analyses or if you found a bug or discrepancy in your line results, please reach out to your Sector/Category PRSTORY owner. "/><LineBreak/><Run/><LineBreak/><Run Text="Baby Care - Manfred Sievernich "/><LineBreak/><Run Text="Fem Care - Jaclyn Zhang (Guangzhou, China)"/><LineBreak/><Run Text="Family Care - Amanda Gonzalez (WHBC, Cincinnati, US)"/><LineBreak/><Run Text="Health Care - Lagnajeet Das (Greensboro,US)"/><LineBreak/><Run Text="F&amp;HC - Eliska Beldikova (Rakona, Czech Republic)"/><LineBreak/><Run Text=""/><LineBreak/><Run Text="For sectors/categories not listed, please contact Lagnajeet Das or Rhiannon Iles (Brockville, Canada),"/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
+                    </Canvas>
+
+                    <Canvas x:Name="PRcalculationCanvas"  Height="487" Canvas.Left="67" Canvas.Top="122" Width="1073" Visibility="Hidden" >
+                        <Label x:Name="PRcalculationHeader" Content="How is PR calculated?" Canvas.Left="379" Width="305" HorizontalContentAlignment="Center" FontSize="20"/>
+                        <Image x:Name="image5" Height="152" Canvas.Left="363" Canvas.Top="338" Width="321" Source="/img/PRcalc1.png"/>
+                        <Image x:Name="image6" Height="305" Canvas.Top="59" Width="591" Source="/img/PRcalc2.png"/>
+                        <Image x:Name="image7" Height="140" Canvas.Top="347" Width="321" Source="/img/PRcalc3.png"/>
+                        <TextBlock x:Name="textBlock3" Canvas.Left="684" TextWrapping="Wrap" Canvas.Top="59" Height="455" Width="389" FontSize="17.333" FontFamily="Segoe UI Light"><Run Text="For businesses which can provide production and target rate data to prstory, PR is calculated using the equation shown on the left. These businesses are mostly Health Care and Beauty Care."/><LineBreak/><Run/><LineBreak/><Run Text="For businesses like Baby, Fem and Family Care, prstory calculates Availability using the equation shown on the left. "/><LineBreak/><Run/><LineBreak/><Run Text="Prstory collects Uptime and Downtime for every stop on a constraint equipment for a line. The events are then funneled through a cleaning algorithm which eliminates negative values, excludes events with a status of 'PR out' and other user-entered cut-off exceptions (set in Settings -&gt; Advanced Options). The cleaned dataset is then used to calculate scheduled time, net uptime, net downtime, that goes into PR and Availability equations."/><LineBreak/><Run/></TextBlock>
+
+                    </Canvas>
+
+                    <Image x:Name="CloseSplashCanvasButton" Height="50" Canvas.Left="1136" Width="58" Source="crossmark.png" Cursor="Hand" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" MouseDown="CloseSplashCanvas"/>
+                    <Label x:Name="SkiptoLineSelectionLabel" Content="Skip to Line Selection Screen &gt;" Canvas.Left="954" Canvas.Top="75" Width="230" FontSize="16" FontFamily="Segoe UI Light" HorizontalContentAlignment="Right" Cursor="Hand" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" MouseDown="CloseSplashCanvas"/>
+
+
+                    <Label x:Name="BackButtonSplashCanvas" Content="&lt; Back" Canvas.Left="19" Canvas.Top="75" Width="230" FontSize="16" FontFamily="Segoe UI Light" HorizontalContentAlignment="Left" Cursor="Hand" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" MouseDown="BackButtonSplashPressed"/>
+                </Canvas>
+            </Grid>
+        </Viewbox>
+    </telerik:RadBusyIndicator>
+</Window>
+
+
+

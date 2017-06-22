@@ -1,0 +1,928 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="back" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\back.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Back1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Back11.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="target" xml:space="preserve">
+    <value>AK05::Albany,1,Block/Starved,0.0323
+AK05::Albany,1,ELP,0.0068
+AK05::Albany,1,AM,0.0081
+AK05::Albany,1,Maintenance,0.0052
+AK05::Albany,1,Converter,0.0489
+AK05::Albany,1,PR Changes,0.0581
+AK05::Albany,2,CO,0.0236
+AK05::Albany,2,UWS,0.0031
+AK05::Albany,2,E-L,0.0035
+AK05::Albany,2,Winder,0.0385
+AK05::Albany,2,Tailsealer,0.0038
+AK05::Albany,2,Wrapper(s),0.0036
+AK05::Albany,2,Multiflow,0.0092
+AK05::Albany,2,Palletizer,0.0095
+AK05::Albany,2,Logsaw,0.0018
+AK05::Albany,2,Casepacker,0.0042
+AK05::Albany,2,Other,0.0041
+AK06::Albany,1,Block/Starved,0.0323
+AK06::Albany,1,ELP,0.0068
+AK06::Albany,1,AM,0.0081
+AK06::Albany,1,Maintenance,0.0052
+AK06::Albany,1,Converter,0.0489
+AK06::Albany,1,PR Changes,0.0581
+AK06::Albany,2,CO,0.0236
+AK06::Albany,2,UWS,0.0031
+AK06::Albany,2,E-L,0.0035
+AK06::Albany,2,Winder,0.0385
+AK06::Albany,2,Tailsealer,0.0038
+AK06::Albany,2,Wrapper(s),0.0036
+AK06::Albany,2,Multiflow,0.0092
+AK06::Albany,2,Palletizer,0.0095
+AK06::Albany,2,Logsaw,0.0018
+AK06::Albany,2,Casepacker,0.0042
+AK06::Albany,2,Other,0.0041
+AK08::Albany,1,Block/Starved,0.0323
+AK08::Albany,1,ELP,0.0068
+AK08::Albany,1,AM,0.0081
+AK08::Albany,1,Maintenance,0.0052
+AK08::Albany,1,Converter,0.0489
+AK08::Albany,1,PR Changes,0.0581
+AK08::Albany,2,CO,0.0236
+AK08::Albany,2,UWS,0.0031
+AK08::Albany,2,E-L,0.0035
+AK08::Albany,2,Winder,0.0385
+AK08::Albany,2,Tailsealer,0.0038
+AK08::Albany,2,Wrapper(s),0.0036
+AK08::Albany,2,Multiflow,0.0092
+AK08::Albany,2,Palletizer,0.0095
+AK08::Albany,2,Logsaw,0.0018
+AK08::Albany,2,Casepacker,0.0042
+AK08::Albany,2,Other,0.0041
+AK09::Albany,1,Block/Starved,0.0323
+AK09::Albany,1,ELP,0.0068
+AK09::Albany,1,AM,0.0081
+AK09::Albany,1,Maintenance,0.0052
+AK09::Albany,1,Converter,0.0489
+AK09::Albany,1,PR Changes,0.0581
+AK09::Albany,2,CO,0.0236
+AK09::Albany,2,UWS,0.0031
+AK09::Albany,2,E-L,0.0035
+AK09::Albany,2,Winder,0.0385
+AK09::Albany,2,Tailsealer,0.0038
+AK09::Albany,2,Wrapper(s),0.0036
+AK09::Albany,2,Multiflow,0.0092
+AK09::Albany,2,Palletizer,0.0095
+AK09::Albany,2,Logsaw,0.0018
+AK09::Albany,2,Casepacker,0.0042
+AK09::Albany,2,Other,0.0041
+FK66::Greenbay,1,Block/Starved,0.0323
+FK66::Greenbay,1,ELP,0.0068
+FK66::Greenbay,1,AM,0.0081
+FK66::Greenbay,1,Maintenance,0.0052
+FK66::Greenbay,1,Converter,0.0489
+FK66::Greenbay,1,PR Changes,0.0581
+FK66::Greenbay,2,CO,0.0236
+FK66::Greenbay,2,UWS,0.0031
+FK66::Greenbay,2,E-L,0.0035
+FK66::Greenbay,2,Winder,0.0385
+FK66::Greenbay,2,Tailsealer,0.0038
+FK66::Greenbay,2,Wrapper(s),0.0036
+FK66::Greenbay,2,Multiflow,0.0092
+FK66::Greenbay,2,Palletizer,0.0095
+FK66::Greenbay,2,Logsaw,0.0018
+FK66::Greenbay,2,Casepacker,0.0042
+FK66::Greenbay,2,Other,0.0041
+FK68::Greenbay,1,Block/Starved,0.0323
+FK68::Greenbay,1,ELP,0.0068
+FK68::Greenbay,1,AM,0.0081
+FK68::Greenbay,1,Maintenance,0.0052
+FK68::Greenbay,1,Converter,0.0489
+FK68::Greenbay,1,PR Changes,0.0581
+FK68::Greenbay,2,CO,0.0236
+FK68::Greenbay,2,UWS,0.0031
+FK68::Greenbay,2,E-L,0.0035
+FK68::Greenbay,2,Winder,0.0385
+FK68::Greenbay,2,Tailsealer,0.0038
+FK68::Greenbay,2,Wrapper(s),0.0036
+FK68::Greenbay,2,Multiflow,0.0092
+FK68::Greenbay,2,Palletizer,0.0095
+FK68::Greenbay,2,Logsaw,0.0018
+FK68::Greenbay,2,Casepacker,0.0042
+FK68::Greenbay,2,Other,0.0041
+FK69::Greenbay,1,Block/Starved,0.0323
+FK69::Greenbay,1,ELP,0.0068
+FK69::Greenbay,1,AM,0.0081
+FK69::Greenbay,1,Maintenance,0.0052
+FK69::Greenbay,1,Converter,0.0489
+FK69::Greenbay,1,PR Changes,0.0581
+FK69::Greenbay,2,CO,0.0236
+FK69::Greenbay,2,UWS,0.0031
+FK69::Greenbay,2,E-L,0.0035
+FK69::Greenbay,2,Winder,0.0385
+FK69::Greenbay,2,Tailsealer,0.0038
+FK69::Greenbay,2,Wrapper(s),0.0036
+FK69::Greenbay,2,Multiflow,0.0092
+FK69::Greenbay,2,Palletizer,0.0095
+FK69::Greenbay,2,Logsaw,0.0018
+FK69::Greenbay,2,Casepacker,0.0042
+FK69::Greenbay,2,Other,0.0041
+FK70::Greenbay,1,Block/Starved,0.0323
+FK70::Greenbay,1,ELP,0.0068
+FK70::Greenbay,1,AM,0.0081
+FK70::Greenbay,1,Maintenance,0.0052
+FK70::Greenbay,1,Converter,0.0489
+FK70::Greenbay,1,PR Changes,0.0581
+FK70::Greenbay,2,CO,0.0236
+FK70::Greenbay,2,UWS,0.0031
+FK70::Greenbay,2,E-L,0.0035
+FK70::Greenbay,2,Winder,0.0385
+FK70::Greenbay,2,Tailsealer,0.0038
+FK70::Greenbay,2,Wrapper(s),0.0036
+FK70::Greenbay,2,Multiflow,0.0092
+FK70::Greenbay,2,Palletizer,0.0095
+FK70::Greenbay,2,Logsaw,0.0018
+FK70::Greenbay,2,Casepacker,0.0042
+FK70::Greenbay,2,Other,0.0041
+GK21::CapeGirardeau,1,Block/Starved,0.0323
+GK21::CapeGirardeau,1,ELP,0.0068
+GK21::CapeGirardeau,1,AM,0.0081
+GK21::CapeGirardeau,1,Maintenance,0.0052
+GK21::CapeGirardeau,1,Converter,0.0489
+GK21::CapeGirardeau,1,PR Changes,0.0581
+GK21::CapeGirardeau,2,CO,0.0236
+GK21::CapeGirardeau,2,UWS,0.0031
+GK21::CapeGirardeau,2,E-L,0.0035
+GK21::CapeGirardeau,2,Winder,0.0385
+GK21::CapeGirardeau,2,Tailsealer,0.0038
+GK21::CapeGirardeau,2,Wrapper(s),0.0036
+GK21::CapeGirardeau,2,Multiflow,0.0092
+GK21::CapeGirardeau,2,Palletizer,0.0095
+GK21::CapeGirardeau,2,Logsaw,0.0018
+GK21::CapeGirardeau,2,Casepacker,0.0042
+GK21::CapeGirardeau,2,Other,0.0041
+GK22::CapeGirardeau,1,Block/Starved,0.0323
+GK22::CapeGirardeau,1,ELP,0.0068
+GK22::CapeGirardeau,1,AM,0.0081
+GK22::CapeGirardeau,1,Maintenance,0.0052
+GK22::CapeGirardeau,1,Converter,0.0489
+GK22::CapeGirardeau,1,PR Changes,0.0581
+GK22::CapeGirardeau,2,CO,0.0236
+GK22::CapeGirardeau,2,UWS,0.0031
+GK22::CapeGirardeau,2,E-L,0.0035
+GK22::CapeGirardeau,2,Winder,0.0385
+GK22::CapeGirardeau,2,Tailsealer,0.0038
+GK22::CapeGirardeau,2,Wrapper(s),0.0036
+GK22::CapeGirardeau,2,Multiflow,0.0092
+GK22::CapeGirardeau,2,Palletizer,0.0095
+GK22::CapeGirardeau,2,Logsaw,0.0018
+GK22::CapeGirardeau,2,Casepacker,0.0042
+GK22::CapeGirardeau,2,Other,0.0041
+GK23::CapeGirardeau,1,Block/Starved,0.0323
+GK23::CapeGirardeau,1,ELP,0.0068
+GK23::CapeGirardeau,1,AM,0.0081
+GK23::CapeGirardeau,1,Maintenance,0.0052
+GK23::CapeGirardeau,1,Converter,0.0489
+GK23::CapeGirardeau,1,PR Changes,0.0581
+GK23::CapeGirardeau,2,CO,0.0236
+GK23::CapeGirardeau,2,UWS,0.0031
+GK23::CapeGirardeau,2,E-L,0.0035
+GK23::CapeGirardeau,2,Winder,0.0385
+GK23::CapeGirardeau,2,Tailsealer,0.0038
+GK23::CapeGirardeau,2,Wrapper(s),0.0036
+GK23::CapeGirardeau,2,Multiflow,0.0092
+GK23::CapeGirardeau,2,Palletizer,0.0095
+GK23::CapeGirardeau,2,Logsaw,0.0018
+GK23::CapeGirardeau,2,Casepacker,0.0042
+GK23::CapeGirardeau,2,Other,0.0041
+GK24::CapeGirardeau,1,Block/Starved,0.0323
+GK24::CapeGirardeau,1,ELP,0.0068
+GK24::CapeGirardeau,1,AM,0.0081
+GK24::CapeGirardeau,1,Maintenance,0.0052
+GK24::CapeGirardeau,1,Converter,0.0489
+GK24::CapeGirardeau,1,PR Changes,0.0581
+GK24::CapeGirardeau,2,CO,0.0236
+GK24::CapeGirardeau,2,UWS,0.0031
+GK24::CapeGirardeau,2,E-L,0.0035
+GK24::CapeGirardeau,2,Winder,0.0385
+GK24::CapeGirardeau,2,Tailsealer,0.0038
+GK24::CapeGirardeau,2,Wrapper(s),0.0036
+GK24::CapeGirardeau,2,Multiflow,0.0092
+GK24::CapeGirardeau,2,Palletizer,0.0095
+GK24::CapeGirardeau,2,Logsaw,0.0018
+GK24::CapeGirardeau,2,Casepacker,0.0042
+GK24::CapeGirardeau,2,Other,0.0041
+MK71::Mehoopany,1,Block/Starved,0.0323
+MK71::Mehoopany,1,ELP,0.0068
+MK71::Mehoopany,1,AM,0.0081
+MK71::Mehoopany,1,Maintenance,0.0052
+MK71::Mehoopany,1,Converter,0.0489
+MK71::Mehoopany,1,PR Changes,0.0581
+MK71::Mehoopany,2,CO,0.0236
+MK71::Mehoopany,2,UWS,0.0031
+MK71::Mehoopany,2,E-L,0.0035
+MK71::Mehoopany,2,Winder,0.0385
+MK71::Mehoopany,2,Tailsealer,0.0038
+MK71::Mehoopany,2,Wrapper(s),0.0036
+MK71::Mehoopany,2,Multiflow,0.0092
+MK71::Mehoopany,2,Palletizer,0.0095
+MK71::Mehoopany,2,Logsaw,0.0018
+MK71::Mehoopany,2,Casepacker,0.0042
+MK71::Mehoopany,2,Other,0.0041
+MK72::Mehoopany,1,Block/Starved,0.0323
+MK72::Mehoopany,1,ELP,0.0068
+MK72::Mehoopany,1,AM,0.0081
+MK72::Mehoopany,1,Maintenance,0.0052
+MK72::Mehoopany,1,Converter,0.0489
+MK72::Mehoopany,1,PR Changes,0.0581
+MK72::Mehoopany,2,CO,0.0236
+MK72::Mehoopany,2,UWS,0.0031
+MK72::Mehoopany,2,E-L,0.0035
+MK72::Mehoopany,2,Winder,0.0385
+MK72::Mehoopany,2,Tailsealer,0.0038
+MK72::Mehoopany,2,Wrapper(s),0.0036
+MK72::Mehoopany,2,Multiflow,0.0092
+MK72::Mehoopany,2,Palletizer,0.0095
+MK72::Mehoopany,2,Logsaw,0.0018
+MK72::Mehoopany,2,Casepacker,0.0042
+MK72::Mehoopany,2,Other,0.0041
+MK74::Mehoopany,1,Block/Starved,0.0323
+MK74::Mehoopany,1,ELP,0.0068
+MK74::Mehoopany,1,AM,0.0081
+MK74::Mehoopany,1,Maintenance,0.0052
+MK74::Mehoopany,1,Converter,0.0489
+MK74::Mehoopany,1,PR Changes,0.0581
+MK74::Mehoopany,2,CO,0.0236
+MK74::Mehoopany,2,UWS,0.0031
+MK74::Mehoopany,2,E-L,0.0035
+MK74::Mehoopany,2,Winder,0.0385
+MK74::Mehoopany,2,Tailsealer,0.0038
+MK74::Mehoopany,2,Wrapper(s),0.0036
+MK74::Mehoopany,2,Multiflow,0.0092
+MK74::Mehoopany,2,Palletizer,0.0095
+MK74::Mehoopany,2,Logsaw,0.0018
+MK74::Mehoopany,2,Casepacker,0.0042
+MK74::Mehoopany,2,Other,0.0041
+MK75::Mehoopany,1,Block/Starved,0.0323
+MK75::Mehoopany,1,ELP,0.0068
+MK75::Mehoopany,1,AM,0.0081
+MK75::Mehoopany,1,Maintenance,0.0052
+MK75::Mehoopany,1,Converter,0.0489
+MK75::Mehoopany,1,PR Changes,0.0581
+MK75::Mehoopany,2,CO,0.0236
+MK75::Mehoopany,2,UWS,0.0031
+MK75::Mehoopany,2,E-L,0.0035
+MK75::Mehoopany,2,Winder,0.0385
+MK75::Mehoopany,2,Tailsealer,0.0038
+MK75::Mehoopany,2,Wrapper(s),0.0036
+MK75::Mehoopany,2,Multiflow,0.0092
+MK75::Mehoopany,2,Palletizer,0.0095
+MK75::Mehoopany,2,Logsaw,0.0018
+MK75::Mehoopany,2,Casepacker,0.0042
+MK75::Mehoopany,2,Other,0.0041
+MK77::Mehoopany,1,Block/Starved,0.0323
+MK77::Mehoopany,1,ELP,0.0068
+MK77::Mehoopany,1,AM,0.0081
+MK77::Mehoopany,1,Maintenance,0.0052
+MK77::Mehoopany,1,Converter,0.0489
+MK77::Mehoopany,1,PR Changes,0.0581
+MK77::Mehoopany,2,CO,0.0236
+MK77::Mehoopany,2,UWS,0.0031
+MK77::Mehoopany,2,E-L,0.0035
+MK77::Mehoopany,2,Winder,0.0385
+MK77::Mehoopany,2,Tailsealer,0.0038
+MK77::Mehoopany,2,Wrapper(s),0.0036
+MK77::Mehoopany,2,Multiflow,0.0092
+MK77::Mehoopany,2,Palletizer,0.0095
+MK77::Mehoopany,2,Logsaw,0.0018
+MK77::Mehoopany,2,Casepacker,0.0042
+MK77::Mehoopany,2,Other,0.0041
+MK78::Mehoopany,1,Block/Starved,0.0323
+MK78::Mehoopany,1,ELP,0.0068
+MK78::Mehoopany,1,AM,0.0081
+MK78::Mehoopany,1,Maintenance,0.0052
+MK78::Mehoopany,1,Converter,0.0489
+MK78::Mehoopany,1,PR Changes,0.0581
+MK78::Mehoopany,2,CO,0.0236
+MK78::Mehoopany,2,UWS,0.0031
+MK78::Mehoopany,2,E-L,0.0035
+MK78::Mehoopany,2,Winder,0.0385
+MK78::Mehoopany,2,Tailsealer,0.0038
+MK78::Mehoopany,2,Wrapper(s),0.0036
+MK78::Mehoopany,2,Multiflow,0.0092
+MK78::Mehoopany,2,Palletizer,0.0095
+MK78::Mehoopany,2,Logsaw,0.0018
+MK78::Mehoopany,2,Casepacker,0.0042
+MK78::Mehoopany,2,Other,0.0041
+MK79::Mehoopany,1,Block/Starved,0.0323
+MK79::Mehoopany,1,ELP,0.0068
+MK79::Mehoopany,1,AM,0.0081
+MK79::Mehoopany,1,Maintenance,0.0052
+MK79::Mehoopany,1,Converter,0.0489
+MK79::Mehoopany,1,PR Changes,0.0581
+MK79::Mehoopany,2,CO,0.0236
+MK79::Mehoopany,2,UWS,0.0031
+MK79::Mehoopany,2,E-L,0.0035
+MK79::Mehoopany,2,Winder,0.0385
+MK79::Mehoopany,2,Tailsealer,0.0038
+MK79::Mehoopany,2,Wrapper(s),0.0036
+MK79::Mehoopany,2,Multiflow,0.0092
+MK79::Mehoopany,2,Palletizer,0.0095
+MK79::Mehoopany,2,Logsaw,0.0018
+MK79::Mehoopany,2,Casepacker,0.0042
+MK79::Mehoopany,2,Other,0.0041
+MK80::Mehoopany,1,Block/Starved,0.0323
+MK80::Mehoopany,1,ELP,0.0068
+MK80::Mehoopany,1,AM,0.0081
+MK80::Mehoopany,1,Maintenance,0.0052
+MK80::Mehoopany,1,Converter,0.0489
+MK80::Mehoopany,1,PR Changes,0.0581
+MK80::Mehoopany,2,CO,0.0236
+MK80::Mehoopany,2,UWS,0.0031
+MK80::Mehoopany,2,E-L,0.0035
+MK80::Mehoopany,2,Winder,0.0385
+MK80::Mehoopany,2,Tailsealer,0.0038
+MK80::Mehoopany,2,Wrapper(s),0.0036
+MK80::Mehoopany,2,Multiflow,0.0092
+MK80::Mehoopany,2,Palletizer,0.0095
+MK80::Mehoopany,2,Logsaw,0.0018
+MK80::Mehoopany,2,Casepacker,0.0042
+MK80::Mehoopany,2,Other,0.0041
+MK83::Mehoopany,1,Block/Starved,0.0323
+MK83::Mehoopany,1,ELP,0.0068
+MK83::Mehoopany,1,AM,0.0081
+MK83::Mehoopany,1,Maintenance,0.0052
+MK83::Mehoopany,1,Converter,0.0489
+MK83::Mehoopany,1,PR Changes,0.0581
+MK83::Mehoopany,2,CO,0.0236
+MK83::Mehoopany,2,UWS,0.0031
+MK83::Mehoopany,2,E-L,0.0035
+MK83::Mehoopany,2,Winder,0.0385
+MK83::Mehoopany,2,Tailsealer,0.0038
+MK83::Mehoopany,2,Wrapper(s),0.0036
+MK83::Mehoopany,2,Multiflow,0.0092
+MK83::Mehoopany,2,Palletizer,0.0095
+MK83::Mehoopany,2,Logsaw,0.0018
+MK83::Mehoopany,2,Casepacker,0.0042
+MK83::Mehoopany,2,Other,0.0041
+MK84::Mehoopany,1,Block/Starved,0.0323
+MK84::Mehoopany,1,ELP,0.0068
+MK84::Mehoopany,1,AM,0.0081
+MK84::Mehoopany,1,Maintenance,0.0052
+MK84::Mehoopany,1,Converter,0.0489
+MK84::Mehoopany,1,PR Changes,0.0581
+MK84::Mehoopany,2,CO,0.0236
+MK84::Mehoopany,2,UWS,0.0031
+MK84::Mehoopany,2,E-L,0.0035
+MK84::Mehoopany,2,Winder,0.0385
+MK84::Mehoopany,2,Tailsealer,0.0038
+MK84::Mehoopany,2,Wrapper(s),0.0036
+MK84::Mehoopany,2,Multiflow,0.0092
+MK84::Mehoopany,2,Palletizer,0.0095
+MK84::Mehoopany,2,Logsaw,0.0018
+MK84::Mehoopany,2,Casepacker,0.0042
+MK84::Mehoopany,2,Other,0.0041
+MK85::Mehoopany,1,Block/Starved,0.0323
+MK85::Mehoopany,1,ELP,0.0068
+MK85::Mehoopany,1,AM,0.0081
+MK85::Mehoopany,1,Maintenance,0.0052
+MK85::Mehoopany,1,Converter,0.0489
+MK85::Mehoopany,1,PR Changes,0.0581
+MK85::Mehoopany,2,CO,0.0236
+MK85::Mehoopany,2,UWS,0.0031
+MK85::Mehoopany,2,E-L,0.0035
+MK85::Mehoopany,2,Winder,0.0385
+MK85::Mehoopany,2,Tailsealer,0.0038
+MK85::Mehoopany,2,Wrapper(s),0.0036
+MK85::Mehoopany,2,Multiflow,0.0092
+MK85::Mehoopany,2,Palletizer,0.0095
+MK85::Mehoopany,2,Logsaw,0.0018
+MK85::Mehoopany,2,Casepacker,0.0042
+MK85::Mehoopany,2,Other,0.0041
+OKK1::Oxnard,1,Block/Starved,0.0323
+OKK1::Oxnard,1,ELP,0.0068
+OKK1::Oxnard,1,AM,0.0081
+OKK1::Oxnard,1,Maintenance,0.0052
+OKK1::Oxnard,1,Converter,0.0489
+OKK1::Oxnard,1,PR Changes,0.0581
+OKK1::Oxnard,2,CO,0.0236
+OKK1::Oxnard,2,UWS,0.0031
+OKK1::Oxnard,2,E-L,0.0035
+OKK1::Oxnard,2,Winder,0.0385
+OKK1::Oxnard,2,Tailsealer,0.0038
+OKK1::Oxnard,2,Wrapper(s),0.0036
+OKK1::Oxnard,2,Multiflow,0.0092
+OKK1::Oxnard,2,Palletizer,0.0095
+OKK1::Oxnard,2,Logsaw,0.0018
+OKK1::Oxnard,2,Casepacker,0.0042
+OKK1::Oxnard,2,Other,0.0041
+OKK2::Oxnard,1,Block/Starved,0.0323
+OKK2::Oxnard,1,ELP,0.0068
+OKK2::Oxnard,1,AM,0.0081
+OKK2::Oxnard,1,Maintenance,0.0052
+OKK2::Oxnard,1,Converter,0.0489
+OKK2::Oxnard,1,PR Changes,0.0581
+OKK2::Oxnard,2,CO,0.0236
+OKK2::Oxnard,2,UWS,0.0031
+OKK2::Oxnard,2,E-L,0.0035
+OKK2::Oxnard,2,Winder,0.0385
+OKK2::Oxnard,2,Tailsealer,0.0038
+OKK2::Oxnard,2,Wrapper(s),0.0036
+OKK2::Oxnard,2,Multiflow,0.0092
+OKK2::Oxnard,2,Palletizer,0.0095
+OKK2::Oxnard,2,Logsaw,0.0018
+OKK2::Oxnard,2,Casepacker,0.0042
+OKK2::Oxnard,2,Other,0.0041
+OKK3::Oxnard,1,Block/Starved,0.0323
+OKK3::Oxnard,1,ELP,0.0068
+OKK3::Oxnard,1,AM,0.0081
+OKK3::Oxnard,1,Maintenance,0.0052
+OKK3::Oxnard,1,Converter,0.0489
+OKK3::Oxnard,1,PR Changes,0.0581
+OKK3::Oxnard,2,CO,0.0236
+OKK3::Oxnard,2,UWS,0.0031
+OKK3::Oxnard,2,E-L,0.0035
+OKK3::Oxnard,2,Winder,0.0385
+OKK3::Oxnard,2,Tailsealer,0.0038
+OKK3::Oxnard,2,Wrapper(s),0.0036
+OKK3::Oxnard,2,Multiflow,0.0092
+OKK3::Oxnard,2,Palletizer,0.0095
+OKK3::Oxnard,2,Logsaw,0.0018
+OKK3::Oxnard,2,Casepacker,0.0042
+OKK3::Oxnard,2,Other,0.0041
+Albany:AT10,1,Block/Starved,0.033
+Albany:AT10,1,ELP,0.0112
+Albany:AT10,1,AM,0.03
+Albany:AT10,1,Maintenance,0.016
+Albany:AT10,1,Converter,0.0471
+Albany:AT10,1,PR Changes,0.0477
+Albany:AT10,2,CO,0.0307
+Albany:AT10,2,UWS,0.006
+Albany:AT10,2,E-L,0.011
+Albany:AT10,2,Winder,0.025
+Albany:AT10,2,Tailsealer,0.0051
+Albany:AT10,2,Wrapper(s),0.0084
+Albany:AT10,2,Multiflow,0.0069
+Albany:AT10,2,Palletizer,0.0015
+Albany:AT10,2,Logsaw,0.0035
+Albany:AT10,2,Casepacker,0.0106
+Albany:AT10,2,Other,0.0021
+Albany:AT13,1,Block/Starved,0.033
+Albany:AT13,1,ELP,0.0112
+Albany:AT13,1,AM,0.03
+Albany:AT13,1,Maintenance,0.016
+Albany:AT13,1,Converter,0.0471
+Albany:AT13,1,PR Changes,0.0477
+Albany:AT13,2,CO,0.0307
+Albany:AT13,2,UWS,0.006
+Albany:AT13,2,E-L,0.011
+Albany:AT13,2,Winder,0.025
+Albany:AT13,2,Tailsealer,0.0051
+Albany:AT13,2,Wrapper(s),0.0084
+Albany:AT13,2,Multiflow,0.0069
+Albany:AT13,2,Palletizer,0.0015
+Albany:AT13,2,Logsaw,0.0035
+Albany:AT13,2,Casepacker,0.0106
+Albany:AT13,2,Other,0.0021
+Albany:AT14,1,Block/Starved,0.033
+Albany:AT14,1,ELP,0.0112
+Albany:AT14,1,AM,0.03
+Albany:AT14,1,Maintenance,0.016
+Albany:AT14,1,Converter,0.0471
+Albany:AT14,1,PR Changes,0.0477
+Albany:AT14,2,CO,0.0307
+Albany:AT14,2,UWS,0.006
+Albany:AT14,2,E-L,0.011
+Albany:AT14,2,Winder,0.025
+Albany:AT14,2,Tailsealer,0.0051
+Albany:AT14,2,Wrapper(s),0.0084
+Albany:AT14,2,Multiflow,0.0069
+Albany:AT14,2,Palletizer,0.0015
+Albany:AT14,2,Logsaw,0.0035
+Albany:AT14,2,Casepacker,0.0106
+Albany:AT14,2,Other,0.0021
+Albany:AT16,1,Block/Starved,0.033
+Albany:AT16,1,ELP,0.0112
+Albany:AT16,1,AM,0.03
+Albany:AT16,1,Maintenance,0.016
+Albany:AT16,1,Converter,0.0471
+Albany:AT16,1,PR Changes,0.0477
+Albany:AT16,2,CO,0.0307
+Albany:AT16,2,UWS,0.006
+Albany:AT16,2,E-L,0.011
+Albany:AT16,2,Winder,0.025
+Albany:AT16,2,Tailsealer,0.0051
+Albany:AT16,2,Wrapper(s),0.0084
+Albany:AT16,2,Multiflow,0.0069
+Albany:AT16,2,Palletizer,0.0015
+Albany:AT16,2,Logsaw,0.0035
+Albany:AT16,2,Casepacker,0.0106
+Albany:AT16,2,Other,0.0021
+CapeGirardeau:GT1,1,Block/Starved,0.033
+CapeGirardeau:GT1,1,ELP,0.0112
+CapeGirardeau:GT1,1,AM,0.03
+CapeGirardeau:GT1,1,Maintenance,0.016
+CapeGirardeau:GT1,1,Converter,0.0471
+CapeGirardeau:GT1,1,PR Changes,0.0477
+CapeGirardeau:GT1,2,CO,0.0307
+CapeGirardeau:GT1,2,UWS,0.006
+CapeGirardeau:GT1,2,E-L,0.011
+CapeGirardeau:GT1,2,Winder,0.025
+CapeGirardeau:GT1,2,Tailsealer,0.0051
+CapeGirardeau:GT1,2,Wrapper(s),0.0084
+CapeGirardeau:GT1,2,Multiflow,0.0069
+CapeGirardeau:GT1,2,Palletizer,0.0015
+CapeGirardeau:GT1,2,Logsaw,0.0035
+CapeGirardeau:GT1,2,Casepacker,0.0106
+CapeGirardeau:GT1,2,Other,0.0021
+CapeGirardeau:GT2,1,Block/Starved,0.033
+CapeGirardeau:GT2,1,ELP,0.0112
+CapeGirardeau:GT2,1,AM,0.03
+CapeGirardeau:GT2,1,Maintenance,0.016
+CapeGirardeau:GT2,1,Converter,0.0471
+CapeGirardeau:GT2,1,PR Changes,0.0477
+CapeGirardeau:GT2,2,CO,0.0307
+CapeGirardeau:GT2,2,UWS,0.006
+CapeGirardeau:GT2,2,E-L,0.011
+CapeGirardeau:GT2,2,Winder,0.025
+CapeGirardeau:GT2,2,Tailsealer,0.0051
+CapeGirardeau:GT2,2,Wrapper(s),0.0084
+CapeGirardeau:GT2,2,Multiflow,0.0069
+CapeGirardeau:GT2,2,Palletizer,0.0015
+CapeGirardeau:GT2,2,Logsaw,0.0035
+CapeGirardeau:GT2,2,Casepacker,0.0106
+CapeGirardeau:GT2,2,Other,0.0021
+CapeGirardeau:GT3,1,Block/Starved,0.033
+CapeGirardeau:GT3,1,ELP,0.0112
+CapeGirardeau:GT3,1,AM,0.03
+CapeGirardeau:GT3,1,Maintenance,0.016
+CapeGirardeau:GT3,1,Converter,0.0471
+CapeGirardeau:GT3,1,PR Changes,0.0477
+CapeGirardeau:GT3,2,CO,0.0307
+CapeGirardeau:GT3,2,UWS,0.006
+CapeGirardeau:GT3,2,E-L,0.011
+CapeGirardeau:GT3,2,Winder,0.025
+CapeGirardeau:GT3,2,Tailsealer,0.0051
+CapeGirardeau:GT3,2,Wrapper(s),0.0084
+CapeGirardeau:GT3,2,Multiflow,0.0069
+CapeGirardeau:GT3,2,Palletizer,0.0015
+CapeGirardeau:GT3,2,Logsaw,0.0035
+CapeGirardeau:GT3,2,Casepacker,0.0106
+CapeGirardeau:GT3,2,Other,0.0021
+CapeGirardeau:GT4,1,Block/Starved,0.033
+CapeGirardeau:GT4,1,ELP,0.0112
+CapeGirardeau:GT4,1,AM,0.03
+CapeGirardeau:GT4,1,Maintenance,0.016
+CapeGirardeau:GT4,1,Converter,0.0471
+CapeGirardeau:GT4,1,PR Changes,0.0477
+CapeGirardeau:GT4,2,CO,0.0307
+CapeGirardeau:GT4,2,UWS,0.006
+CapeGirardeau:GT4,2,E-L,0.011
+CapeGirardeau:GT4,2,Winder,0.025
+CapeGirardeau:GT4,2,Tailsealer,0.0051
+CapeGirardeau:GT4,2,Wrapper(s),0.0084
+CapeGirardeau:GT4,2,Multiflow,0.0069
+CapeGirardeau:GT4,2,Palletizer,0.0015
+CapeGirardeau:GT4,2,Logsaw,0.0035
+CapeGirardeau:GT4,2,Casepacker,0.0106
+CapeGirardeau:GT4,2,Other,0.0021
+Greenbay::FTT5,1,Block/Starved,0.033
+Greenbay::FTT5,1,ELP,0.0112
+Greenbay::FTT5,1,AM,0.03
+Greenbay::FTT5,1,Maintenance,0.016
+Greenbay::FTT5,1,Converter,0.0471
+Greenbay::FTT5,1,PR Changes,0.0477
+Greenbay::FTT5,2,CO,0.0307
+Greenbay::FTT5,2,UWS,0.006
+Greenbay::FTT5,2,E-L,0.011
+Greenbay::FTT5,2,Winder,0.025
+Greenbay::FTT5,2,Tailsealer,0.0051
+Greenbay::FTT5,2,Wrapper(s),0.0084
+Greenbay::FTT5,2,Multiflow,0.0069
+Greenbay::FTT5,2,Palletizer,0.0015
+Greenbay::FTT5,2,Logsaw,0.0035
+Greenbay::FTT5,2,Casepacker,0.0106
+Greenbay::FTT5,2,Other,0.0021
+Greenbay::FTT6,1,Block/Starved,0.033
+Greenbay::FTT6,1,ELP,0.0112
+Greenbay::FTT6,1,AM,0.03
+Greenbay::FTT6,1,Maintenance,0.016
+Greenbay::FTT6,1,Converter,0.0471
+Greenbay::FTT6,1,PR Changes,0.0477
+Greenbay::FTT6,2,CO,0.0307
+Greenbay::FTT6,2,UWS,0.006
+Greenbay::FTT6,2,E-L,0.011
+Greenbay::FTT6,2,Winder,0.025
+Greenbay::FTT6,2,Tailsealer,0.0051
+Greenbay::FTT6,2,Wrapper(s),0.0084
+Greenbay::FTT6,2,Multiflow,0.0069
+Greenbay::FTT6,2,Palletizer,0.0015
+Greenbay::FTT6,2,Logsaw,0.0035
+Greenbay::FTT6,2,Casepacker,0.0106
+Greenbay::FTT6,2,Other,0.0021
+Greenbay::FTT7,1,Block/Starved,0.033
+Greenbay::FTT7,1,ELP,0.0112
+Greenbay::FTT7,1,AM,0.03
+Greenbay::FTT7,1,Maintenance,0.016
+Greenbay::FTT7,1,Converter,0.0471
+Greenbay::FTT7,1,PR Changes,0.0477
+Greenbay::FTT7,2,CO,0.0307
+Greenbay::FTT7,2,UWS,0.006
+Greenbay::FTT7,2,E-L,0.011
+Greenbay::FTT7,2,Winder,0.025
+Greenbay::FTT7,2,Tailsealer,0.0051
+Greenbay::FTT7,2,Wrapper(s),0.0084
+Greenbay::FTT7,2,Multiflow,0.0069
+Greenbay::FTT7,2,Palletizer,0.0015
+Greenbay::FTT7,2,Logsaw,0.0035
+Greenbay::FTT7,2,Casepacker,0.0106
+Greenbay::FTT7,2,Other,0.0021
+Greenbay::FTT8,1,Block/Starved,0.033
+Greenbay::FTT8,1,ELP,0.0112
+Greenbay::FTT8,1,AM,0.03
+Greenbay::FTT8,1,Maintenance,0.016
+Greenbay::FTT8,1,Converter,0.0471
+Greenbay::FTT8,1,PR Changes,0.0477
+Greenbay::FTT8,2,CO,0.0307
+Greenbay::FTT8,2,UWS,0.006
+Greenbay::FTT8,2,E-L,0.011
+Greenbay::FTT8,2,Winder,0.025
+Greenbay::FTT8,2,Tailsealer,0.0051
+Greenbay::FTT8,2,Wrapper(s),0.0084
+Greenbay::FTT8,2,Multiflow,0.0069
+Greenbay::FTT8,2,Palletizer,0.0015
+Greenbay::FTT8,2,Logsaw,0.0035
+Greenbay::FTT8,2,Casepacker,0.0106
+Greenbay::FTT8,2,Other,0.0021
+Mehoopany::MT60,1,Block/Starved,0.033
+Mehoopany::MT60,1,ELP,0.0112
+Mehoopany::MT60,1,AM,0.03
+Mehoopany::MT60,1,Maintenance,0.016
+Mehoopany::MT60,1,Converter,0.0471
+Mehoopany::MT60,1,PR Changes,0.0477
+Mehoopany::MT60,2,CO,0.0307
+Mehoopany::MT60,2,UWS,0.006
+Mehoopany::MT60,2,E-L,0.011
+Mehoopany::MT60,2,Winder,0.025
+Mehoopany::MT60,2,Tailsealer,0.0051
+Mehoopany::MT60,2,Wrapper(s),0.0084
+Mehoopany::MT60,2,Multiflow,0.0069
+Mehoopany::MT60,2,Palletizer,0.0015
+Mehoopany::MT60,2,Logsaw,0.0035
+Mehoopany::MT60,2,Casepacker,0.0106
+Mehoopany::MT60,2,Other,0.0021
+Mehoopany::MT61,1,Block/Starved,0.033
+Mehoopany::MT61,1,ELP,0.0112
+Mehoopany::MT61,1,AM,0.03
+Mehoopany::MT61,1,Maintenance,0.016
+Mehoopany::MT61,1,Converter,0.0471
+Mehoopany::MT61,1,PR Changes,0.0477
+Mehoopany::MT61,2,CO,0.0307
+Mehoopany::MT61,2,UWS,0.006
+Mehoopany::MT61,2,E-L,0.011
+Mehoopany::MT61,2,Winder,0.025
+Mehoopany::MT61,2,Tailsealer,0.0051
+Mehoopany::MT61,2,Wrapper(s),0.0084
+Mehoopany::MT61,2,Multiflow,0.0069
+Mehoopany::MT61,2,Palletizer,0.0015
+Mehoopany::MT61,2,Logsaw,0.0035
+Mehoopany::MT61,2,Casepacker,0.0106
+Mehoopany::MT61,2,Other,0.0021
+Mehoopany::MT62,1,Block/Starved,0.033
+Mehoopany::MT62,1,ELP,0.0112
+Mehoopany::MT62,1,AM,0.03
+Mehoopany::MT62,1,Maintenance,0.016
+Mehoopany::MT62,1,Converter,0.0471
+Mehoopany::MT62,1,PR Changes,0.0477
+Mehoopany::MT62,2,CO,0.0307
+Mehoopany::MT62,2,UWS,0.006
+Mehoopany::MT62,2,E-L,0.011
+Mehoopany::MT62,2,Winder,0.025
+Mehoopany::MT62,2,Tailsealer,0.0051
+Mehoopany::MT62,2,Wrapper(s),0.0084
+Mehoopany::MT62,2,Multiflow,0.0069
+Mehoopany::MT62,2,Palletizer,0.0015
+Mehoopany::MT62,2,Logsaw,0.0035
+Mehoopany::MT62,2,Casepacker,0.0106
+Mehoopany::MT62,2,Other,0.0021
+Mehoopany::MT63,1,Block/Starved,0.033
+Mehoopany::MT63,1,ELP,0.0112
+Mehoopany::MT63,1,AM,0.03
+Mehoopany::MT63,1,Maintenance,0.016
+Mehoopany::MT63,1,Converter,0.0471
+Mehoopany::MT63,1,PR Changes,0.0477
+Mehoopany::MT63,2,CO,0.0307
+Mehoopany::MT63,2,UWS,0.006
+Mehoopany::MT63,2,E-L,0.011
+Mehoopany::MT63,2,Winder,0.025
+Mehoopany::MT63,2,Tailsealer,0.0051
+Mehoopany::MT63,2,Wrapper(s),0.0084
+Mehoopany::MT63,2,Multiflow,0.0069
+Mehoopany::MT63,2,Palletizer,0.0015
+Mehoopany::MT63,2,Logsaw,0.0035
+Mehoopany::MT63,2,Casepacker,0.0106
+Mehoopany::MT63,2,Other,0.0021
+Mehoopany::MT65,1,Block/Starved,0.033
+Mehoopany::MT65,1,ELP,0.0112
+Mehoopany::MT65,1,AM,0.03
+Mehoopany::MT65,1,Maintenance,0.016
+Mehoopany::MT65,1,Converter,0.0471
+Mehoopany::MT65,1,PR Changes,0.0477
+Mehoopany::MT65,2,CO,0.0307
+Mehoopany::MT65,2,UWS,0.006
+Mehoopany::MT65,2,E-L,0.011
+Mehoopany::MT65,2,Winder,0.025
+Mehoopany::MT65,2,Tailsealer,0.0051
+Mehoopany::MT65,2,Wrapper(s),0.0084
+Mehoopany::MT65,2,Multiflow,0.0069
+Mehoopany::MT65,2,Palletizer,0.0015
+Mehoopany::MT65,2,Logsaw,0.0035
+Mehoopany::MT65,2,Casepacker,0.0106
+Mehoopany::MT65,2,Other,0.0021
+Mehoopany::MT66,1,Block/Starved,0.033
+Mehoopany::MT66,1,ELP,0.0112
+Mehoopany::MT66,1,AM,0.03
+Mehoopany::MT66,1,Maintenance,0.016
+Mehoopany::MT66,1,Converter,0.0471
+Mehoopany::MT66,1,PR Changes,0.0477
+Mehoopany::MT66,2,CO,0.0307
+Mehoopany::MT66,2,UWS,0.006
+Mehoopany::MT66,2,E-L,0.011
+Mehoopany::MT66,2,Winder,0.025
+Mehoopany::MT66,2,Tailsealer,0.0051
+Mehoopany::MT66,2,Wrapper(s),0.0084
+Mehoopany::MT66,2,Multiflow,0.0069
+Mehoopany::MT66,2,Palletizer,0.0015
+Mehoopany::MT66,2,Logsaw,0.0035
+Mehoopany::MT66,2,Casepacker,0.0106
+Mehoopany::MT66,2,Other,0.0021
+Mehoopany::MT67,1,Block/Starved,0.033
+Mehoopany::MT67,1,ELP,0.0112
+Mehoopany::MT67,1,AM,0.03
+Mehoopany::MT67,1,Maintenance,0.016
+Mehoopany::MT67,1,Converter,0.0471
+Mehoopany::MT67,1,PR Changes,0.0477
+Mehoopany::MT67,2,CO,0.0307
+Mehoopany::MT67,2,UWS,0.006
+Mehoopany::MT67,2,E-L,0.011
+Mehoopany::MT67,2,Winder,0.025
+Mehoopany::MT67,2,Tailsealer,0.0051
+Mehoopany::MT67,2,Wrapper(s),0.0084
+Mehoopany::MT67,2,Multiflow,0.0069
+Mehoopany::MT67,2,Palletizer,0.0015
+Mehoopany::MT67,2,Logsaw,0.0035
+Mehoopany::MT67,2,Casepacker,0.0106
+Mehoopany::MT67,2,Other,0.0021
+Oxnard::OTT4,1,Block/Starved,0.033
+Oxnard::OTT4,1,ELP,0.0112
+Oxnard::OTT4,1,AM,0.03
+Oxnard::OTT4,1,Maintenance,0.016
+Oxnard::OTT4,1,Converter,0.0471
+Oxnard::OTT4,1,PR Changes,0.0477
+Oxnard::OTT4,2,CO,0.0307
+Oxnard::OTT4,2,UWS,0.006
+Oxnard::OTT4,2,E-L,0.011
+Oxnard::OTT4,2,Winder,0.025
+Oxnard::OTT4,2,Tailsealer,0.0051
+Oxnard::OTT4,2,Wrapper(s),0.0084
+Oxnard::OTT4,2,Multiflow,0.0069
+Oxnard::OTT4,2,Palletizer,0.0015
+Oxnard::OTT4,2,Logsaw,0.0035
+Oxnard::OTT4,2,Casepacker,0.0106
+Oxnard::OTT4,2,Other,0.0021
+Oxnard::OTT5,1,Block/Starved,0.033
+Oxnard::OTT5,1,ELP,0.0112
+Oxnard::OTT5,1,AM,0.03
+Oxnard::OTT5,1,Maintenance,0.016
+Oxnard::OTT5,1,Converter,0.0471
+Oxnard::OTT5,1,PR Changes,0.0477
+Oxnard::OTT5,2,CO,0.0307
+Oxnard::OTT5,2,UWS,0.006
+Oxnard::OTT5,2,E-L,0.011
+Oxnard::OTT5,2,Winder,0.025
+Oxnard::OTT5,2,Tailsealer,0.0051
+Oxnard::OTT5,2,Wrapper(s),0.0084
+Oxnard::OTT5,2,Multiflow,0.0069
+Oxnard::OTT5,2,Palletizer,0.0015
+Oxnard::OTT5,2,Logsaw,0.0035
+Oxnard::OTT5,2,Casepacker,0.0106
+Oxnard::OTT5,2,Other,0.0021</value>
+  </data>
+</root>

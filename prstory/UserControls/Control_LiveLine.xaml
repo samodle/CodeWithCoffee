@@ -1,0 +1,100 @@
+﻿<UserControl x:Class="UserControls.Control_LiveLine"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DigitalFactory.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Canvas x:Name="LiveLineCanvas" 
+                        Height="597" Width="1242" Background="WhiteSmoke">
+
+            <Canvas x:Name="LiveLineHeaderCanvas"  Height="40" Width="1242">
+                <Label x:Name="LiveLineHeaderLabel" Content="Live Line" Canvas.Left="49" Canvas.Top="1" Width="182" FontSize="16" Foreground="#FF666666" MouseDown="LiveLine_onload"/>
+                <Image x:Name="LiveLineHeaderImage" Height="29" Canvas.Left="10" Canvas.Top="3" Width="39" Source="/img/DTpercent.png"/>
+            </Canvas>
+
+            <Canvas x:Name="LiveLineDTViewerCanvas"  Height="174" Canvas.Top="37" Width="1242">
+                <Rectangle Height="145" Stroke="#FFDADADA" Width="1222" Fill="White" RadiusX="2" RadiusY="2" StrokeThickness="0" Canvas.Left="11">
+                    <Rectangle.Effect>
+                        <DropShadowEffect Color="#FFDEDEDE" ShadowDepth="2" RenderingBias="Quality" BlurRadius="10"/>
+                    </Rectangle.Effect>
+                </Rectangle>
+                <Canvas x:Name="LiveLineDTViewerGraphicsCanvas"  Height="55" Canvas.Left="40" Canvas.Top="45" Width="1180"/>
+                <Label x:Name="LiveLine_Last24hours" Content="Last 24 hours" Canvas.Left="83" Canvas.Top="8" Height="19" Width="85" FontSize="10.667" Padding="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF32CDF0" Foreground="White" MouseDown="LiveLine_TimeFrameChanged" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave"/>
+                <Label x:Name="LiveLine_Last7days" Content="Last 7 days" Canvas.Left="173" Canvas.Top="8" Height="19" Width="85" FontSize="10.667" Padding="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF8F8F8F" Foreground="White" MouseDown="LiveLine_TimeFrameChanged" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave"/>
+                <Label x:Name="LiveLine_Last30days" Content="Last 30 days" Canvas.Left="262" Canvas.Top="8" Height="19" Width="85" FontSize="10.667" Padding="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF8F8F8F" Foreground="White" MouseDown="LiveLine_TimeFrameChanged" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave"/>
+                <Label x:Name="LiveLine_DTview_selectedlossname" Content="" Canvas.Left="632" Canvas.Top="113" Width="586" Foreground="#FF666666" Padding="2" HorizontalContentAlignment="Right"/>
+                <Label x:Name="LiveLine_label_uptime" Content="Uptime - 98%" Canvas.Left="42" Canvas.Top="118" Width="89" Foreground="#FF666666" VerticalContentAlignment="Center" Padding="5,2,2,2" BorderBrush="#FF06C5B4" BorderThickness="15,0,0,0" FontSize="10.667" Height="18"/>
+                <Label x:Name="LiveLine_label_unplanned" Content="Unplanned - 21%" Canvas.Left="136" Canvas.Top="118" Width="109" Foreground="#FF666666" VerticalContentAlignment="Center" Padding="5,2,2,2" FontSize="10.667" Height="18" BorderBrush="#FFFF7C80" BorderThickness="15,0,0,0"/>
+                <Label x:Name="LiveLine_label_planned" Content="Planned - 45%" Canvas.Left="251" Canvas.Top="118" Width="92" Foreground="#FF666666" VerticalContentAlignment="Center" Padding="5,2,2,2" FontSize="10.667" Height="18" BorderBrush="#FF2C99C3" BorderThickness="15,0,0,0"/>
+                <Label x:Name="LiveLine_label_excluded" Content="Excluded" Canvas.Left="349" Canvas.Top="118" Width="89" Foreground="#FF666666" VerticalContentAlignment="Center" Padding="5,2,2,2" FontSize="10.667" Height="18" BorderBrush="#FF8F8F8F" BorderThickness="15,0,0,0"/>
+                <Label x:Name="LiveLine_TopLoss_Header_Copy1" Content="Events" Canvas.Left="19" Canvas.Top="-7" Height="46" Width="59" Foreground="#FF666666" FontSize="17.333" Padding="2" VerticalContentAlignment="Center"/>
+                <Label x:Name="LiveLineDtViewer_TimeFrameHeader" Content="22 Feb 2016 to 23 Feb 2016" Canvas.Left="915" Height="27" Width="309" Foreground="#FF666666" FontSize="10.667" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontFamily="Segoe UI Light"/>
+
+            </Canvas>
+    
+            <Canvas x:Name="LiveLineTrendsCanvas"  Height="105" Canvas.Top="201" Width="1242">
+                <Rectangle x:Name="LiveLineTrends_Rectangle"  Height="115" Stroke="#FFDADADA" Width="1222" Fill="White" RadiusX="2" RadiusY="2" StrokeThickness="0" Canvas.Left="11" Canvas.Top="-10">
+                    <Rectangle.Effect>
+                        <DropShadowEffect Color="#FFDEDEDE" ShadowDepth="2" RenderingBias="Quality" BlurRadius="10"/>
+                    </Rectangle.Effect>
+                </Rectangle>
+                <Canvas x:Name="LiveLineTrendGraphicCanvas"  Height="79" Canvas.Left="40" Canvas.Top="20" Width="1180"/>
+                <Label x:Name="LiveLine_Trends_Header" Content="Trends" Canvas.Left="19" Canvas.Top="-19" Height="46" Width="365" Foreground="#FF666666" FontSize="17.333" Padding="2" VerticalContentAlignment="Center"/>
+                <Label x:Name="LiveLine_Trends_OEE" Content="OEE" Canvas.Left="88" Height="19" Width="55" FontSize="10.667" Padding="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF32CDF0" Foreground="White" MouseDown="LiveLine_Trend_SetCharttoOEE" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" Canvas.Top="-4"/>
+                <Label x:Name="LiveLine_Trends_Stops" Content="Stops" Canvas.Left="151" Height="19" Width="55" FontSize="10.667" Padding="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF8D8D8D" Foreground="White" MouseDown="LiveLine_Trend_SetCharttoStops" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" Canvas.Top="-4"/>
+                <Label x:Name="LiveLineTrends_TimeFrameHeader" Content="22 Feb 2016 to 23 Feb 2016" Canvas.Left="915" Height="27" Width="309" Foreground="#FF666666" FontSize="10.667" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontFamily="Segoe UI Light" Canvas.Top="-9"/>
+            </Canvas>
+    
+            <Canvas x:Name="LiveLineTopLossCanvas"  Height="291" Canvas.Top="306" Width="400">
+                <Rectangle x:Name="LiveLineTopLossCanvas_Rectangle" Height="271" Stroke="#FFDADADA" Canvas.Top="10" Width="389" Fill="White" RadiusX="2" RadiusY="2" StrokeThickness="0" Canvas.Left="11">
+                    <Rectangle.Effect>
+                        <DropShadowEffect Color="#FFDEDEDE" ShadowDepth="2" RenderingBias="Quality" BlurRadius="10"/>
+                    </Rectangle.Effect>
+                </Rectangle>
+                <Label x:Name="LiveLine_TopLoss_Header" Content="Top Losses" Canvas.Left="22" Canvas.Top="10" Height="46" Width="365" Foreground="#FF666666" FontSize="17.333" Padding="2" VerticalContentAlignment="Center"/>
+                <ScrollViewer x:Name="LiveLine_TopLoss_ScrollView"  Height="188" Canvas.Left="25" Canvas.Top="70" Width="365" VerticalScrollBarVisibility="Auto">
+                    <Canvas x:Name="LiveLine_TopLossGraphicsCanvas"  Height="188" Width="365" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                </ScrollViewer>
+            </Canvas>
+   
+            <Canvas  x:Name="LiveLineTopDeltaCanvas" Height="291" Canvas.Top="306" Width="400" Canvas.Left="421">
+                <Rectangle x:Name="LiveLineTopDeltaCanvas_Rectangle" Height="271" Stroke="#FFDADADA" Canvas.Top="10" Width="389" Fill="White" RadiusX="2" RadiusY="2" StrokeThickness="0" Canvas.Left="7">
+                    <Rectangle.Effect>
+                        <DropShadowEffect Color="#FFDEDEDE" ShadowDepth="2" RenderingBias="Quality" BlurRadius="10"/>
+                    </Rectangle.Effect>
+                </Rectangle>
+                <Label x:Name="LiveLine_TopDelta_Header" Content="Biggest Changes" Canvas.Left="23" Canvas.Top="10" Height="46" Width="365" Foreground="#FF666666" FontSize="17.333" Padding="2" VerticalContentAlignment="Center"/>
+                <ScrollViewer x:Name="LiveLine_TopDelta_ScrollView"  Height="187" Canvas.Left="21" Canvas.Top="71" Width="365" VerticalScrollBarVisibility="Auto">
+                    <Canvas x:Name="LiveLine_TopDeltaGraphicsCanvas"  Height="183" Width="365" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+                        <Canvas.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="-0.32"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="-0.495"/>
+                            </TransformGroup>
+                        </Canvas.RenderTransform>
+                    </Canvas>
+
+                </ScrollViewer>
+            </Canvas>
+  
+            <Canvas  x:Name="LiveLineTopChangeoverCanvas" Height="291" Canvas.Top="296" Width="400" Canvas.Left="842">
+                <Rectangle x:Name="LiveLineTopChangeoverCanvas_Rectangle" Height="271" Stroke="#FFDADADA" Canvas.Top="20" Width="389" Fill="White" RadiusX="2" RadiusY="2" StrokeThickness="0" Canvas.Left="1">
+                    <Rectangle.Effect>
+                        <DropShadowEffect Color="#FFDEDEDE" ShadowDepth="2" RenderingBias="Quality" BlurRadius="10"/>
+                    </Rectangle.Effect>
+                </Rectangle>
+                <Label x:Name="LiveLine_TopChangeover_Header_Copy" Content="Planned Activities" Canvas.Left="14" Canvas.Top="20" Height="46" Width="365" Foreground="#FF666666" FontSize="17.333" Padding="2" VerticalContentAlignment="Center"/>
+                <ScrollViewer x:Name="LiveLine_TopChangeover_ScrollView"  Height="187" Canvas.Left="17" Canvas.Top="81" Width="365" VerticalScrollBarVisibility="Auto">
+                    <Canvas x:Name="LiveLine_TopLosChangeoverraphicsCanvas"  Height="177" Width="368" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+                </ScrollViewer>
+            </Canvas>
+
+        </Canvas>
+    </Grid>
+</UserControl>

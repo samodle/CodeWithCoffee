@@ -1,0 +1,202 @@
+﻿<Window x:Class="PRSTORY_ULTIMATE.Window_LossAllocation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         xmlns:s="clr-namespace:System.Collections;assembly=mscorlib"
+        xmlns:p="clr-namespace:System;assembly=mscorlib"
+      
+         DataContext="{Binding RelativeSource={RelativeSource Self}}"
+    ResizeMode="CanMinimize"
+    Title="Losses" Height="638.538" Width="1295.648" WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <Style x:Key="TransparentTickStyle" TargetType="FrameworkElement">
+                <Setter Property="Visibility" Value="Collapsed" />
+            </Style>
+
+            <DataTemplate x:Key="LabelEmpty">
+                <Grid />
+            </DataTemplate>
+
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid>
+
+        <Image x:Name="TrendIcon" HorizontalAlignment="Left" Height="48" VerticalAlignment="Top" Width="82" Source="/img/trendsflatbig.png"  Canvas.Left="570" Canvas.Top="6" Margin="603,5,0,0"/>
+
+        <Label x:Name="TitleLabel" Content="Trends" HorizontalAlignment="Left" Margin="0,53,0,0" VerticalAlignment="Top" Width="1286" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Microsoft Sans Serif" Padding="1" FontWeight="Bold" Foreground="#FF4F4F4F"/>
+
+        <Label x:Name="prbutton" Content="DT%" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Height="36" Foreground="White" FontSize="14" Background="#FF65DEC8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="2" Cursor="Hand" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" MouseDown="prclicked" Opacity="0.2" Canvas.Left="962" Canvas.Top="66" Padding="1" Margin="1036,30,0,0"/>
+        <Label x:Name="stopsbutton" Content="Stops/D" HorizontalAlignment="Left" VerticalAlignment="Top" Width="71" Height="36" Foreground="White" FontSize="14" Background="#FF65DEC8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="2" Cursor="Hand" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" MouseDown="Stopclicked" Opacity="0.2" Canvas.Left="1038" Canvas.Top="66" Padding="1" Margin="1117,30,0,0"/>
+        <Label x:Name="mtbfbutton" Content="MTBF" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Height="36" Foreground="White" FontSize="14" Background="#FF65DEC8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="2" Cursor="Hand" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" MouseDown="mtbfclicked" Opacity="0.2" Canvas.Left="1109" Canvas.Top="66" Padding="1" Margin="1193,30,0,0"/>
+
+
+
+        <telerik:RadGridView x:Name="Loss_GridView" Canvas.Top="10" 
+                                                 AutoGenerateColumns="False" 
+                                                 GroupRenderMode="Flat"
+                                                 SelectionChanged="Gridview_SelectionChanged"
+                                                 ItemsSource="{Binding ActiveDataCollectionX}" 
+                                                 IsReadOnly="True"
+                                                 ShowGroupPanel="False"
+                                                 IsFilteringAllowed="False"
+                                                 RowIndicatorVisibility="Collapsed"
+                                          		CanUserFreezeColumns="False" Margin="34,91,1075,33"             
+>
+            <telerik:StyleManager.Theme>
+                <telerik:Windows8Theme/>
+            </telerik:StyleManager.Theme>
+
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding Name}" 
+						Header="Failure Mode"
+						Width="180"/>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding DTpct}" 
+						Header="Avail. %"
+						Width="70"/>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding MTBF}" 
+						Header="MTBF (min)"
+						Width="80"/>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding MTTR}" 
+						Header="MTTR (min)"
+						Width="80"/>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding SPD}" 
+						Header="Stops/Day"
+						Width="70"/>
+                <!-- Hidden -->
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding Stops}" 
+						Header="Net Stops"
+						Width="70"/>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding DT}" 
+						Header="DT (min)"
+						Width="80"/>
+            </telerik:RadGridView.Columns>
+        </telerik:RadGridView>
+
+        <telerik:RadGridView x:Name="Loss_GridView2" Visibility="Hidden" Canvas.Top="10" Width="490" 
+                                                 AutoGenerateColumns="False" 
+                                                 GroupRenderMode="Flat"
+                                                 SelectionChanged="Gridview_SelectionChanged"
+                                                 ItemsSource="{Binding ActiveDataCollection}" 
+                                                 IsReadOnly="True"
+                                                 ShowGroupPanel="True"
+                                                 IsFilteringAllowed="True"
+                                                 RowIndicatorVisibility="Collapsed"
+                                          		CanUserFreezeColumns="False" Margin="34,91,766,33"             
+>
+            <telerik:StyleManager.Theme>
+                <telerik:Windows8Theme/>
+            </telerik:StyleManager.Theme>
+
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding Name}" 
+						Header="Tier 1"
+						Width="140">
+                    <telerik:GridViewDataColumn.AggregateFunctions>
+                        <telerik:CountFunction Caption="# Stops: " />
+                    </telerik:GridViewDataColumn.AggregateFunctions>
+                </telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding Tier2}" 
+						Header="Tier 2"
+						Width="140"/>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding DTpct}" 
+						Header="Avail. %"
+						Width="80"/>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding MTBF}" 
+						Header="MTBF (min)"
+						Width="90"/>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding MTTR}" 
+						Header="MTTR (min)"
+						Width="80"/>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding SPD}" 
+						Header="Stops/Day"
+						Width="70"/>
+                <!-- Hidden -->
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding Stops}" 
+						Header="Net Stops"
+						Width="70"/>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding DT}" 
+						Header="DT (min)"
+						Width="80">
+                    <telerik:GridViewDataColumn.AggregateFunctions>
+                        <telerik:SumFunction Caption="Net DT: " />
+                    </telerik:GridViewDataColumn.AggregateFunctions>
+                </telerik:GridViewDataColumn>
+            </telerik:RadGridView.Columns>
+        </telerik:RadGridView>
+
+
+
+
+
+        <telerik:RadCartesianChart x:Name="Loss_BarChart" MouseRightButtonDown="ToggleChartType" Visibility="Hidden" HorizontalAlignment="Left" Margin="252,94,0,0" VerticalAlignment="Top" Height="484" Width="985">
+            <telerik:RadCartesianChart.TrackBallInfoStyle>
+                <Style TargetType="{x:Type telerik:TrackBallInfoControl}">
+
+                    <Setter Property="HeaderTemplate">
+                        <Setter.Value>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}"
+                            								FontSize="11"
+                            								Foreground="Black"/>
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </telerik:RadCartesianChart.TrackBallInfoStyle>
+
+            <telerik:RadCartesianChart.Behaviors>
+                <telerik:ChartPanAndZoomBehavior ZoomMode="Horizontal" PanMode="Horizontal"/>
+                <telerik:ChartTrackBallBehavior ShowTrackInfo="True"
+                            				ShowIntersectionPoints="True"
+                            				TrackInfoUpdated="ChartTrackBallBehavior_InfoUpdated"/>
+            </telerik:RadCartesianChart.Behaviors>
+
+            <telerik:RadCartesianChart.HorizontalAxis>
+                <telerik:CategoricalAxis MajorTickStyle="{StaticResource TransparentTickStyle}" />
+            </telerik:RadCartesianChart.HorizontalAxis>
+
+        </telerik:RadCartesianChart>
+
+        <telerik:RadCartesianChart x:Name="Loss_LineChart" MouseRightButtonDown="ToggleChartType" Visibility="Visible" HorizontalAlignment="Left" Margin="252,94,0,0" VerticalAlignment="Top" Height="484" Width="985">
+            <telerik:RadCartesianChart.TrackBallInfoStyle>
+                <Style TargetType="{x:Type telerik:TrackBallInfoControl}">
+
+                    <Setter Property="HeaderTemplate">
+                        <Setter.Value>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}"
+                            								FontSize="11"
+                            								Foreground="Black"/>
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </telerik:RadCartesianChart.TrackBallInfoStyle>
+
+            <telerik:RadCartesianChart.Behaviors>
+                <telerik:ChartPanAndZoomBehavior ZoomMode="Horizontal" PanMode="Horizontal"/>
+                <telerik:ChartTrackBallBehavior ShowTrackInfo="True"
+                            				ShowIntersectionPoints="True"
+                            				TrackInfoUpdated="ChartTrackBallBehavior_InfoUpdated"/>
+            </telerik:RadCartesianChart.Behaviors>
+
+            <telerik:RadCartesianChart.HorizontalAxis>
+                <telerik:CategoricalAxis MajorTickStyle="{StaticResource TransparentTickStyle}" />
+            </telerik:RadCartesianChart.HorizontalAxis>
+
+        </telerik:RadCartesianChart>
+        <Label x:Name="label" Content="Toggle" HorizontalAlignment="Left" MouseDown="ToggleGrids" Margin="43,578,0,0" VerticalAlignment="Top" Height="23" FontSize="8"/>
+
+
+
+
+
+
+
+    </Grid>
+</Window>

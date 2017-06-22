@@ -1,0 +1,16 @@
+﻿<Window x:Class="Window_TextInput"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DigitalFactory"
+        mc:Ignorable="d" WindowStartupLocation="CenterOwner"
+        Title="prstory - Multiline Group Creation" Height="100" Width="250">
+    <Grid>
+        <StackPanel>
+            <TextBlock Height="20" Text="Enter Group Name" />
+            <TextBox x:Name="ResponseTextBox" />
+            <Button Content="Create Group" Click="OKButton_Click" />
+        </StackPanel>
+    </Grid>
+</Window>

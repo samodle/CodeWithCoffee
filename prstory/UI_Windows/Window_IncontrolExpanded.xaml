@@ -1,0 +1,25 @@
+﻿<Window
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:awe="http://schemas.awesomium.com/winfx" x:Class="Window_IncontrolExpanded"
+    Title="inCONTROL"  Height="591.567" Width="1100" ResizeMode="CanMinimize"
+        Loaded ="incontrol_loaded" WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen">
+    <Grid Margin="0,0,0,0">
+        <awe:WebControl x:Name="SPCchart"  Margin="67,85,26,176"  ClipToBounds="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontFamily="Segoe UI" Source="file:///C:/Users/Public/prstory/html/SPC.html" BorderThickness="1"/>
+        <Image x:Name="Incontrol_MainLogo" HorizontalAlignment="Left" Height="39" Margin="469,7,0,0" VerticalAlignment="Top" Width="156" Opacity="0.995" Source="/img/IncontroLogoMain.png"/>
+       
+        <Ellipse x:Name="incontrolstopcount_circle" Fill="Gray" HorizontalAlignment="Left" Height="54" Margin="515,405,0,0" VerticalAlignment="Top" Width="55" RenderTransformOrigin="0,0" Cursor="Hand" Stroke="#FF515151" StrokeThickness="0">
+            <Ellipse.Effect>
+                <DropShadowEffect BlurRadius="10" Direction="320" RenderingBias="Quality" ShadowDepth="1" Color="#FF6FEEDC"/>
+            </Ellipse.Effect>
+        </Ellipse>
+        
+        <Label x:Name="incontrolstopcountLabel" Content="" HorizontalAlignment="Left" Margin="514,415,0,0" VerticalAlignment="Top" Foreground="White" Height="36" Width="55" FontFamily="Segoe UI" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16"/>
+        <Label x:Name="incontroltextstopsperdaylabel" Content="STOPS PER DAY IN LAST DAY" HorizontalAlignment="Center" Margin="353.168,469.666,377.116,75.334" VerticalAlignment="Center" Foreground="#FF747474" Height="24" Width="363.716" FontWeight="Bold" FontFamily="Gill Sans MT Condensed" VerticalContentAlignment="Center" FontSize="16" HorizontalContentAlignment="Center" Padding="1" UseLayoutRounding="False"/>
+        <Label x:Name="incontrolvstextlabel" Content="VS" HorizontalAlignment="Center" Margin="449.224,498.666,463.776,43.999" VerticalAlignment="Center" Foreground="#FF747474" Height="26.335" Width="181" FontWeight="Bold" FontFamily="Gill Sans MT Condensed" VerticalContentAlignment="Center" FontSize="16" HorizontalContentAlignment="Center" Padding="1" UseLayoutRounding="False"/>
+        <Label x:Name="incontrol90dayaveragestopslabe" Content=" STOPS PER DAY 90 DAYS AVERAGE" HorizontalAlignment="Center" Margin="263.448,525.001,272.824,10" VerticalAlignment="Center" Foreground="#FF747474" Height="33.999" Width="557.728" FontWeight="Bold" FontFamily="Gill Sans MT Condensed" VerticalContentAlignment="Center" FontSize="16" HorizontalContentAlignment="Center" Padding="1" UseLayoutRounding="False"/>
+        <Label x:Name="incontroltextstopsperdaylabel_heading" Content="CURRENT ANALYSIS PERIOD STOPS VS LAST 90 DAYS" HorizontalAlignment="Center" Margin="205.008,52.64,214.373,487.277" VerticalAlignment="Center" Foreground="#FF747474" Height="29.083" Width="674.619" FontWeight="Bold" FontFamily="Gill Sans MT Condensed" VerticalContentAlignment="Center" FontSize="16" HorizontalContentAlignment="Center" Padding="1" UseLayoutRounding="False"/>
+        <Label x:Name="RefreshAlertLabel" Content="Click here if you do not see a chart.&#xA;" HorizontalAlignment="Left" Margin="901,0,0,0" VerticalAlignment="Top" Width="167" Background="#FFFBE6AF" Height="27" FontSize="10" Cursor="Hand" MouseDown="RefreshChart" MouseLeave="Generalmouseleave" MouseMove="Generalmousemove"/>
+     
+    </Grid>
+</Window>

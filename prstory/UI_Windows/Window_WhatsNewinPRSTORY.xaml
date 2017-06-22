@@ -1,0 +1,26 @@
+﻿<Window x:Class="Window_WhatsNewinPRSTORY"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DigitalFactory"
+        mc:Ignorable="d"
+        Title="prstory assist"  Height="550" Width="800" ResizeMode="CanResize" MinHeight="350" MinWidth="600"
+       
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+
+        <Viewbox  Height="320" Width="592">
+            <Canvas x:Name="MainCanvas"   Height="127"  Width="236">
+                <Canvas x:Name="LanderCanvas"  Height="127" Width="236">
+                    <Rectangle x:Name="LanderSplash"  Fill="White" Height="127" Width="236" Opacity="0.95"/>
+                    <Canvas x:Name="LanderButtonsCanvas"  Height="56" Canvas.Left="36" Canvas.Top="34" Width="160" Background="White">
+                        <Label x:Name="label" Content="Welcome to prstory " Width="160" Height="20" Foreground="#FF8B8B8B" FontSize="13.333" Padding="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Segoe UI Light"/>
+                    </Canvas>
+                </Canvas>
+            </Canvas>
+        </Viewbox>
+
+
+    </Grid>
+</Window>

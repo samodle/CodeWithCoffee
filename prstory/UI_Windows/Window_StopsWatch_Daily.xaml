@@ -1,0 +1,1081 @@
+﻿<Window x:Class="Window_StopsWatch_Daily"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+           xmlns:s="clr-namespace:System.Collections;assembly=mscorlib"
+    xmlns:p="clr-namespace:System;assembly=mscorlib"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
+   Title="Stops Watch"  Height="435" Width="727.612" ResizeMode="CanResize"
+        Loaded ="stopswatch_loaded" WindowStartupLocation="CenterScreen">
+
+    <Grid x:Name="StopsWatchGrid" RenderTransformOrigin="0.481,0.508">
+
+        <!--StopsWatchClassicUI-->
+        <Canvas x:Name="StopsWatchClassicUI" Visibility="Hidden" >
+            <Ellipse Fill="WhiteSmoke" HorizontalAlignment="Left" Height="190" Margin="72,120,0,0" VerticalAlignment="Top" Width="190"/>
+            <Image x:Name="stopswatcharea" HorizontalAlignment="Left" Height="190" Margin="72,120,0,0" VerticalAlignment="Top" Width="190" Source="/img/stopswatch_dial.png"/>
+            <Rectangle Fill="White" HorizontalAlignment="Left" Height="68" Margin="117,179,0,0" VerticalAlignment="Top" Width="101"/>
+            <Rectangle x:Name="Hour12bar" Fill="#FF65DEC8" HorizontalAlignment="Left" Height="59" Margin="177,120,0,0" VerticalAlignment="Top" Width="20" RenderTransformOrigin="0,0" Cursor="Hand" MouseDown="Show_Hour_Details" MouseMove="BarMove" MouseLeave="BarLeave">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="hour1bar" Fill="#FF65DEC8" HorizontalAlignment="Left" Height="60" Margin="223,137,0,0" VerticalAlignment="Top" Width="20" RenderTransformOrigin="0,0" Cursor="Hand" MouseDown="Show_Hour_Details" MouseMove="BarMove" MouseLeave="BarLeave">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="211.816"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="hour7bar" Fill="#FF65DEC8" HorizontalAlignment="Left" Height="23" Margin="111,294,0,0" VerticalAlignment="Top" Width="20" RenderTransformOrigin="0,0" Cursor="Hand" MouseDown="Show_Hour_Details" MouseMove="BarMove" MouseLeave="BarLeave">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="30.144"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="hour2bar" Fill="#FF65DEC8" HorizontalAlignment="Left" Height="60" Margin="253,173,0,0" VerticalAlignment="Top" Width="20" RenderTransformOrigin="0,0" Cursor="Hand" MouseDown="Show_Hour_Details" MouseMove="BarMove" MouseLeave="BarLeave" Stroke="#FF8890A0">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="238.162"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="hour3bar" Fill="#FF65DEC8" HorizontalAlignment="Left" Height="60" Margin="261,225,0,0" VerticalAlignment="Top" Width="20" RenderTransformOrigin="0,0" Cursor="Hand" MouseDown="Show_Hour_Details" MouseMove="BarMove" MouseLeave="BarLeave">
+                <Rectangle.RenderTransform>
+                    <TransformGroup >
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="270"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="hour4bar" Fill="#FF65DEC8" HorizontalAlignment="Left" Height="60" Margin="244,272,0,0" VerticalAlignment="Top" Width="20" RenderTransformOrigin="0,0" Cursor="Hand" MouseDown="Show_Hour_Details" MouseMove="BarMove" MouseLeave="BarLeave">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="300.688"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="hour5bar" Fill="#FF65DEC8" HorizontalAlignment="Left" Height="60" Margin="208,303,0,0" VerticalAlignment="Top" Width="20" RenderTransformOrigin="0,0" Cursor="Hand" MouseDown="Show_Hour_Details" MouseMove="BarMove" MouseLeave="BarLeave">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="329.704"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="hour6bar" Fill="#FF65DEC8" HorizontalAlignment="Left" Height="48" Margin="157,309,0,0" VerticalAlignment="Top" Width="20" RenderTransformOrigin="0,0" Cursor="Hand" MouseDown="Show_Hour_Details" MouseMove="BarMove" MouseLeave="BarLeave">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="360.214"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="hour8bar" Fill="#FF65DEC8" HorizontalAlignment="Left" Height="48" Margin="79,255,0,0" VerticalAlignment="Top" Width="20" RenderTransformOrigin="0,0" Cursor="Hand" MouseDown="Show_Hour_Details" MouseMove="BarMove" MouseLeave="BarLeave">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="417.035"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="Hour9bar" Fill="#FF65DEC8" HorizontalAlignment="Left" Height="48" Margin="73,206,0,0" VerticalAlignment="Top" Width="20" RenderTransformOrigin="0,0" Cursor="Hand" MouseDown="Show_Hour_Details" MouseMove="BarMove" MouseLeave="BarLeave">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="450"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="Hour10bar" Fill="#FF65DEC8" HorizontalAlignment="Left" Height="48" Margin="88,158,0,0" VerticalAlignment="Top" Width="20" RenderTransformOrigin="0,0" Cursor="Hand" MouseDown="Show_Hour_Details" MouseMove="BarMove" MouseLeave="BarLeave">
+                <Rectangle.RenderTransform>
+                    <TransformGroup >
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="480.018"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="Hour11bar" Fill="#FF65DEC8" HorizontalAlignment="Left" Height="48" Margin="124,125,0,0" VerticalAlignment="Top" Width="20" RenderTransformOrigin="0,0" Cursor="Hand" MouseDown="Show_Hour_Details" MouseMove="BarMove" MouseLeave="BarLeave">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="509.123"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="Hour12base" Fill="#FF25F310" HorizontalAlignment="Left" Height="2" Margin="183,120,0,0" VerticalAlignment="Top" Width="32" RenderTransformOrigin="0,0" MouseDown="Show_Hour_Details" MouseMove="BarMove" MouseLeave="BarLeave">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+
+            <Rectangle x:Name="hour1base" Fill="#FF25F310" HorizontalAlignment="Left" Height="2" Margin="227,142,0,0" VerticalAlignment="Top" Width="32" RenderTransformOrigin="0,0" MouseDown="Show_Hour_Details" MouseMove="BarMove" MouseLeave="BarLeave">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="211.816"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="hour7base" Fill="#FF25F310" HorizontalAlignment="Left" Height="2" Margin="107,290,0,0" VerticalAlignment="Top" Width="32" RenderTransformOrigin="0,0" MouseDown="Show_Hour_Details" MouseMove="BarMove" MouseLeave="BarLeave">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="30.144"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="hour2base" Fill="#FF25F310" HorizontalAlignment="Left" Height="2" Margin="255,180,0,0" VerticalAlignment="Top" Width="32" RenderTransformOrigin="0,0" MouseDown="Show_Hour_Details" MouseMove="BarMove" MouseLeave="BarLeave">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="238.162"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="hour3base" Fill="#FF25F310" HorizontalAlignment="Left" Height="2" Margin="261,231,0,0" VerticalAlignment="Top" Width="32" RenderTransformOrigin="0,0" MouseDown="Show_Hour_Details" MouseMove="BarMove" MouseLeave="BarLeave">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="270"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="hour4base" Fill="#FF25F310" HorizontalAlignment="Left" Height="2" Margin="239,276,0,0" VerticalAlignment="Top" Width="32" RenderTransformOrigin="0,0" MouseDown="Show_Hour_Details" MouseMove="BarMove" MouseLeave="BarLeave">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="300.688"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="hour5base" Fill="#FF25F310" HorizontalAlignment="Left" Height="2" Margin="202,305,0,0" VerticalAlignment="Top" Width="32" RenderTransformOrigin="0,0" MouseDown="Show_Hour_Details" MouseMove="BarMove" MouseLeave="BarLeave">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="329.704"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="hour6base" Fill="#FF25F310" HorizontalAlignment="Left" Height="2" Margin="151,309,0,0" VerticalAlignment="Top" Width="32" RenderTransformOrigin="0,0" MouseDown="Show_Hour_Details" MouseMove="BarMove" MouseLeave="BarLeave">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="360.214"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="hour8base" Fill="#FF25F310" HorizontalAlignment="Left" Height="2" Margin="77,250,0,0" VerticalAlignment="Top" Width="32" RenderTransformOrigin="0,0" MouseDown="Show_Hour_Details" MouseMove="BarMove" MouseLeave="BarLeave">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="417.035"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="Hour9base" Fill="#FF25F310" HorizontalAlignment="Left" Height="2" Margin="73,200,0,0" VerticalAlignment="Top" Width="32" RenderTransformOrigin="0,0" MouseDown="Show_Hour_Details" MouseMove="BarMove" MouseLeave="BarLeave">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="450"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="Hour10base" Fill="#FF25F310" HorizontalAlignment="Left" Height="2" Margin="93,153,0,0" VerticalAlignment="Top" Width="32" RenderTransformOrigin="0,0" MouseDown="Show_Hour_Details" MouseMove="BarMove" MouseLeave="BarLeave">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="480.018"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="Hour11base" Fill="#FF25F310" HorizontalAlignment="Left" Height="2" Margin="132,123,0,0" VerticalAlignment="Top" Width="32" RenderTransformOrigin="0,0" MouseDown="Show_Hour_Details" MouseMove="BarMove" MouseLeave="BarLeave">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="509.123"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Image x:Name="CILicon12" HorizontalAlignment="Left" Height="11" Margin="162,151,0,0" VerticalAlignment="Top" Width="9" Source="/img/CILicon.png"/>
+            <Image x:Name="CILIcon1" HorizontalAlignment="Left" Height="11" Margin="189,159,0,0" VerticalAlignment="Top" Width="9" Source="/img/CILicon.png"/>
+            <Image x:Name="CILicon2" HorizontalAlignment="Left" Height="11" Margin="209,179,0,0" VerticalAlignment="Top" Width="9" Source="/img/CILicon.png"/>
+            <Image x:Name="CILicon3" HorizontalAlignment="Left" Height="11" Margin="222,210,0,0" VerticalAlignment="Top" Width="9" Source="/img/CILicon.png"/>
+            <Image x:Name="CILicon4" HorizontalAlignment="Left" Height="11" Margin="209,240,0,0" VerticalAlignment="Top" Width="9" Source="/img/CILicon.png"/>
+            <Image x:Name="CILicon5" HorizontalAlignment="Left" Height="11" Margin="189,260,0,0" VerticalAlignment="Top" Width="9" Source="/img/CILicon.png"/>
+            <Image x:Name="CILicon6" HorizontalAlignment="Left" Height="11" Margin="162,268,0,0" VerticalAlignment="Top" Width="9" Source="/img/CILicon.png"/>
+            <Image x:Name="CILicon7" HorizontalAlignment="Left" Height="9" Margin="135,260,0,0" VerticalAlignment="Top" Width="8" Source="/img/CILicon.png"/>
+            <Image x:Name="Cilicon8" HorizontalAlignment="Left" Height="10" Margin="112,239,0,0" VerticalAlignment="Top" Width="8" Source="/img/CILicon.png"/>
+            <Image x:Name="CILicon9" HorizontalAlignment="Left" Height="11" Margin="102,210,0,0" VerticalAlignment="Top" Width="9" Source="/img/CILicon.png"/>
+            <Image x:Name="CILicon10" HorizontalAlignment="Left" Height="11" Margin="114,179,0,0" VerticalAlignment="Top" Width="9" Source="/img/CILicon.png"/>
+            <Image x:Name="CILicon11" HorizontalAlignment="Left" Height="11" Margin="135,160,0,0" VerticalAlignment="Top" Width="9" Source="/img/CILicon.png"/>
+            <Image x:Name="COicon12" HorizontalAlignment="Left" Height="8" Margin="162,163,0,0" VerticalAlignment="Top" Width="8" Source="/img/COicon.png"/>
+            <Image x:Name="COicon1" HorizontalAlignment="Left" Height="8" Margin="186,169,0,0" VerticalAlignment="Top" Width="8" Source="/img/COicon.png"/>
+            <Image x:Name="COicon2" HorizontalAlignment="Left" Height="8" Margin="202,185,0,0" VerticalAlignment="Top" Width="8" Source="/img/COicon.png"/>
+            <Image x:Name="COicon3" HorizontalAlignment="Left" Height="8" Margin="214,212,0,0" VerticalAlignment="Top" Width="8" Source="/img/COicon.png"/>
+            <Image x:Name="COicon4" HorizontalAlignment="Left" Height="8" Margin="202,239,0,0" VerticalAlignment="Top" Width="8" Source="/img/COicon.png"/>
+            <Image x:Name="COicon5" HorizontalAlignment="Left" Height="8" Margin="186,256,0,0" VerticalAlignment="Top" Width="8" Source="/img/COicon.png"/>
+            <Image x:Name="COicon6" HorizontalAlignment="Left" Height="8" Margin="163,263,0,0" VerticalAlignment="Top" Width="8" Source="/img/COicon.png"/>
+            <Image x:Name="Coicon7" HorizontalAlignment="Left" Height="8" Margin="139,252,0,0" VerticalAlignment="Top" Width="8" Source="/img/COicon.png"/>
+            <Image x:Name="COicon8" HorizontalAlignment="Left" Height="8" Margin="120,236,0,0" VerticalAlignment="Top" Width="8" Source="/img/COicon.png"/>
+            <Image x:Name="COicon9" HorizontalAlignment="Left" Height="8" Margin="109,212,0,0" VerticalAlignment="Top" Width="8" Source="/img/COicon.png"/>
+            <Image x:Name="COicon10" HorizontalAlignment="Left" Height="8" Margin="120,185,0,0" VerticalAlignment="Top" Width="8" Source="/img/COicon.png"/>
+            <Image x:Name="COicon11" HorizontalAlignment="Left" Height="8" Margin="140,168,0,0" VerticalAlignment="Top" Width="8" Source="/img/COicon.png"/>
+            <Label x:Name="selectedshiftAMPMlabel" Content="AM" HorizontalAlignment="Left" Margin="149,203,0,0" VerticalAlignment="Top" Width="32" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Segoe UI" Foreground="#FF6C6C6C" FontSize="10" FontWeight="Bold"/>
+
+            <Label x:Name="starttimelabel" Content="12 AM" HorizontalAlignment="Left" Margin="375,303,0,0" VerticalAlignment="Top" Width="36" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Segoe UI" Foreground="#FF6C6C6C" FontSize="8"/>
+            <Label x:Name="endtimelabel" Content="11 AM" HorizontalAlignment="Left" Margin="664,303,0,0" VerticalAlignment="Top" Width="36" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Segoe UI" Foreground="#FF6C6C6C" FontSize="8"/>
+            <Label x:Name="midtimelabel" Content="6 AM" HorizontalAlignment="Left" Margin="532,303,0,0" VerticalAlignment="Top" Width="36" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Segoe UI" Foreground="#FF6C6C6C" FontSize="8"/>
+            <Slider x:Name="hourslider" HorizontalAlignment="Left" Margin="388,318,0,0" VerticalAlignment="Top" Width="299" Foreground="#FFCD4141" Opacity="0.7" AutoToolTipPlacement="TopLeft" SmallChange="1" Maximum="11" TickPlacement="BottomRight" Cursor="Hand"  ValueChanged="SliderAct" IsSnapToTickEnabled="True"/>
+            <Label x:Name="shiftstarttime_label_Copy9" Content="Slide to see hourly performance of line" HorizontalAlignment="Left" Margin="388,340,0,0" VerticalAlignment="Top" Width="299" VerticalContentAlignment="Center" FontFamily="Segoe UI" Foreground="#FF6C6C6C" FontSize="10" Height="24" HorizontalContentAlignment="Center"/>
+
+
+        </Canvas>
+
+        <!--StopsWatchLinearUI-->
+
+        <Canvas x:Name="StopsWatchLinearUI" Margin="0,0,350,69" >
+
+
+
+            <Rectangle x:Name="rowAlphahour1bar_linear" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0,0" Stroke="LightGray" Fill="#FF65DEC8" Canvas.Left="40" Canvas.Top="132" MouseDown="Show_Hour_Details_Linear" MouseMove="BarMove" MouseLeave="BarLeave" Cursor="Hand">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rowAlphahour2bar_linear" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0,0" Stroke="LightGray" Fill="#FF65DEC8" Canvas.Left="62" Canvas.Top="132" MouseDown="Show_Hour_Details_Linear" MouseMove="BarMove" MouseLeave="BarLeave" Cursor="Hand">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rowAlphahour3bar_linear" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0,0" Stroke="LightGray" Fill="#FF65DEC8" Canvas.Left="90" Canvas.Top="132" MouseDown="Show_Hour_Details_Linear" MouseMove="BarMove" MouseLeave="BarLeave" Cursor="Hand">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rowAlphahour4bar_linear" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0,0" Stroke="LightGray" Fill="#FF65DEC8" Canvas.Left="115" Canvas.Top="132" MouseDown="Show_Hour_Details_Linear" MouseMove="BarMove" MouseLeave="BarLeave" Cursor="Hand">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rowAlphahour5bar_linear" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0,0" Stroke="LightGray" Fill="#FF65DEC8" Canvas.Left="140" Canvas.Top="132" MouseDown="Show_Hour_Details_Linear" MouseMove="BarMove" MouseLeave="BarLeave" Cursor="Hand">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rowAlphahour6bar_linear" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0,0" Stroke="LightGray" Fill="#FF65DEC8" Canvas.Left="165" Canvas.Top="132" MouseDown="Show_Hour_Details_Linear" MouseMove="BarMove" MouseLeave="BarLeave" Cursor="Hand">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rowAlphahour7bar_linear" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0,0" Stroke="LightGray" Fill="#FF65DEC8" Canvas.Left="190" Canvas.Top="132" MouseDown="Show_Hour_Details_Linear" MouseMove="BarMove" MouseLeave="BarLeave" Cursor="Hand">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rowAlphahour8bar_linear" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0,0" Stroke="LightGray" Fill="#FF65DEC8" Canvas.Left="215" Canvas.Top="132" MouseDown="Show_Hour_Details_Linear" MouseMove="BarMove" MouseLeave="BarLeave" Cursor="Hand">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rowAlphahour9bar_linear" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0,0" Stroke="LightGray" Fill="#FF65DEC8" Canvas.Left="240" Canvas.Top="132" MouseDown="Show_Hour_Details_Linear" MouseMove="BarMove" MouseLeave="BarLeave" Cursor="Hand">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rowAlphahour10bar_linear" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0,0" Stroke="LightGray" Fill="#FF65DEC8" Canvas.Left="265" Canvas.Top="132" MouseDown="Show_Hour_Details_Linear" MouseMove="BarMove" MouseLeave="BarLeave" Cursor="Hand">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rowAlphahour11bar_linear" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0,0" Stroke="LightGray" Fill="#FF65DEC8" Canvas.Left="290" Canvas.Top="132" MouseDown="Show_Hour_Details_Linear" MouseMove="BarMove" MouseLeave="BarLeave" Cursor="Hand">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rowAlphahour12bar_linear" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0,0" Stroke="LightGray" Fill="#FF65DEC8" Canvas.Left="315" Canvas.Top="132" MouseDown="Show_Hour_Details_Linear" MouseMove="BarMove" MouseLeave="BarLeave" Cursor="Hand">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Label x:Name="rowAlphahour1label_linear" Content="06" Canvas.Left="22" Canvas.Top="130" Foreground="#FF666666" MouseDown="Show_Hour_Details_Linear" Cursor="Hand"/>
+            <Label x:Name="rowAlphahour2label_linear" Content="06" Canvas.Left="47" Canvas.Top="130" Foreground="#FF666666" MouseDown="Show_Hour_Details_Linear" Cursor="Hand"/>
+            <Label x:Name="rowAlphahour3label_linear" Content="06" Canvas.Left="72" Canvas.Top="130" Foreground="#FF666666" MouseDown="Show_Hour_Details_Linear" Cursor="Hand"/>
+            <Label x:Name="rowAlphahour4label_linear" Content="06" Canvas.Left="97" Canvas.Top="130" Foreground="#FF666666" MouseDown="Show_Hour_Details_Linear" Cursor="Hand"/>
+            <Label x:Name="rowAlphahour5label_linear" Content="06" Canvas.Left="122" Canvas.Top="130" Foreground="#FF666666" MouseDown="Show_Hour_Details_Linear" Cursor="Hand"/>
+            <Label x:Name="rowAlphahour6label_linear" Content="06" Canvas.Left="147" Canvas.Top="130" Foreground="#FF666666" MouseDown="Show_Hour_Details_Linear" Cursor="Hand"/>
+            <Label x:Name="rowAlphahour7label_linear" Content="06" Canvas.Left="172" Canvas.Top="130" Foreground="#FF666666" MouseDown="Show_Hour_Details_Linear" Cursor="Hand"/>
+            <Label x:Name="rowAlphahour8label_linear" Content="06" Canvas.Left="197" Canvas.Top="130" Foreground="#FF666666" MouseDown="Show_Hour_Details_Linear" Cursor="Hand"/>
+            <Label x:Name="rowAlphahour9label_linear" Content="06" Canvas.Left="222" Canvas.Top="130" Foreground="#FF666666" MouseDown="Show_Hour_Details_Linear" Cursor="Hand"/>
+            <Label x:Name="rowAlphahour10label_linear" Content="06" Canvas.Left="247" Canvas.Top="130" Foreground="#FF666666" MouseDown="Show_Hour_Details_Linear" Cursor="Hand"/>
+            <Label x:Name="rowAlphahour11label_linear" Content="06" Canvas.Left="272" Canvas.Top="130" Foreground="#FF666666" MouseDown="Show_Hour_Details_Linear" Cursor="Hand"/>
+            <Label x:Name="rowAlphahour12label_linear" Content="06" Canvas.Left="297" Canvas.Top="130" Foreground="#FF6C6C6C" MouseDown="Show_Hour_Details_Linear" Cursor="Hand"/>
+
+            <Rectangle x:Name="rowBetahour1bar_linear" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0,0" Stroke="LightGray" Fill="#FF65DEC8" Canvas.Left="40" Canvas.Top="226" MouseDown="Show_Hour_Details_Linear" MouseMove="BarMove" MouseLeave="BarLeave" Cursor="Hand">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rowBetahour2bar_linear" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0,0" Stroke="LightGray" Fill="#FF65DEC8" Canvas.Left="65" Canvas.Top="226" MouseDown="Show_Hour_Details_Linear" MouseMove="BarMove" MouseLeave="BarLeave" Cursor="Hand">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rowBetahour3bar_linear" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0,0" Stroke="LightGray" Fill="#FF65DEC8" Canvas.Left="90" Canvas.Top="226" MouseDown="Show_Hour_Details_Linear" MouseMove="BarMove" MouseLeave="BarLeave" Cursor="Hand">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rowBetahour4bar_linear" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0,0" Stroke="LightGray" Fill="#FF65DEC8" Canvas.Left="115" Canvas.Top="226" MouseDown="Show_Hour_Details_Linear" MouseMove="BarMove" MouseLeave="BarLeave" Cursor="Hand">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rowBetahour5bar_linear" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0,0" Stroke="LightGray" Fill="#FF65DEC8" Canvas.Left="140" Canvas.Top="226" MouseDown="Show_Hour_Details_Linear" MouseMove="BarMove" MouseLeave="BarLeave" Cursor="Hand">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rowBetahour6bar_linear" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0,0" Stroke="LightGray" Fill="#FF65DEC8" Canvas.Left="165" Canvas.Top="226" MouseDown="Show_Hour_Details_Linear" MouseMove="BarMove" MouseLeave="BarLeave" Cursor="Hand">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rowBetahour7bar_linear" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0,0" Stroke="LightGray" Fill="#FF65DEC8" Canvas.Left="190" Canvas.Top="226" MouseDown="Show_Hour_Details_Linear" MouseMove="BarMove" MouseLeave="BarLeave" Cursor="Hand">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rowBetahour8bar_linear" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0,0" Stroke="LightGray" Fill="#FF65DEC8" Canvas.Left="215" Canvas.Top="226" MouseDown="Show_Hour_Details_Linear" MouseMove="BarMove" MouseLeave="BarLeave" Cursor="Hand">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rowBetahour9bar_linear" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0,0" Stroke="LightGray" Fill="#FF65DEC8" Canvas.Left="240" Canvas.Top="226" MouseDown="Show_Hour_Details_Linear" MouseMove="BarMove" MouseLeave="BarLeave" Cursor="Hand">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rowBetahour10bar_linear" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0,0" Stroke="LightGray" Fill="#FF65DEC8" Canvas.Left="265" Canvas.Top="226" MouseDown="Show_Hour_Details_Linear" MouseMove="BarMove" MouseLeave="BarLeave" Cursor="Hand">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rowBetahour11bar_linear" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0,0" Stroke="LightGray" Fill="#FF65DEC8" Canvas.Left="290" Canvas.Top="226" MouseDown="Show_Hour_Details_Linear" MouseMove="BarMove" MouseLeave="BarLeave" Cursor="Hand">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rowBetahour12bar_linear" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0,0" Stroke="LightGray" Fill="#FF65DEC8" Canvas.Left="315" Canvas.Top="226" MouseDown="Show_Hour_Details_Linear" MouseMove="BarMove" MouseLeave="BarLeave" Cursor="Hand">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Label x:Name="rowBetahour1label_linear" Content="06" Canvas.Left="22" Canvas.Top="224" Foreground="#FF666666" MouseDown="Show_Hour_Details_Linear" Cursor="Hand"/>
+            <Label x:Name="rowBetahour2label_linear" Content="06" Canvas.Left="47" Canvas.Top="224" Foreground="#FF666666" MouseDown="Show_Hour_Details_Linear" Cursor="Hand"/>
+            <Label x:Name="rowBetahour3label_linear" Content="06" Canvas.Left="72" Canvas.Top="224" Foreground="#FF666666" MouseDown="Show_Hour_Details_Linear" Cursor="Hand"/>
+            <Label x:Name="rowBetahour4label_linear" Content="06" Canvas.Left="97" Canvas.Top="224" Foreground="#FF666666" MouseDown="Show_Hour_Details_Linear" Cursor="Hand"/>
+            <Label x:Name="rowBetahour5label_linear" Content="06" Canvas.Left="122" Canvas.Top="224" Foreground="#FF666666" MouseDown="Show_Hour_Details_Linear" Cursor="Hand"/>
+            <Label x:Name="rowBetahour6label_linear" Content="06" Canvas.Left="147" Canvas.Top="224" Foreground="#FF666666" MouseDown="Show_Hour_Details_Linear" Cursor="Hand"/>
+            <Label x:Name="rowBetahour7label_linear" Content="06" Canvas.Left="172" Canvas.Top="224" Foreground="#FF666666" MouseDown="Show_Hour_Details_Linear" Cursor="Hand"/>
+            <Label x:Name="rowBetahour8label_linear" Content="06" Canvas.Left="197" Canvas.Top="224" Foreground="#FF666666" MouseDown="Show_Hour_Details_Linear" Cursor="Hand"/>
+            <Label x:Name="rowBetahour9label_linear" Content="06" Canvas.Left="222" Canvas.Top="224" Foreground="#FF666666" MouseDown="Show_Hour_Details_Linear" Cursor="Hand"/>
+            <Label x:Name="rowBetahour10label_linear" Content="06" Canvas.Left="247" Canvas.Top="224" Foreground="#FF666666" MouseDown="Show_Hour_Details_Linear" Cursor="Hand"/>
+            <Label x:Name="rowBetahour11label_linear" Content="06" Canvas.Left="272" Canvas.Top="224" Foreground="#FF666666" MouseDown="Show_Hour_Details_Linear" Cursor="Hand"/>
+            <Label x:Name="rowBetahour12label_linear" Content="06" Canvas.Left="297" Canvas.Top="224" Foreground="#FF6C6C6C" MouseDown="Show_Hour_Details_Linear" Cursor="Hand"/>
+
+
+            <Rectangle x:Name="rowCharliehour1bar_linear" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0,0" Stroke="LightGray" Fill="#FF65DEC8" Canvas.Left="40" Canvas.Top="320" MouseDown="Show_Hour_Details_Linear" MouseMove="BarMove" MouseLeave="BarLeave" Cursor="Hand">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rowCharliehour2bar_linear" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0,0" Stroke="LightGray" Fill="#FF65DEC8" Canvas.Left="65" Canvas.Top="320" MouseDown="Show_Hour_Details_Linear" MouseMove="BarMove" MouseLeave="BarLeave" Cursor="Hand">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rowCharliehour3bar_linear" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0,0" Stroke="LightGray" Fill="#FF65DEC8" Canvas.Left="90" Canvas.Top="320" MouseDown="Show_Hour_Details_Linear" MouseMove="BarMove" MouseLeave="BarLeave" Cursor="Hand">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rowCharliehour4bar_linear" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0,0" Stroke="LightGray" Fill="#FF65DEC8" Canvas.Left="115" Canvas.Top="320" MouseDown="Show_Hour_Details_Linear" MouseMove="BarMove" MouseLeave="BarLeave" Cursor="Hand">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rowCharliehour5bar_linear" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0,0" Stroke="LightGray" Fill="#FF65DEC8" Canvas.Left="140" Canvas.Top="320" MouseDown="Show_Hour_Details_Linear" MouseMove="BarMove" MouseLeave="BarLeave" Cursor="Hand">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rowCharliehour6bar_linear" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0,0" Stroke="LightGray" Fill="#FF65DEC8" Canvas.Left="165" Canvas.Top="320" MouseDown="Show_Hour_Details_Linear" MouseMove="BarMove" MouseLeave="BarLeave" Cursor="Hand">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rowCharliehour7bar_linear" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0,0" Stroke="LightGray" Fill="#FF65DEC8" Canvas.Left="190" Canvas.Top="320" MouseDown="Show_Hour_Details_Linear" MouseMove="BarMove" MouseLeave="BarLeave" Cursor="Hand">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rowCharliehour8bar_linear" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0,0" Stroke="LightGray" Fill="#FF65DEC8" Canvas.Left="215" Canvas.Top="320" MouseDown="Show_Hour_Details_Linear" MouseMove="BarMove" MouseLeave="BarLeave" Cursor="Hand">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rowCharliehour9bar_linear" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0,0" Stroke="LightGray" Fill="#FF65DEC8" Canvas.Left="240" Canvas.Top="320" MouseDown="Show_Hour_Details_Linear" MouseMove="BarMove" MouseLeave="BarLeave" Cursor="Hand">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rowCharliehour10bar_linear" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0,0" Stroke="LightGray" Fill="#FF65DEC8" Canvas.Left="265" Canvas.Top="320" MouseDown="Show_Hour_Details_Linear" MouseMove="BarMove" MouseLeave="BarLeave" Cursor="Hand">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rowCharliehour11bar_linear" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0,0" Stroke="LightGray" Fill="#FF65DEC8" Canvas.Left="290" Canvas.Top="320" MouseDown="Show_Hour_Details_Linear" MouseMove="BarMove" MouseLeave="BarLeave" Cursor="Hand">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rowCharliehour12bar_linear" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="14" RenderTransformOrigin="0,0" Stroke="LightGray" Fill="#FF65DEC8" Canvas.Left="315" Canvas.Top="320" MouseDown="Show_Hour_Details_Linear" MouseMove="BarMove" MouseLeave="BarLeave" Cursor="Hand">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Label x:Name="rowCharliehour1label_linear" Content="06" Canvas.Left="22" Canvas.Top="318" Foreground="#FF666666" MouseDown="Show_Hour_Details_Linear" Cursor="Hand"/>
+            <Label x:Name="rowCharliehour2label_linear" Content="06" Canvas.Left="47" Canvas.Top="318" Foreground="#FF666666" MouseDown="Show_Hour_Details_Linear" Cursor="Hand"/>
+            <Label x:Name="rowCharliehour3label_linear" Content="06" Canvas.Left="72" Canvas.Top="318" Foreground="#FF666666" MouseDown="Show_Hour_Details_Linear" Cursor="Hand"/>
+            <Label x:Name="rowCharliehour4label_linear" Content="06" Canvas.Left="97" Canvas.Top="318" Foreground="#FF666666" MouseDown="Show_Hour_Details_Linear" Cursor="Hand"/>
+            <Label x:Name="rowCharliehour5label_linear" Content="06" Canvas.Left="122" Canvas.Top="318" Foreground="#FF666666" MouseDown="Show_Hour_Details_Linear" Cursor="Hand"/>
+            <Label x:Name="rowCharliehour6label_linear" Content="06" Canvas.Left="147" Canvas.Top="318" Foreground="#FF666666" MouseDown="Show_Hour_Details_Linear" Cursor="Hand"/>
+            <Label x:Name="rowCharliehour7label_linear" Content="06" Canvas.Left="172" Canvas.Top="318" Foreground="#FF666666" MouseDown="Show_Hour_Details_Linear" Cursor="Hand"/>
+            <Label x:Name="rowCharliehour8label_linear" Content="06" Canvas.Left="197" Canvas.Top="318" Foreground="#FF666666" MouseDown="Show_Hour_Details_Linear" Cursor="Hand"/>
+            <Label x:Name="rowCharliehour9label_linear" Content="06" Canvas.Left="222" Canvas.Top="318" Foreground="#FF666666" MouseDown="Show_Hour_Details_Linear" Cursor="Hand"/>
+            <Label x:Name="rowCharliehour10label_linear" Content="06" Canvas.Left="247" Canvas.Top="318" Foreground="#FF666666" MouseDown="Show_Hour_Details_Linear" Cursor="Hand"/>
+            <Label x:Name="rowCharliehour11label_linear" Content="06" Canvas.Left="272" Canvas.Top="318" Foreground="#FF666666" MouseDown="Show_Hour_Details_Linear" Cursor="Hand"/>
+            <Label x:Name="rowCharliehour12label_linear" Content="06" Canvas.Left="297" Canvas.Top="318" Foreground="#FF6C6C6C" MouseDown="Show_Hour_Details_Linear" Cursor="Hand"/>
+
+
+            <Rectangle x:Name="rowAlphaAxis_linear" Fill="#FFACACAC" Height="51" Canvas.Left="10" Stroke="LightGray" Canvas.Top="81" Width="2"/>
+            <Rectangle x:Name="rowBetaAxis_linear" Fill="#FFACACAC" Height="51" Canvas.Left="10" Stroke="LightGray" Canvas.Top="175" Width="2"/>
+            <Rectangle x:Name="rowCharlieAxis_linear" Fill="#FFACACAC" Height="51" Canvas.Left="10" Stroke="LightGray" Canvas.Top="269" Width="2"/>
+
+
+
+            <Rectangle x:Name="rowAlphaAxis_grad1"  Fill="#FFACACAC" Height="1" Canvas.Left="10" Stroke="LightGray" Canvas.Top="81" Width="6" RenderTransformOrigin="0.5,0.5">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rowBetaAxis_grad1"  Fill="#FFACACAC" Stroke="LightGray" RenderTransformOrigin="0.5,0.5" Height="1" Canvas.Left="10" Canvas.Top="175" Width="6">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rowBetaAxis_grad2"  Fill="#FFACACAC" Stroke="LightGray" RenderTransformOrigin="0.5,0.5" Height="1" Canvas.Left="10" Canvas.Top="199" Width="6">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rowBetaAxis_grad3"  Fill="#FFACACAC" Stroke="LightGray" RenderTransformOrigin="0.5,0.5" Height="1" Canvas.Left="10" Canvas.Top="225" Width="6">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rowCharlieAxis_grad1"  Fill="#FFACACAC" Stroke="LightGray" RenderTransformOrigin="0.5,0.5" Height="1" Canvas.Left="10" Canvas.Top="269" Width="6">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rowCharlieAxis_grad2"  Fill="#FFACACAC" Stroke="LightGray" RenderTransformOrigin="0.5,0.5" Height="1" Canvas.Left="10" Canvas.Top="292" Width="6">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rowAlphaAxis_grad2"  Fill="#FFACACAC" Stroke="LightGray" RenderTransformOrigin="0.5,0.5" Height="1" Canvas.Left="10" Canvas.Top="105" Width="5">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rowAlphaAxis_grad3"  Fill="#FFACACAC" Stroke="LightGray" RenderTransformOrigin="0.5,0.5" Height="1" Canvas.Left="10" Canvas.Top="131" Width="6">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="rowCharlieAxis_grad3"  Fill="#FFACACAC" Stroke="LightGray" RenderTransformOrigin="0.5,0.5" Canvas.Left="10" Canvas.Top="319" Width="5">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+
+
+            <Label x:Name="rowAlphaAxisLabel1_linear" Content="1" Canvas.Left="17" Canvas.Top="74" Padding="0" FontSize="9.333" Height="13" Width="12" Foreground="#FF858585"/>
+            <Label x:Name="rowAlphaAxisLabel3_linear" Content="0" Canvas.Left="17" Canvas.Top="122" Padding="0" FontSize="9.333" Height="12" Width="9" Foreground="#FF858585"/>
+
+            <Label x:Name="rowBetaAxisLabel1_linear" Content="1" Padding="0" FontSize="9.333" Foreground="#FF858585" Canvas.Left="17" Canvas.Top="169"/>
+            <Label x:Name="rowBetaAxisLabel3_linear" Content="0" Padding="0" FontSize="9.333" Foreground="#FF858585" Canvas.Left="17" Canvas.Top="217"/>
+
+
+            <Label x:Name="rowCharlieAxisLabel1_linear" Content="1" Padding="0" FontSize="9.333" Foreground="#FF858585" Canvas.Left="17" Canvas.Top="264"/>
+            <Label x:Name="rowCharlieAxisLabel3_linear" Content="0" Padding="0" FontSize="9.333" Foreground="#FF858585" Canvas.Left="16" Canvas.Top="310"/>
+
+            <Image x:Name="RowAlphahour1CILicon_1"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/CILicon.png" Canvas.Left="26" Canvas.Top="152"/>
+            <Image x:Name="RowAlphahour2CILicon_2"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/CILicon.png" Canvas.Left="51" Canvas.Top="152"/>
+            <Image x:Name="RowAlphahour3CILicon_3"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/CILicon.png" Canvas.Left="76" Canvas.Top="152"/>
+            <Image x:Name="RowAlphahour4CILicon_4"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/CILicon.png" Canvas.Left="100" Canvas.Top="152"/>
+            <Image x:Name="RowAlphahour5CILicon_5"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/CILicon.png" Canvas.Left="125" Canvas.Top="152"/>
+            <Image x:Name="RowAlphahour6CILicon_6"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/CILicon.png" Canvas.Left="150" Canvas.Top="152"/>
+            <Image x:Name="RowAlphahour7CILicon_7"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/CILicon.png" Canvas.Left="175" Canvas.Top="152"/>
+            <Image x:Name="RowAlphahour8CILicon_8"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/CILicon.png" Canvas.Left="201" Canvas.Top="152"/>
+            <Image x:Name="RowAlphahour9CILicon_9"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/CILicon.png" Canvas.Left="225" Canvas.Top="152"/>
+            <Image x:Name="RowAlphahour10CILicon_10"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/CILicon.png" Canvas.Left="250" Canvas.Top="152"/>
+            <Image x:Name="RowAlphahour11CILicon_11"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/CILicon.png" Canvas.Left="275" Canvas.Top="152"/>
+            <Image x:Name="RowAlphahour12CILicon_12"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/CILicon.png" Canvas.Left="300" Canvas.Top="152"/>
+
+            <Image x:Name="RowBetahour1CILicon_1"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/CILicon.png" Canvas.Left="26" Canvas.Top="246"/>
+            <Image x:Name="RowBetahour2CILicon_2"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/CILicon.png" Canvas.Left="51" Canvas.Top="246"/>
+            <Image x:Name="RowBetahour3CILicon_3"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/CILicon.png" Canvas.Left="76" Canvas.Top="246"/>
+            <Image x:Name="RowBetahour4CILicon_4"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/CILicon.png" Canvas.Left="100" Canvas.Top="246"/>
+            <Image x:Name="RowBetahour5CILicon_5"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/CILicon.png" Canvas.Left="125" Canvas.Top="246"/>
+            <Image x:Name="RowBetahour6CILicon_6"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/CILicon.png" Canvas.Left="150" Canvas.Top="246"/>
+            <Image x:Name="RowBetahour7CILicon_7"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/CILicon.png" Canvas.Left="175" Canvas.Top="246"/>
+            <Image x:Name="RowBetahour8CILicon_8"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/CILicon.png" Canvas.Left="201" Canvas.Top="246"/>
+            <Image x:Name="RowBetahour9CILicon_9"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/CILicon.png" Canvas.Left="225" Canvas.Top="246"/>
+            <Image x:Name="RowBetahour10CILicon_10"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/CILicon.png" Canvas.Left="250" Canvas.Top="246"/>
+            <Image x:Name="RowBetahour11CILicon_11"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/CILicon.png" Canvas.Left="275" Canvas.Top="246"/>
+            <Image x:Name="RowBetahour12CILicon_12"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/CILicon.png" Canvas.Left="300" Canvas.Top="246"/>
+
+
+            <Image x:Name="RowCharliehour1CILicon_1"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/CILicon.png" Canvas.Left="26" Canvas.Top="340"/>
+            <Image x:Name="RowCharliehour2CILicon_2"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/CILicon.png" Canvas.Left="51" Canvas.Top="340"/>
+            <Image x:Name="RowCharliehour3CILicon_3"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/CILicon.png" Canvas.Left="76" Canvas.Top="340"/>
+            <Image x:Name="RowCharliehour4CILicon_4"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/CILicon.png" Canvas.Left="100" Canvas.Top="340"/>
+            <Image x:Name="RowCharliehour5CILicon_5"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/CILicon.png" Canvas.Left="125" Canvas.Top="340"/>
+            <Image x:Name="RowCharliehour6CILicon_6"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/CILicon.png" Canvas.Left="150" Canvas.Top="340"/>
+            <Image x:Name="RowCharliehour7CILicon_7"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/CILicon.png" Canvas.Left="175" Canvas.Top="340"/>
+            <Image x:Name="RowCharliehour8CILicon_8"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/CILicon.png" Canvas.Left="201" Canvas.Top="340"/>
+            <Image x:Name="RowCharliehour9CILicon_9"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/CILicon.png" Canvas.Left="225" Canvas.Top="340"/>
+            <Image x:Name="RowCharliehour10CILicon_10"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/CILicon.png" Canvas.Left="250" Canvas.Top="340"/>
+            <Image x:Name="RowCharliehour11CILicon_11"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/CILicon.png" Canvas.Left="275" Canvas.Top="340"/>
+            <Image x:Name="RowCharliehour12CILicon_12"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/CILicon.png" Canvas.Left="300" Canvas.Top="340"/>
+
+
+            <Image x:Name="RowAlphahour1COicon_1"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/COicon.png" Canvas.Left="33" Canvas.Top="154"/>
+            <Image x:Name="RowAlphahour2COicon_2"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/COicon.png" Canvas.Left="58" Canvas.Top="154"/>
+            <Image x:Name="RowAlphahour3COicon_3"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/COicon.png" Canvas.Left="83" Canvas.Top="154"/>
+            <Image x:Name="RowAlphahour4COicon_4"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/COicon.png" Canvas.Left="107" Canvas.Top="154"/>
+            <Image x:Name="RowAlphahour5COicon_5"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/COicon.png" Canvas.Left="132" Canvas.Top="154"/>
+            <Image x:Name="RowAlphahour6COicon_6"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/COicon.png" Canvas.Left="157" Canvas.Top="154"/>
+            <Image x:Name="RowAlphahour7COicon_7"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/COicon.png" Canvas.Left="182" Canvas.Top="154"/>
+            <Image x:Name="RowAlphahour8COicon_8"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/COicon.png" Canvas.Left="208" Canvas.Top="154"/>
+            <Image x:Name="RowAlphahour9COicon_9"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/COicon.png" Canvas.Left="232" Canvas.Top="154"/>
+            <Image x:Name="RowAlphahour10COicon_10"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/COicon.png" Canvas.Left="257" Canvas.Top="154"/>
+            <Image x:Name="RowAlphahour11COicon_11"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/COicon.png" Canvas.Left="282" Canvas.Top="154"/>
+            <Image x:Name="RowAlphahour12COicon_12"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/COicon.png" Canvas.Left="307" Canvas.Top="154"/>
+
+            <Image x:Name="RowBetahour1COicon_1"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/COicon.png" Canvas.Left="33" Canvas.Top="248"/>
+            <Image x:Name="RowBetahour2COicon_2"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/COicon.png" Canvas.Left="58" Canvas.Top="248"/>
+            <Image x:Name="RowBetahour3COicon_3"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/COicon.png" Canvas.Left="83" Canvas.Top="248"/>
+            <Image x:Name="RowBetahour4COicon_4"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/COicon.png" Canvas.Left="107" Canvas.Top="248"/>
+            <Image x:Name="RowBetahour5COicon_5"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/COicon.png" Canvas.Left="132" Canvas.Top="248"/>
+            <Image x:Name="RowBetahour6COicon_6"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/COicon.png" Canvas.Left="157" Canvas.Top="248"/>
+            <Image x:Name="RowBetahour7COicon_7"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/COicon.png" Canvas.Left="182" Canvas.Top="248"/>
+            <Image x:Name="RowBetahour8COicon_8"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/COicon.png" Canvas.Left="208" Canvas.Top="248"/>
+            <Image x:Name="RowBetahour9COicon_9"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/COicon.png" Canvas.Left="232" Canvas.Top="248"/>
+            <Image x:Name="RowBetahour10COicon_10"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/COicon.png" Canvas.Left="257" Canvas.Top="248"/>
+            <Image x:Name="RowBetahour11COicon_11"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/COicon.png" Canvas.Left="282" Canvas.Top="248"/>
+            <Image x:Name="RowBetahour12COicon_12"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/COicon.png" Canvas.Left="307" Canvas.Top="248"/>
+
+            <Image x:Name="RowCharliehour1COicon_1"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/COicon.png" Canvas.Left="33" Canvas.Top="342"/>
+            <Image x:Name="RowCharliehour2COicon_2"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/COicon.png" Canvas.Left="58" Canvas.Top="342"/>
+            <Image x:Name="RowCharliehour3COicon_3"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/COicon.png" Canvas.Left="83" Canvas.Top="342"/>
+            <Image x:Name="RowCharliehour4COicon_4"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/COicon.png" Canvas.Left="107" Canvas.Top="342"/>
+            <Image x:Name="RowCharliehour5COicon_5"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/COicon.png" Canvas.Left="132" Canvas.Top="342"/>
+            <Image x:Name="RowCharliehour6COicon_6"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/COicon.png" Canvas.Left="157" Canvas.Top="342"/>
+            <Image x:Name="RowCharliehour7COicon_7"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/COicon.png" Canvas.Left="182" Canvas.Top="342"/>
+            <Image x:Name="RowCharliehour8COicon_8"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/COicon.png" Canvas.Left="208" Canvas.Top="342"/>
+            <Image x:Name="RowCharliehour9COicon_9"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/COicon.png" Canvas.Left="232" Canvas.Top="342"/>
+            <Image x:Name="RowCharliehour10COicon_10"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/COicon.png" Canvas.Left="257" Canvas.Top="342"/>
+            <Image x:Name="RowCharliehour11COicon_11"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/COicon.png" Canvas.Left="282" Canvas.Top="342"/>
+            <Image x:Name="RowCharliehour12COicon_12"  HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="7" Source="/img/COicon.png" Canvas.Left="307" Canvas.Top="342"/>
+
+        </Canvas>
+
+
+
+
+
+
+        <Canvas x:Name="MainStopsWatchCanvas" Margin="-3,0,3,0">
+
+            <Label x:Name="LinearViewLabel" Content="Linear View" Canvas.Left="83" Canvas.Top="31" BorderBrush="#FFD6D6D6" BorderThickness="1" FontFamily="Segoe UI Light" Foreground="#FF858585" VerticalAlignment="Center" HorizontalAlignment="Center" Width="81" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="1" Height="20" MouseDown="ShowLinearView" Cursor="Hand" FontSize="10.667"  MouseMove="BarMove" MouseLeave="BarLeave"/>
+            <Label x:Name="ClassicViewLabel" Content="Classic View" Canvas.Left="3" Canvas.Top="31" BorderBrush="#FFD6D6D6" BorderThickness="1" FontFamily="Segoe UI Light" Foreground="#FF858585" VerticalAlignment="Center" HorizontalAlignment="Center" Width="80" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FF65DEC8" Padding="1" Height="20" MouseDown="ShowClassicView" Cursor="Hand" FontSize="10.667" MouseMove="BarMove" MouseLeave="BarLeave"/>
+
+            <!--StopsWatchEssentials-->
+            <Rectangle x:Name="HourBaseLegend_PRIN" Fill="#FF25F310" HorizontalAlignment="Left" Height="2" VerticalAlignment="Top" Width="20" RenderTransformOrigin="0,0" MouseDown="Show_Hour_Details" MouseMove="BarMove" MouseLeave="BarLeave" Canvas.Left="33" Canvas.Top="363">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="HourBaseLegend_PROUT" Fill="#FFFF4500" HorizontalAlignment="Left" Height="2" VerticalAlignment="Top" Width="20" RenderTransformOrigin="0,0" MouseDown="Show_Hour_Details" MouseMove="BarMove" MouseLeave="BarLeave" Canvas.Left="33" Canvas.Top="374">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="HourBaseLegend_OUTOFBOUND" Fill="#FFC8C8C8" HorizontalAlignment="Left" Height="2" VerticalAlignment="Top" Width="20" RenderTransformOrigin="0,0" MouseDown="Show_Hour_Details" MouseMove="BarMove" MouseLeave="BarLeave" Canvas.Left="33" Canvas.Top="387">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+
+
+            <Label x:Name="HourBaseLegendLabel_PRIN" Content="PR In" FontSize="9" HorizontalAlignment="Left" VerticalAlignment="Top" Width="61" VerticalContentAlignment="Center" FontFamily="Segoe UI" Foreground="#FF25F310" Height="24" Canvas.Left="44" Canvas.Top="350"/>
+            <Label x:Name="HourBaseLegendLabel_PROUT" Content="PR Out" FontSize="9" HorizontalAlignment="Left" VerticalAlignment="Top" Width="61" VerticalContentAlignment="Center" FontFamily="Segoe UI" Foreground="OrangeRed" Height="24" Canvas.Left="44" Canvas.Top="361"/>
+            <Label x:Name="HourBaseLegendLabel_OUTofBound" Content="Outside report end time" FontSize="9" HorizontalAlignment="Left" VerticalAlignment="Top" Width="103" VerticalContentAlignment="Center" FontFamily="Segoe UI" Foreground="#FF6C6C6C" Height="24" Canvas.Left="44" Canvas.Top="374"/>
+
+
+            <Label x:Name="Stopname_Label" HorizontalAlignment="Left" VerticalAlignment="Top" Width="345" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Segoe UI" Foreground="White" Background="Gray" Padding="1" Height="26">
+
+            </Label>
+            <ComboBox x:Name="stopswatch_stopslist_combo" Background="Gray" BorderBrush="Gray"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="#FFB2B2B2" SelectionChanged="OnStopComboSelectionChanged"  HorizontalAlignment="Left" VerticalAlignment="Top" Cursor="Hand" Height="26" Padding="0" Width="286"/>
+
+            <Image x:Name="DayNight"  HorizontalAlignment="Left" Height="26" Margin="291,0,0,0" VerticalAlignment="Top" Width="56" Source="/img/dayornight.png" OpacityMask="White" Cursor="Hand"/>
+            <Rectangle x:Name="DayNight_WhiteSeperator"  Fill="White" HorizontalAlignment="Left" Height="23" Margin="312,1,0,0" VerticalAlignment="Top" Width="14"/>
+            <Rectangle x:Name="DayNight_GraySeperator" Fill="Gray" HorizontalAlignment="Left" Height="25" Margin="313,1,0,0" VerticalAlignment="Top" Width="10"/>
+           
+            <Label x:Name="shiftstarttime_label" Content="Availability" HorizontalAlignment="Left" Margin="388,153,0,0" VerticalAlignment="Top" Width="123" VerticalContentAlignment="Center" FontFamily="Segoe UI" Foreground="#FF6C6C6C" FontSize="14" Height="24" FontWeight="Bold" Padding="1"/>
+            <Ellipse Fill="#FF818181" HorizontalAlignment="Left" Height="58" Margin="498,60,0,0" VerticalAlignment="Top" Width="59"/>
+            <Label x:Name="selectedHourLabel" Content="12 AM" HorizontalAlignment="Left" Margin="498,70,0,0" VerticalAlignment="Top" Width="59" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Segoe UI" Foreground="White" Height="36" FontSize="14"/>
+            <Label x:Name="shiftstarttime_label_Copy2" Content="Stops" HorizontalAlignment="Left" Margin="388,198,0,0" VerticalAlignment="Top" Width="90" VerticalContentAlignment="Center" FontFamily="Segoe UI" Foreground="#FF6C6C6C" FontSize="14" Height="24" FontWeight="Bold" Padding="1"/>
+            <Label x:Name="unplannedstopslabel" Content="(Unplanned)" HorizontalAlignment="Left" Margin="388,215,0,0" VerticalAlignment="Top" Width="63" VerticalContentAlignment="Center" FontFamily="Segoe UI" Foreground="#FF6C6C6C" FontSize="10" Height="24"/>
+
+            <Label x:Name="shiftstarttime_label_Copy3" Content="SKU" HorizontalAlignment="Left" Margin="388,240,0,0" VerticalAlignment="Top" Width="90" VerticalContentAlignment="Center" FontFamily="Segoe UI" Foreground="#FF6C6C6C" FontSize="14" Height="24" FontWeight="Bold" Padding="1"/>
+            <Rectangle x:Name="Availability_Frame" HorizontalAlignment="Left" Height="201" Margin="478,181,0,0" VerticalAlignment="Top" Width="32" RenderTransformOrigin="0,0" Stroke="LightGray" StrokeThickness="2">
+                <Rectangle.RenderTransform>
+                    <TransformGroup x:Name="Hour3bar8">
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="270"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle x:Name="Availability_bar" HorizontalAlignment="Left" Height="156" Margin="478,181,0,0" VerticalAlignment="Top" Width="32" RenderTransformOrigin="0,0" Stroke="LightGray" Fill="#FF65DEC8">
+                <Rectangle.RenderTransform>
+                    <TransformGroup x:Name="Hour3bar9">
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="270"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <GridSplitter HorizontalAlignment="Left" Height="302" Margin="345,47,0,0" VerticalAlignment="Top" Width="2" Background="#FFDADADA"/>
+            <Label x:Name="stopscounthourlabel" Content="11" HorizontalAlignment="Left" Margin="478,200,0,0" VerticalAlignment="Top" Width="166" VerticalContentAlignment="Center" FontFamily="Segoe UI" Foreground="#FF6C6C6C" Height="24"/>
+            <Label x:Name="skunamehourlabel" Content="TDA 100oz" HorizontalAlignment="Left" Margin="478,242,0,0" VerticalAlignment="Top" Width="234" VerticalContentAlignment="Center" FontFamily="Segoe UI" Foreground="#FF6C6C6C" Height="24" FontSize="11"/>
+            <Label x:Name="availabilitylabeltext" Content="70%" HorizontalAlignment="Left" Margin="478,148,0,0" VerticalAlignment="Top" Width="65" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Segoe UI" Foreground="#FF5B5B5B" FontSize="14" Height="36" FontWeight="Bold"/>
+           
+            <Label x:Name="AMbutton" Content="&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;AM" HorizontalAlignment="Left" Margin="291,1,0,0" VerticalAlignment="Top" Width="22" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Segoe UI" Foreground="#FF020202" FontSize="7" RenderTransformOrigin="0.133,0.662" Height="44" FontWeight="Bold"  MouseDown="SelectedShiftChangeAM" Background="Lime" Opacity="0.6" Cursor="Hand" Padding="1" />
+            
+            
+           
+            <Label x:Name="SelectedDate" Content="23 April, 2015" HorizontalAlignment="Left" VerticalAlignment="Top" Width="133" HorizontalContentAlignment="Center" FontFamily="Segoe UI" Foreground="#FF6C6C6C" FontWeight="Bold" Height="21" Padding="5,0" VerticalContentAlignment="Center" BorderBrush="#FFBDBDBD" BorderThickness="1" MouseMove="BarMove" MouseLeave="BarLeave" MouseDown="LaunchCalendar" Cursor="Hand" Canvas.Left="463" Canvas.Top="9"/>
+            <Label x:Name="PMbutton" Content="&#xA;&#xA;&#xA;PM" HorizontalAlignment="Left" Margin="323,0,0,0" VerticalAlignment="Top" Width="22" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Segoe UI" Foreground="#FF636363" FontSize="7" RenderTransformOrigin="0.133,0.662" Height="44" FontWeight="Bold"  MouseDown="SelectedShiftChangePM" Opacity="0.6" Cursor="Hand" Padding="1"/>
+            <Label x:Name="CIL12" Content="CIL" HorizontalAlignment="Left" VerticalAlignment="Top" Width="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Segoe UI" Foreground="#FF6C6C6C" FontSize="10" FontWeight="Bold" Padding="1" Canvas.Left="170" Canvas.Top="371"/>
+            <Label x:Name="CO12" Content="C/O" HorizontalAlignment="Left" VerticalAlignment="Top" Width="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Segoe UI" Foreground="#FF6C6C6C" FontSize="10" FontWeight="Bold" Padding="1" Canvas.Left="210" Canvas.Top="371"/>
+            <Calendar x:Name="stops_calendar" HorizontalAlignment="Left" Margin="437,32,0,0" VerticalAlignment="Top" AllowDrop="True" Cursor="Hand" SelectedDatesChanged="dateselected" />
+            <Image HorizontalAlignment="Left" Height="19" VerticalAlignment="Top" Width="20" Source="/img/Navigation_Left.png" Canvas.Left="438" Canvas.Top="10"/>
+            <Image x:Name="NavigationLeft" HorizontalAlignment="Left" Height="19" VerticalAlignment="Top" Width="20" Source="/img/Navigation_Left.png" MouseMove="BarMove" MouseLeave="BarLeave" MouseDown="DateScrollClick" Cursor="Hand" Canvas.Left="437" Canvas.Top="10"/>
+            <Image x:Name="NavigationRight" HorizontalAlignment="Left" Height="19" VerticalAlignment="Top" Width="20" Source="/img/Navigation_Left.png" RenderTransformOrigin="0.5,0.5" MouseMove="BarMove" MouseLeave="BarLeave" MouseDown="DateScrollClick" Cursor="Hand" Canvas.Left="599" Canvas.Top="10">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image HorizontalAlignment="Left" Height="15" VerticalAlignment="Top" Width="20" Source="/img/CILicon.png" Canvas.Left="158" Canvas.Top="370"/>
+            <Image HorizontalAlignment="Left" Height="15" VerticalAlignment="Top" Width="20" Source="/img/COicon.png" Canvas.Left="195" Canvas.Top="370"/>
+
+            <Label x:Name="shiftstarttime_label_Copy1" Content="(Hourly, of line)" HorizontalAlignment="Left" Margin="388,168,0,0" VerticalAlignment="Top" Width="72" VerticalContentAlignment="Center" FontFamily="Segoe UI" Foreground="#FF6C6C6C" FontSize="10" Height="24"/>
+
+
+
+            <Image x:Name="WindowExpandIcon"  HorizontalAlignment="Left" Height="18" Margin="689,377,0,0" VerticalAlignment="Top" Width="23" Source="/img/dropdownicon.png" MouseDown="StopsWindowExpand" ToolTip="Click here to see raw data" Cursor="Hand"/>
+            <Image x:Name="WindowCollapseIcon"  HorizontalAlignment="Left" Height="18" Margin="689,377,0,0" VerticalAlignment="Top" Width="23" Source="/img/pullupicon.png" MouseDown="StopsWindowCollapse" Cursor="Hand" Visibility="Hidden" ToolTip="Click here to hide raw data"/>
+
+
+
+
+        </Canvas>
+        <Label x:Name="shiftstarttime_label_Copy4" Content="Downtime events for selected hour" HorizontalAlignment="Left" Margin="209,413,0,0" VerticalAlignment="Top" Width="299" VerticalContentAlignment="Center" FontFamily="Segoe UI" Foreground="#FF424242" Height="24" HorizontalContentAlignment="Center" FontSize="13"/>
+        <Label Content="powered by " HorizontalAlignment="Left" Margin="302,610,0,0" VerticalAlignment="Top" Width="47" Height="22" Foreground="#FF838383" FontFamily="Segoe UI Light" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="2" Padding="1,1,-2,1" FontSize="7" />
+        <Image Source="/img/lossstory icon.png" HorizontalAlignment="Left" Height="12" Margin="345,613,0,0" VerticalAlignment="Top" Width="44" Opacity="0.5"/>
+        <ListView x:Name='CommentList' HorizontalAlignment="Left" Height="157" Margin="16,435,0,0" VerticalAlignment="Top" Width="671"
+              ItemsSource="{Binding ActiveDataCollection}"
+              
+               SelectionMode="Single" Foreground="#FF1D1D1D" BorderBrush="#FFC9C9C9" FontSize="11" FontFamily="Segoe UI Light"
+                >
+
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding startTime_24hr}" 
+                                  Header="Start Time"
+						Width="115"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding endTime_24hr}" 
+						Header="End Time"
+						Width="115"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding DT_display}" 
+						Header="DT"
+						Width="40"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding UT_display}" 
+						Header="UT"
+						Width="40"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Reason1}" 
+                                  Header="Reason 1"
+						Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Reason2}" 
+                                  Header="Reason 2"
+						Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Reason3}" 
+                                  Header="Reason 3"
+						Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Reason4}" 
+                                  Header="Reason 4"
+						Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Comment}" 
+                                  Header="Comment"
+						Width="250"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding PR_inout}" 
+						Header="Prod Status"
+						Width="90"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding PlannedUnplanned}" 
+						Header="DT Sched"
+						Width="90"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Location}" 
+						Header="Location"
+						Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Fault}" 
+						Header="Fault"
+						Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding DTGroup}" 
+						Header="DT Group"
+						Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Product}" 
+						Header="Product"
+						Width="100"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+
+
+    </Grid>
+
+
+
+
+</Window>

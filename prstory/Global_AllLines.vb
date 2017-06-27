@@ -226,7 +226,7 @@ Module initializeSites
         Dim lineName As String
         lineName = "I"
         AddLine(lineName, ModuleID, lineName & " Converter")
-        AllProdLines(AllProdLines.Count - 1).IsStartupMode = True
+        ' AllProdLines(AllProdLines.Count - 1).IsStartupMode = True
 
 
 

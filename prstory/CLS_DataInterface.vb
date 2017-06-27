@@ -843,9 +843,7 @@ Public Class DowntimeEvent
                 Return _Format
             Case DowntimeField.Shape
                 Return _Shape
-                '  Case DowntimeField.Classification
-            Case DowntimeField.OneClick
-                Return _OneClick
+
             Case DowntimeField.ProductGroup
                 Return _ProductGroup
             Case Else
@@ -945,7 +943,6 @@ Public Class DowntimeEvent
     Private _Format As String = ""
     Private _Shape As String = ""
     Private _Classification As String = ""
-    Private _OneClick As String = ""
 
     Private _Mapping As String ' = BLANK_INDICATOR
 
@@ -1153,11 +1150,7 @@ Public Class DowntimeEvent
             Return _Classification
         End Get
     End Property
-    Public ReadOnly Property OneClick As String
-        Get
-            Return _OneClick
-        End Get
-    End Property
+
 
     Public Property MappedField As String
         Get
@@ -1229,11 +1222,10 @@ Public Class DowntimeEvent
         _UT = ut
         strLevelOne = {"Making", "Packaging", "Bat Cave"}
         _Location = strLevelOne(GetRandom(0, strLevelOne.Length))
-        strLevelOne = {"", "", ""}
         _MasterProdUnit = BLANK_INDICATOR
         strLevelOne = {"SERVO FAULT", "OTTERS. LOTS OF OTTERS.", "ERROR", "LINE DOWN", "no error code"}
         _Fault = strLevelOne(GetRandom(0, strLevelOne.Length)) & "  [" & GetRandom(1, 15) & "]"
-        strLevelOne = {"A", "C", "D", "F", "C", "C", "D", "D", "A", "A", "H", "P"}
+        strLevelOne = {" Fault A", "Utilities", " Matl C", "Error 7D", "Filler Jam", "Casepacker", "CR77", "D1", "D2", "A3", "A2", "H123", "321P"}
         _Reason1 = strLevelOne(GetRandom(0, strLevelOne.Length))
         '   strLevelOne = {"", "", ""}
         _Reason2 = strLevelOne(GetRandom(0, strLevelOne.Length))
@@ -1257,6 +1249,11 @@ Public Class DowntimeEvent
         _ProductGroup = strLevelOne(GetRandom(0, strLevelOne.Length))
         strLevelOne = {"6", "loose bird", "seriously...another bird", "do or do not, there is no try", "salt and corrosion. the infamous old enemies of the crime fighter", "abc", "words, words, words...", ".", "dance party"}
         _Comment = strLevelOne(GetRandom(0, strLevelOne.Length))
+
+        strLevelOne = {" Fault A", " Matl C", "Error 7D", "Filler Jam", "Casepacker", "CR77", "D1", "D2", "A3", "A2", "H123", "321P"}
+        _Tier1 = strLevelOne(GetRandom(0, strLevelOne.Length))
+        _Tier2 = strLevelOne(GetRandom(0, strLevelOne.Length))
+        _Tier3 = strLevelOne(GetRandom(0, strLevelOne.Length))
 
         finalizeInitialization()
 
@@ -1282,6 +1279,10 @@ Public Class DowntimeEvent
         _Product = other.Product
         _ProductGroup = other.ProductGroup
         _Comment = other.Comment
+
+        _Tier1 = other.Tier1
+        _Tier2 = other.Tier2
+        _Tier3 = other.Tier3
 
         If finalize Then
             finalizeInitialization()

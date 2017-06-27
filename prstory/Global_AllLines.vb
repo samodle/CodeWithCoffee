@@ -219,7 +219,7 @@ Module initializeSites
         initializeSite_Euskirchen()
 
         Dim sitename As String = "Demo"
-        AllProductionSites.Add(New ProdSite(sitename, "prstory.pg.com", "", SERVER_PW_V6, SERVER_UN_V6, "PRS"))
+        AllProductionSites.Add(New ProdSite(sitename, "prstory.pg.com", SERVER_PW_V6, SERVER_UN_V6, "PRS"))
         Dim ModuleID As Guid = Guid.NewGuid()
         AllProdModules.Add(New ProdModule(ModuleID, "Line", sitename, SECTOR_FAMILY, prStoryMapping.STRAIGHT, DefaultProficyDowntimeProcedure.QuickQuery, DefaultProficyProductionProcedure.NA, "Reason 1", "Reason 2", "Reason 3", "Reason 4", DowntimeField.Reason1, -1, DTsched_Mapping.Greensboro))
 

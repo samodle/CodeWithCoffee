@@ -226,7 +226,7 @@ Module initializeSites
         Dim lineName As String
         lineName = "I"
         AddLine(lineName, ModuleID, lineName & " Converter")
-        ' AllProdLines(AllProdLines.Count - 1).IsStartupMode = True
+        AllProdLines(AllProdLines.Count - 1).IsStartupMode = True
 
 
 
@@ -2451,10 +2451,8 @@ Module initializeSites
         AllProdLines.Add(New ProdLine("W Front", "BSW1", siteName, ModuleID3, 2, 12, 6, "BS APDO W Line Main", "BS APDO W Line Front"))
         AllProdLines.Add(New ProdLine("W Back", "BSW2", siteName, ModuleID3, 2, 12, 6, "BS APDO W Line Plugger/DePucker", "BS APDO W Line Back"))
 
-
         Dim ModuleID5 As Guid = Guid.NewGuid()
         AllProdModules.Add(New ProdModule(ModuleID5, BS_APDO, siteName, SECTOR_BEAUTY, prStoryMapping.STRAIGHT, DefaultProficyDowntimeProcedure.QuickQuery, DefaultProficyProductionProcedure.QuickQuery, "Reason 1", "Reason 2", "Reason 3", "Reason 4", DowntimeField.Reason3, -1, DTsched_Mapping.Greensboro))
-
 
         AllProdLines.Add(New ProdLine("Line 6", "BSW1", siteName, ModuleID5, 2, 12, 6, "BS APDO Line 6 Main", "BS APDO Line 6"))
         AllProdLines.Add(New ProdLine("G Line", "BSW1", siteName, ModuleID5, 2, 12, 6, "BS APDO G Line Main", "BS APDO G Line"))

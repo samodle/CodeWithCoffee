@@ -10,6 +10,8 @@ Imports System.Drawing
 
 Imports MongoDB.Driver
 Imports MongoDB.Bson
+Imports System.Windows.Media.Animation
+Imports System.Windows.Media
 'Imports System.Windows.Forms
 #End Region
 
@@ -901,6 +903,210 @@ Public Class bargraphreportwindow
     End Sub
 #End Region
 
+#Region "Menu 2.0"
+    Public Menuitemclicked_number As Integer = -1
+
+    Public Shared mybrushverylightgray_forcardbackground As New SolidColorBrush(Windows.Media.Color.FromRgb(248, 248, 248))
+
+
+    Public Sub LaunchMenu(sender As Object, e As MouseButtonEventArgs)
+        MenuCanvas.Visibility = Visibility.Visible
+        AnimateMenuOpening()
+        MenuSplashRectangle.Visibility = Visibility.Visible
+    End Sub
+
+    Public Sub AnimateMenuOpening()
+        AnimateZoomUIElement_Margin(New Thickness(-280, 0, 1218, -4), New Thickness(0, 0, 938, -4), 0.15, MarginProperty, MenuCanvas)
+    End Sub
+
+    Public Sub CloseMenu(sender As Object, e As MouseButtonEventArgs)
+        CloseMenu()
+    End Sub
+
+    Private Sub CloseMenu()
+        MenuSplashRectangle.Visibility = Visibility.Hidden
+        System.Windows.Forms.Application.DoEvents()
+        MenuCanvas.Visibility = Visibility.Hidden
+    End Sub
+    Public Sub Menuitemmousemove(sender As Object, e As MouseEventArgs)
+        Dim menuitem As Integer = -1
+        If sender.[GetType]().ToString().IndexOf("Image") > -1 Then
+            Dim tempsender As System.Windows.Controls.Image = DirectCast(sender, System.Windows.Controls.Image)
+            menuitem = Convert.ToInt32(GlobalFcns.onlyDigits(tempsender.Name))
+            If menuitem <> -1 Then
+
+                getMenuItem_Label_fromitemindex(getMenuItem_Canvas_fromitemindex(Menu_InternalInfiniteCanvas, -1, "", "Menu" + menuitem), -1, "", "Menu" + menuitem + "Label").Foreground = Media.Brushes.Orange
+                getMenuItem_Canvas_fromitemindex(Menu_InternalInfiniteCanvas, -1, "", "Menu" + menuitem).Background = mybrushverylightgray_forcardbackground
+            End If
+        ElseIf sender.[GetType]().ToString().IndexOf("Label") > -1 Then
+            Dim tempsender As Label = DirectCast(sender, Label)
+            menuitem = Convert.ToInt32(GlobalFcns.onlyDigits(tempsender.Name))
+            tempsender.Foreground = Media.Brushes.Orange
+            getMenuItem_Canvas_fromitemindex(Menu_InternalInfiniteCanvas, -1, "", "Menu" + menuitem).Background = mybrushverylightgray_forcardbackground
+        End If
+    End Sub
+    Public Sub Menuitemmouseleave(sender As Object, e As MouseEventArgs)
+        Dim menuitem As Integer = -1
+        If sender.[GetType]().ToString().IndexOf("Image") > -1 Then
+            Dim tempsender As System.Windows.Controls.Image = DirectCast(sender, System.Windows.Controls.Image)
+            menuitem = Convert.ToInt32(GlobalFcns.onlyDigits(tempsender.Name))
+            If menuitem <> Menuitemclicked_number Then
+                If menuitem <> -1 Then
+
+                    getMenuItem_Label_fromitemindex(getMenuItem_Canvas_fromitemindex(Menu_InternalInfiniteCanvas, -1, "", "Menu" + menuitem), -1, "", "Menu" + menuitem + "Label").Foreground = BrushColors.mybrushfontgray
+                    getMenuItem_Canvas_fromitemindex(Menu_InternalInfiniteCanvas, -1, "", "Menu" + menuitem).Background = Media.Brushes.White
+                End If
+
+            End If
+        ElseIf sender.[GetType]().ToString().IndexOf("Label") > -1 Then
+            Dim tempsender As Label = DirectCast(sender, Label)
+            menuitem = Convert.ToInt32(GlobalFcns.onlyDigits(tempsender.Name))
+            If menuitem <> Menuitemclicked_number Then
+                tempsender.Foreground = BrushColors.mybrushfontgray
+                '  getMenuItem_Image_fromitemindex(Menu_InternalInfiniteCanvas, menuitem);
+                getMenuItem_Canvas_fromitemindex(Menu_InternalInfiniteCanvas, -1, "", "Menu" + menuitem).Background = Media.Brushes.White
+            End If
+        End If
+    End Sub
+    Public Sub Menuitemclicked(sender As Object, e As MouseButtonEventArgs)
+        restore_allmenuitems_color()
+
+
+        Dim menuitem As Integer = -1
+        If sender.[GetType]().ToString().IndexOf("Image") > -1 Then
+            Dim tempsender As System.Windows.Controls.Image = DirectCast(sender, System.Windows.Controls.Image)
+            menuitem = Convert.ToInt32(GlobalFcns.onlyDigits(tempsender.Name))
+            If menuitem <> -1 Then
+                Dim tempcanvas As Canvas
+                tempcanvas = getMenuItem_Canvas_fromitemindex(Menu_InternalInfiniteCanvas, menuitem)
+                tempcanvas.Background = mybrushverylightgray_forcardbackground
+                getMenuItem_Label_fromitemindex(tempcanvas, menuitem).Foreground = Media.Brushes.Orange
+            End If
+        ElseIf sender.[GetType]().ToString().IndexOf("Label") > -1 Then
+            Dim tempsender As Label = DirectCast(sender, Label)
+            menuitem = Convert.ToInt32(GlobalFcns.onlyDigits(tempsender.Name))
+            '  getMenuItem_Image_fromitemindex(Menu_InternalInfiniteCanvas, menuitem);
+            tempsender.Foreground = Media.Brushes.Orange
+
+            getMenuItem_Canvas_fromitemindex(Menu_InternalInfiniteCanvas, menuitem).Background = mybrushverylightgray_forcardbackground
+        End If
+        Menuitemclicked_number = menuitem
+        CloseMenu()
+    End Sub
+
+    Public Sub restore_allmenuitems_color()
+        Menu1.Background = Media.Brushes.White
+        Menu1Label.Foreground = BrushColors.mybrushfontgray
+
+        Menu2.Background = Media.Brushes.White
+        Menu2Label.Foreground = BrushColors.mybrushfontgray
+
+        Menu3.Background = Media.Brushes.White
+        Menu3Label.Foreground = BrushColors.mybrushfontgray
+
+        Menu4.Background = Media.Brushes.White
+        Menu4Label.Foreground = BrushColors.mybrushfontgray
+
+        Menu5.Background = Media.Brushes.White
+        Menu5Label.Foreground = BrushColors.mybrushfontgray
+
+        Menu6.Background = Media.Brushes.White
+        Menu6Label.Foreground = BrushColors.mybrushfontgray
+
+        Menu7.Background = Media.Brushes.White
+        Menu7Label.Foreground = BrushColors.mybrushfontgray
+
+        '     Menu8.Background = Media.Brushes.White
+        '    Menu8Label.Foreground = BrushColors.mybrushfontgray
+
+
+        '   Menu9.Background = Media.Brushes.White
+        '  Menu9Label.Foreground = BrushColors.mybrushfontgray
+
+    End Sub
+
+    Public Sub AnimateZoomUIElement_Margin(from As Thickness, [to] As Thickness, durn As Double, depprop As DependencyProperty, AnimatedObject As UIElement)
+        ' Standard animation function
+        Dim da = New ThicknessAnimation()
+        ' da will contain the characteristics of the animation
+        da.From = from
+        ' position, where it starts 
+        da.[To] = [to]
+        ' position, where it ends
+        da.Duration = New Duration(TimeSpan.FromSeconds(durn))
+        ' how long animation lasts
+        AnimatedObject.BeginAnimation(depprop, da)
+        ' Animate object is the subject we are playing with. And Depprop determines what type of UI element it is (rectangle, label, control.. etc)
+    End Sub
+
+    Public Function getMenuItem_Label_fromitemindex(dep As DependencyObject, Optional menuitemindex As Integer = -1, Optional stringitemindex As String = "", Optional exactstring As String = "") As Label
+        Dim sender As Label = Nothing
+        Dim lbl As Label
+        Dim j As Integer
+        For j = 0 To VisualTreeHelper.GetChildrenCount(dep) - 1
+            If VisualTreeHelper.GetChild(dep, j).[GetType]().ToString().IndexOf("Label") > -1 Then
+                lbl = DirectCast(VisualTreeHelper.GetChild(dep, j), Label)
+
+                If stringitemindex = "" AndAlso menuitemindex <> -1 Then
+                    If lbl.Name.IndexOf(menuitemindex.ToString()) > -1 Then
+                        sender = lbl
+                    End If
+                Else
+                    If exactstring = "" Then
+                        If lbl.Name.IndexOf(stringitemindex) > -1 Then
+                            sender = lbl
+                        End If
+                    Else
+                        If lbl.Name.ToString() = exactstring Then
+                            sender = lbl
+
+                        End If
+
+                    End If
+                End If
+
+            End If
+        Next
+
+        Return sender
+    End Function
+    Public Function getMenuItem_Canvas_fromitemindex(dep As DependencyObject, Optional menuitemindex As Integer = -1, Optional stringitemindex As String = "", Optional exactstring As String = "") As Canvas
+        Dim sender As Canvas = Nothing
+        Dim cnv As Canvas
+        Dim j As Integer
+        For j = 0 To VisualTreeHelper.GetChildrenCount(dep) - 1
+            If VisualTreeHelper.GetChild(dep, j).[GetType]().ToString().IndexOf("Canvas") > -1 Then
+                cnv = DirectCast(VisualTreeHelper.GetChild(dep, j), Canvas)
+
+                If stringitemindex = "" AndAlso menuitemindex <> -1 Then
+                    If cnv.Name.IndexOf(menuitemindex.ToString()) > -1 Then
+                        sender = cnv
+                    End If
+                Else
+                    If exactstring = "" Then
+                        If cnv.Name.IndexOf(stringitemindex) > -1 Then
+                            sender = cnv
+                        End If
+                    Else
+                        If cnv.Name.ToString() = exactstring Then
+                            sender = cnv
+
+                        End If
+
+                    End If
+                End If
+
+            End If
+        Next
+
+        Return sender
+    End Function
+
+
+#End Region
+
+
+
     Sub LaunchExpandedIncontrol()
         If MasterDataSet.maxDTpct = 0 Then
             MsgBox("No failre modes selected to generate control chart.")
@@ -1437,13 +1643,13 @@ Public Class bargraphreportwindow
         stopsgreenbox.Visibility = Visibility.Hidden
         incontrolgreenbox.Visibility = Visibility.Hidden
 
-         dim showRateLossWithPR as boolean = (AllProdLines(prStoryReport.ParentLineInt).SiteName = "GBO" and AllProdLines(prStoryReport.ParentLineInt).Sector <> sector_beauty )
+        Dim showRateLossWithPR As Boolean = (AllProdLines(prStoryReport.ParentLineInt).SiteName = "GBO" And AllProdLines(prStoryReport.ParentLineInt).Sector <> SECTOR_BEAUTY)
 
         ' check for availability mode
         If My.Settings.AdvancedSettings_isAvailabilityMode = False Then
             pr_label.Content = FormatPercent(prStoryReport.PR, 1) ' & " PR"
             PR_Label_Header.Content = "PR"
-            If showratelosswithpr  Then
+            If showRateLossWithPR Then
                 pr_label2.Content = FormatPercent(prStoryReport.PR, 1) ' & " PR  " & FormatPercent(prStoryReport.rateLoss, 1) & "rate loss"
                 pr_label2.Visibility = Visibility.Visible
                 pr_label.Visibility = Visibility.Hidden
@@ -1458,7 +1664,7 @@ Public Class bargraphreportwindow
             Cases_Label_Header.Visibility = Visibility.Hidden
             Rateloss_Label_Header.Visibility = Visibility.Hidden
             rateloss_label.Visibility = Visibility.Hidden
-            If showratelosswithpr Then
+            If showRateLossWithPR Then
                 pr_label2.Content = FormatPercent(prStoryReport.PR, 1) ' & "AV " & FormatPercent(prStoryReport.rateLoss, 1) & "rate loss"
                 pr_label2.Visibility = Visibility.Visible
                 pr_label.Visibility = Visibility.Hidden
@@ -5445,10 +5651,10 @@ skiptargetfor:
         NOtesLabel.Visibility = Visibility.Hidden
     End Sub
 
-    Private Sub HideMenu()'optional LeaveSplashRectangle as boolean = false)
-      '  if Not leavesplashrectangle then
-                    SplashRectangle.Visibility = Visibility.Hidden
-      '  End If
+    Private Sub HideMenu() 'optional LeaveSplashRectangle as boolean = false)
+        '  if Not leavesplashrectangle then
+        SplashRectangle.Visibility = Visibility.Hidden
+        '  End If
 
         MappingTextLabel.Visibility = Visibility.Hidden
         WeibullTextLabel.Visibility = Visibility.Hidden
@@ -7768,7 +7974,7 @@ Err_Handler:
         ChangeRectangleWidth_All()
         incontrolframe.Visibility = Visibility.Hidden
         stopsframe.Visibility = Visibility.Hidden
-        MenuCanvas.Visibility = Visibility.Hidden
+        MenuCanvasA.Visibility = Visibility.Hidden
         If AllProdLines(selectedindexofLine_temp).isFilterByBrandcode = True Then
             FilterIcon_active.Visibility = True
             FilterOnOfflabel.Visibility = True
@@ -7792,7 +7998,7 @@ Err_Handler:
         CloseFloatingSimulator()
         incontrolframe.Visibility = Visibility.Visible
         stopsframe.Visibility = Visibility.Visible
-        MenuCanvas.Visibility = Visibility.Visible
+        MenuCanvasA.Visibility = Visibility.Visible
         HideSimRectangles_UPDT()
         HideSimRectangles_Changeover()
         HideSimRectangles_PDT()
@@ -9092,7 +9298,7 @@ Err_Handler:
 
         Dim i As Integer
         Dim listofteamreports_raw As New List(Of prStoryMainPageReport)
-        Dim multireportwindow As Window_MultiLine
+        Dim multireportwindow As Window_Multiline
         Dim paramObj(10) As Object
         Dim listofteamnames As New List(Of String)
 
@@ -9130,7 +9336,7 @@ Err_Handler:
                 End If
             Next
             paramObj(8) = listofteamnames
-            multireportwindow = New Window_MultiLine(True, selectedindexofLine_temp, listofteamreports_raw, MainDateLabel.Content.ToString, paramObj)
+            multireportwindow = New Window_Multiline(True, selectedindexofLine_temp, listofteamreports_raw, MainDateLabel.Content.ToString, paramObj)
             multireportwindow.Show()
         Catch
             MessageBox.Show("Team Analysis is unavailable due to insufficient number of Scheduled Events in the raw data.")
@@ -9392,16 +9598,16 @@ Err_Handler:
         UseTrack_RawDataWindow_Trends = False
     End Sub
 
-    #region "LiveLine"
-    Private sub ShowLiveLineControl()
+#Region "LiveLine"
+    Private Sub ShowLiveLineControl()
         '  hidemenu'(true)
         ' SplashRectangle.Visibility = Visibility.Hidden
         '  livelinecontrol = new UserControls.Control_LiveLine()
-        LiveLineControl.initialize(prstoryreport.mainledsreport,prstoryreport.mainledsreport)
-        livelinecontrol.visibility = visibility.visible
-    End sub
-    Private Sub LiveLineLaunchButton_MouseDown(sender As Object, e As MouseButtonEventArgs)
-        showlivelinecontrol
+        LiveLineControl.initialize(prStoryReport.MainLEDSReport, prStoryReport.MainLEDSReport)
+        LiveLineControl.Visibility = Visibility.Visible
     End Sub
-    #end region
+    Private Sub LiveLineLaunchButton_MouseDown(sender As Object, e As MouseButtonEventArgs)
+        ShowLiveLineControl()
+    End Sub
+#End Region
 End Class

@@ -2017,9 +2017,7 @@
                             </TextBox.BorderBrush>
                         </TextBox>
 
-
                         <Image x:Name="MappingIconLabel" Canvas.Left="551" Canvas.Top="260" Width="122" Height="96"  HorizontalAlignment="Center" VerticalAlignment="Center"  MouseDown="ShowMappingSelection" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" Cursor="Hand" Source="/img/remap_circle.png"/>
-
 
                         <Canvas x:Name="ChangeMapping_SubCanvas" Visibility="Hidden" Canvas.Left="551" Canvas.Top="392" Width="188" Height="158">
                             <Label x:Name="MappingComboLabel1" Content="First mapping level"  Canvas.Left="10" Canvas.Top="9" Width="167" Height="36" Foreground="White" FontFamily="Segoe UI Light" FontSize="10"  />

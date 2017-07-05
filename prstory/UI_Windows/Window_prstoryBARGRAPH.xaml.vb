@@ -6373,7 +6373,6 @@ skipRefreshNonThreadedExports:
         AllProdLines(selectedindexofLine_temp).isFilterByBrandcode = False
         AllProdLines(selectedindexofLine_temp).BrandCodesWeWant.Clear()
 
-
         prStoryReport.reFilterData_ClearAllFilters()
         AllProdLines(selectedindexofLine_temp).rawDowntimeData.reFilterData_ClearAllFilters()
 
@@ -9395,10 +9394,10 @@ Err_Handler:
 
     #region "LiveLine"
     Private sub ShowLiveLineControl()
-      '  hidemenu'(true)
-         ' SplashRectangle.Visibility = Visibility.Hidden
-        livelinecontrol = new UserControls.Control_LiveLine()
-        livelinecontrol.initialize(prstoryreport.mainledsreport,prstoryreport.mainledsreport)
+        '  hidemenu'(true)
+        ' SplashRectangle.Visibility = Visibility.Hidden
+        '  livelinecontrol = new UserControls.Control_LiveLine()
+        LiveLineControl.initialize(prstoryreport.mainledsreport,prstoryreport.mainledsreport)
         livelinecontrol.visibility = visibility.visible
     End sub
     Private Sub LiveLineLaunchButton_MouseDown(sender As Object, e As MouseButtonEventArgs)

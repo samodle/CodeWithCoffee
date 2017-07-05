@@ -876,7 +876,6 @@ Public Class DowntimeReport
 
     'mapped top levels
     Friend Tier1Directory As New List(Of DTevent)
-    Friend OneClickDirectory As New List(Of DTevent)
 
     'PLANNED
     Friend PlannedTier1Directory As New List(Of DTevent)
@@ -1179,15 +1178,6 @@ Public Class DowntimeReport
                 For i = 0 To Tier1Directory.Count - 1
                     tmpList.Add(Tier1Directory(i))
                 Next
-            Case DowntimeField.OneClick
-                If isByStops Then
-                    sortEventList_ByStops(OneClickDirectory)
-                Else
-                    sortEventList_ByDT(OneClickDirectory)
-                End If
-                For i = 0 To OneClickDirectory.Count - 1
-                    tmpList.Add(OneClickDirectory(i))
-                Next
             Case Else
                 Throw New unknownMappingException
         End Select
@@ -1487,7 +1477,6 @@ Public Class DowntimeReport
 
         'mapped top levels
         Tier1Directory.Clear()
-        OneClickDirectory.Clear()
 
         'PLANNED
         PlannedTier1Directory.Clear()
@@ -1607,13 +1596,6 @@ Public Class DowntimeReport
                     Tier1Directory.Add(New DTevent(.Tier1, .DT, i))
                 Else
                     Tier1Directory(tmpIndex).addStopWithRow(.DT, i)
-                End If
-                'onceclick
-                tmpIndex = OneClickDirectory.IndexOf(New DTevent(.OneClick, 0))
-                If tmpIndex = -1 Then
-                    OneClickDirectory.Add(New DTevent(.OneClick, .DT, i))
-                Else
-                    OneClickDirectory(tmpIndex).addStopWithRow(.DT, i)
                 End If
                 'mapped stuff
                 tmpIndex = MappedDirectory.IndexOf(New DTevent(.MappedField, 0))
@@ -1796,6 +1778,9 @@ Public MustInherit Class simpleDTevent
     End Property
     Public ReadOnly Property Name As String
         Get
+            If _Name = Nothing Then
+                _Name = BLANK_INDICATOR
+            End If
             Return _Name
         End Get
     End Property

@@ -199,17 +199,7 @@ Public Class RawDataWindow
     End Sub
 #End Region
 
-    Private Sub Dispose_AllTrendCharts_inRawDataWindow()
-        MotionChartD.Dispose()
-        MotionChartS.Dispose()
-        MotionChartD_Monthly.Dispose()
-        MotionChartS_Monthly.Dispose()
-        MotionChartD_Weekly.Dispose()
-        MotionChartS_Weekly.Dispose()
-        MotionChart_MTBF.Dispose()
-        MotionChart_MTBF_Weekly.Dispose()
-        MotionChart_MTBF_Monthly.Dispose()
-    End Sub
+
     Sub toggleDTprod()
         With prodDTtoggleButton
             If .Content.contains("Prod") Then
@@ -1246,22 +1236,13 @@ Public Class RawDataWindow
 #Region "Opening and Closing"
     Public Sub RawdatawindowClose(ByVal sender As Object, ByVal e As CancelEventArgs)
 
-
-
         If InStr(sender.ToString, "rawdatawindow", vbTextCompare) > 0 Then
             My.Settings.defaultDownTimeField = mappinglevel1
             My.Settings.defaultDownTimeField_Secondary = mappinglevel2
             prstoryReport.reMapReport()
             AllProdLines(selectedindexofLine_temp).reMapRawData()
             IsRemappingDoneOnce = True
-            '  ParetoHTML.Dispose()
-            'VarianceHTML.Dispose()
-            Dispose_AllTrendCharts_inRawDataWindow()
         End If
-
-
-
-
 
     End Sub
 
@@ -1381,44 +1362,10 @@ Public Class RawDataWindow
                 exportMotion_PR_HTML_AMCHART_selectedfailuremode_MTBF_Weekly(stopsMotionReport, True, selectedfailuremodeindex)
                 exportMotion_PR_HTML_AMCHART_selectedfailuremode_MTBF_Monthly(stopsMotionReport, True, selectedfailuremodeindex)
 
-                Dim sourcestringS As String
-                Dim sourcestringD As String
-
                 failuremodeno = selectedfailuremodeindex
                 motionchartsource = 31
                 IsLaunchedfromstops_InMOtionChart = True
                 selectedfailuremode_inMotionChart = failuremodeno
-
-                sourcestringS = "file:///" & SERVER_FOLDER_PATH & "motion" & motionchartsource & "_" & failuremodeno & "S.html"   '"file:///C:/Users/Public/motion" & motionchartsource & "_" & failuremodeno & "S.html"
-                MotionChartS.Source = New Uri(sourcestringS)
-
-                sourcestringD = "file:///" & SERVER_FOLDER_PATH & "motion" & motionchartsource & "_" & failuremodeno & "D.html"
-                MotionChartD.Source = New Uri(sourcestringD)
-                losscardnamelabel.Content = TitleLabel.Content & " losses over last 3 months"
-
-
-                sourcestringS = "file:///" & SERVER_FOLDER_PATH & "motion" & motionchartsource & "_" & failuremodeno & "S_Weekly.html"   '"file:///C:/Users/Public/motion" & motionchartsource & "_" & failuremodeno & "S.html"
-                MotionChartS_Weekly.Source = New Uri(sourcestringS)
-
-                sourcestringD = "file:///" & SERVER_FOLDER_PATH & "motion" & motionchartsource & "_" & failuremodeno & "D_Weekly.html"
-                MotionChartD_Weekly.Source = New Uri(sourcestringD)
-
-
-                sourcestringS = "file:///" & SERVER_FOLDER_PATH & "motion" & motionchartsource & "_" & failuremodeno & "S_Monthly.html"   '"file:///C:/Users/Public/motion" & motionchartsource & "_" & failuremodeno & "S.html"
-                MotionChartS_Monthly.Source = New Uri(sourcestringS)
-
-                sourcestringD = "file:///" & SERVER_FOLDER_PATH & "motion" & motionchartsource & "_" & failuremodeno & "D_Monthly.html"
-                MotionChartD_Monthly.Source = New Uri(sourcestringD)
-
-
-                sourcestringS = "file:///" & SERVER_FOLDER_PATH & "motion" & motionchartsource & "_" & failuremodeno & "MTBF.html"   '"file:///C:/Users/Public/motion" & motionchartsource & "_" & failuremodeno & "S.html"
-                MotionChart_MTBF.Source = New Uri(sourcestringS)
-
-                sourcestringS = "file:///" & SERVER_FOLDER_PATH & "motion" & motionchartsource & "_" & failuremodeno & "MTBF_Monthly.html"   '"file:///C:/Users/Public/motion" & motionchartsource & "_" & failuremodeno & "S.html"
-                MotionChart_MTBF_Monthly.Source = New Uri(sourcestringS)
-
-                sourcestringS = "file:///" & SERVER_FOLDER_PATH & "motion" & motionchartsource & "_" & failuremodeno & "MTBF_Weekly.html"
-                MotionChart_MTBF_Weekly.Source = New Uri(sourcestringS)
 
             Catch ex As Exception
                 MsgBox("The trends chart could not be loaded. Let the developer know about this problem and provide detail info such as which line was being analyzed and what time frame was selected.")
@@ -1436,69 +1383,7 @@ Public Class RawDataWindow
         Monthlybtn.Background = mybrushdarkgray
         SetSourceString()
     End Sub
-    Private Sub SetGeneralTrendsDefaultSource()
-        Dim sourcestringS As String
-        Dim sourcestringD As String
 
-
-        motionchartsource = 31
-        IsLaunchedfromstops_InMOtionChart = True
-        selectedfailuremode_inMotionChart = failuremodeno
-
-        sourcestringS = "file:///" & SERVER_FOLDER_PATH & "motion" & motionchartsource & "_" & failuremodeno & "S.html"
-        MotionChartS.Source = New Uri(sourcestringS)
-
-        sourcestringD = "file:///" & SERVER_FOLDER_PATH & "motion" & motionchartsource & "_" & failuremodeno & "D.html"
-        MotionChartD.Source = New Uri(sourcestringD)
-        losscardnamelabel.Content = TitleLabel.Content & " losses over last 3 months"
-
-
-        sourcestringS = "file:///" & SERVER_FOLDER_PATH & "motion" & motionchartsource & "_" & failuremodeno & "S_Weekly.html"
-        MotionChartS_Weekly.Source = New Uri(sourcestringS)
-
-        sourcestringD = "file:///" & SERVER_FOLDER_PATH & "motion" & motionchartsource & "_" & failuremodeno & "D_Weekly.html"
-        MotionChartD_Weekly.Source = New Uri(sourcestringD)
-
-
-        sourcestringS = "file:///" & SERVER_FOLDER_PATH & "motion" & motionchartsource & "_" & failuremodeno & "S_Monthly.html"
-        MotionChartS_Monthly.Source = New Uri(sourcestringS)
-
-        sourcestringD = "file:///" & SERVER_FOLDER_PATH & "motion" & motionchartsource & "_" & failuremodeno & "D_Monthly.html"
-        MotionChartD_Monthly.Source = New Uri(sourcestringD)
-
-
-        sourcestringS = "file:///" & SERVER_FOLDER_PATH & "motion" & motionchartsource & "_" & failuremodeno & "MTBF.html"
-        MotionChart_MTBF.Source = New Uri(sourcestringS)
-
-        sourcestringS = "file:///" & SERVER_FOLDER_PATH & "motion" & motionchartsource & "_" & failuremodeno & "MTBF_Monthly.html"
-        MotionChart_MTBF_Monthly.Source = New Uri(sourcestringS)
-
-        sourcestringS = "file:///" & SERVER_FOLDER_PATH & "motion" & motionchartsource & "_" & failuremodeno & "MTBF_Weekly.html"
-        MotionChart_MTBF_Weekly.Source = New Uri(sourcestringS)
-
-
-    End Sub
-    Private Sub SetSShapeTrendsDefaultSource()
-        Dim sourcestringS As String
-        Dim sourcestringD As String
-
-
-        motionchartsource = 31
-        IsLaunchedfromstops_InMOtionChart = True
-        selectedfailuremode_inMotionChart = failuremodeno
-
-        sourcestringS = "file:///" & SERVER_FOLDER_PATH & "Sshape" & motionchartsource & "_" & failuremodeno & "S.html"   '"file:///C:/Users/Public/motion" & motionchartsource & "_" & failuremodeno & "S.html"
-        MotionChartS.Source = New Uri(sourcestringS)
-
-        sourcestringD = "file:///" & SERVER_FOLDER_PATH & "Sshape" & motionchartsource & "_" & failuremodeno & "D.html"
-        MotionChartD.Source = New Uri(sourcestringD)
-
-        sourcestringS = "file:///" & SERVER_FOLDER_PATH & "Sshape" & motionchartsource & "_" & failuremodeno & "MTBF.html"   '"file:///C:/Users/Public/motion" & motionchartsource & "_" & failuremodeno & "S.html"
-        MotionChart_MTBF.Source = New Uri(sourcestringS)
-
-
-
-    End Sub
     Private Sub SetSourceString()
 
         Dim sourcestringS As String
@@ -1507,9 +1392,6 @@ Public Class RawDataWindow
         prclicked()
         Select Case motionchartsource
             Case 31
-                'losscardnamelabel.Content = "Top losses in analysis period"
-                'losscardnamelabel.Content =
-
                 stopclicked()
 
 
@@ -1530,27 +1412,6 @@ Public Class RawDataWindow
         End Select
 
 
-        sourcestringS = "file:///" & SERVER_FOLDER_PATH & "motion" & motionchartsource & "S.html"
-        MotionChartS.Source = New Uri(sourcestringS)
-
-        sourcestringD = "file:///" & SERVER_FOLDER_PATH & "motion" & motionchartsource & "D.html"
-        MotionChartD.Source = New Uri(sourcestringD)
-
-
-        sourcestringS = "file:///" & SERVER_FOLDER_PATH & "motion" & motionchartsource & "S_Weekly.html"
-        MotionChartS_Weekly.Source = New Uri(sourcestringS)
-
-        sourcestringD = "file:///" & SERVER_FOLDER_PATH & "motion" & motionchartsource & "D_Weekly.html"
-        MotionChartD_Weekly.Source = New Uri(sourcestringD)
-
-        sourcestringS = "file:///" & SERVER_FOLDER_PATH & "motion" & motionchartsource & "S_Monthly.html"
-        MotionChartS_Monthly.Source = New Uri(sourcestringS)
-
-        sourcestringD = "file:///" & SERVER_FOLDER_PATH & "motion" & motionchartsource & "D_MOnthly.html"
-        MotionChartD_Monthly.Source = New Uri(sourcestringD)
-
-
-
 
     End Sub
 
@@ -1558,13 +1419,6 @@ Public Class RawDataWindow
         stopsbutton.Opacity = 1.0
         prbutton.Opacity = 0.2
         mtbfbutton.Opacity = 0.2
-        MotionChartS.Visibility = Visibility.Visible
-        MotionChartD.Visibility = Visibility.Hidden
-        MotionChartD_Weekly.Visibility = Visibility.Hidden
-        MotionChartD_Monthly.Visibility = Visibility.Hidden
-        MotionChart_MTBF.Visibility = Visibility.Hidden
-        MotionChart_MTBF_Monthly.Visibility = Visibility.Hidden
-        MotionChart_MTBF_Weekly.Visibility = Visibility.Hidden
 
         IsSPDActive = True
         ISDTActive = False
@@ -1584,13 +1438,6 @@ Public Class RawDataWindow
         stopsbutton.Opacity = 0.2
         prbutton.Opacity = 1.0
         mtbfbutton.Opacity = 0.2
-        MotionChartD.Visibility = Visibility.Visible
-        MotionChartS.Visibility = Visibility.Hidden
-        MotionChartS_Weekly.Visibility = Visibility.Hidden
-        MotionChartS_Monthly.Visibility = Visibility.Hidden
-        MotionChart_MTBF.Visibility = Visibility.Hidden
-        MotionChart_MTBF_Monthly.Visibility = Visibility.Hidden
-        MotionChart_MTBF_Weekly.Visibility = Visibility.Hidden
         IsSPDActive = False
         ISDTActive = True
         ISMTBFActive = False
@@ -1609,13 +1456,7 @@ Public Class RawDataWindow
         stopsbutton.Opacity = 0.2
         prbutton.Opacity = 0.2
         mtbfbutton.Opacity = 1.0
-        MotionChartD.Visibility = Visibility.Hidden
-        MotionChartS.Visibility = Visibility.Hidden
-        MotionChartS_Weekly.Visibility = Visibility.Hidden
-        MotionChartS_Monthly.Visibility = Visibility.Hidden
-        MotionChart_MTBF.Visibility = Visibility.Visible
-        MotionChart_MTBF_Monthly.Visibility = Visibility.Hidden
-        MotionChart_MTBF_Weekly.Visibility = Visibility.Hidden
+
         IsSPDActive = False
         ISDTActive = False
         ISMTBFActive = True
@@ -1644,23 +1485,6 @@ Public Class RawDataWindow
         Monthlybtn.Background = mybrushdarkgray
 
 
-        If IsSPDActive Then
-
-            MotionChartS.Visibility = Visibility.Visible
-            MotionChartS_Weekly.Visibility = Visibility.Hidden
-            MotionChartS_Monthly.Visibility = Visibility.Hidden
-
-        ElseIf ISDTActive Then
-            MotionChartD.Visibility = Visibility.Visible
-            MotionChartD_Weekly.Visibility = Visibility.Hidden
-            MotionChartD_Monthly.Visibility = Visibility.Hidden
-        ElseIf ISMTBFActive Then
-            MotionChart_MTBF.Visibility = Visibility.Visible
-            MotionChart_MTBF_Weekly.Visibility = Visibility.Hidden
-            MotionChart_MTBF_Monthly.Visibility = Visibility.Hidden
-
-        End If
-
         If GoTime Then
             TrendTime = TrendTimeEnum.Day
             LaunchtrendsinRawDataWindow()
@@ -1674,23 +1498,6 @@ Public Class RawDataWindow
         Weeklybtn.Background = mybrushbrightorange
         Monthlybtn.Background = mybrushdarkgray
 
-        If IsSPDActive Then
-
-            MotionChartS.Visibility = Visibility.Hidden
-            MotionChartS_Weekly.Visibility = Visibility.Visible
-            MotionChartS_Monthly.Visibility = Visibility.Hidden
-
-
-        ElseIf ISDTActive Then
-            MotionChartD.Visibility = Visibility.Hidden
-            MotionChartD_Weekly.Visibility = Visibility.Visible
-            MotionChartD_Monthly.Visibility = Visibility.Hidden
-        ElseIf ISMTBFActive Then
-            MotionChart_MTBF.Visibility = Visibility.Hidden
-            MotionChart_MTBF_Weekly.Visibility = Visibility.Visible
-            MotionChart_MTBF_Monthly.Visibility = Visibility.Hidden
-        End If
-
         If GoTime Then
             TrendTime = TrendTimeEnum.Week
             LaunchtrendsinRawDataWindow()
@@ -1702,22 +1509,7 @@ Public Class RawDataWindow
         Weeklybtn.Background = mybrushdarkgray
         Monthlybtn.Background = mybrushbrightorange
 
-        If IsSPDActive Then
 
-            MotionChartS.Visibility = Visibility.Hidden
-            MotionChartS_Weekly.Visibility = Visibility.Hidden
-            MotionChartS_Monthly.Visibility = Visibility.Visible
-
-
-        ElseIf ISDTActive Then
-            MotionChartD.Visibility = Visibility.Hidden
-            MotionChartD_Weekly.Visibility = Visibility.Hidden
-            MotionChartD_Monthly.Visibility = Visibility.Visible
-        ElseIf ISMTBFActive Then
-            MotionChart_MTBF.Visibility = Visibility.Hidden
-            MotionChart_MTBF_Weekly.Visibility = Visibility.Hidden
-            MotionChart_MTBF_Monthly.Visibility = Visibility.Visible
-        End If
 
         If GoTime Then
             TrendTime = TrendTimeEnum.Month
@@ -1732,7 +1524,6 @@ Public Class RawDataWindow
         If TrendSelection_General.IsChecked = True Then
             IsSShapeActive = False
             SetGeneralTrendsButtonNames()
-            SetGeneralTrendsDefaultSource()
             Dailybtn.Visibility = Visibility.Visible
             Monthlybtn.Visibility = Visibility.Visible
             Weeklybtn.Visibility = Visibility.Visible
@@ -1742,7 +1533,6 @@ Public Class RawDataWindow
             SetSShapeButtonNames()
             prclicked()
             losscardnamelabel.Content = TitleLabel.Content & ": S-Shape Growth Trends"
-            SetSShapeTrendsDefaultSource()
             Dailybtn.Visibility = Visibility.Hidden
             Monthlybtn.Visibility = Visibility.Hidden
             Weeklybtn.Visibility = Visibility.Hidden

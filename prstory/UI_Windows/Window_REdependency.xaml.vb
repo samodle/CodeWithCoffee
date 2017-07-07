@@ -30,8 +30,8 @@ Public Class Window_REdependency
             _ActiveDataCollection.Add(New dependencyEvent(depArr(i, 1), depArr(i, 1), depArr(i, 0), depArr(i, 3), depArr(i, 4), depArr(i, 5), depArr(i, 6), depArr(i, 7), depArr(i, 8)))
         Next
 
-        Dim DependencyHTMLthread As New Thread(AddressOf HTML_exportBubbleREDEP)
-        DependencyHTMLthread.Start()
+        ' Dim DependencyHTMLthread As New Thread(AddressOf HTML_exportBubbleREDEP)
+        ' DependencyHTMLthread.Start()
     End Sub
 
 #Region "Column Sorting"

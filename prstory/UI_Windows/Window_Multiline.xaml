@@ -102,9 +102,11 @@
                         </Rectangle.RenderTransform>
                     </Rectangle>
                     <Canvas x:Name="ChartsCanvas" Visibility="visible" Height="513" Canvas.Left="297" Canvas.Top="25" Width="922" Background="White">
-                        <awe:WebControl x:Name="SummaryChart"  Source="file:///C:/Users/Public/prstory/html/MultilineSummary.html" Canvas.Left="10" Canvas.Top="54" Width="892" Height="449" BorderBrush="#FFC3C3C3" BorderThickness="1"/>
+                        <telerik:RadCartesianChart x:Name="SummaryChart" Canvas.Left="10" Canvas.Top="54" Width="892" Height="449" BorderBrush="#FFC3C3C3" BorderThickness="1" />
+                        <telerik:RadCartesianChart x:Name="ByLossAreaChart" Canvas.Left="10" Canvas.Top="54" Width="892" Height="449" BorderBrush="#FFC3C3C3" BorderThickness="1" Visibility="Hidden" />
+                   <!--     <awe:WebControl x:Name="SummaryChart"  Source="file:///C:/Users/Public/prstory/html/MultilineSummary.html" Canvas.Left="10" Canvas.Top="54" Width="892" Height="449" BorderBrush="#FFC3C3C3" BorderThickness="1"/>
                         <awe:WebControl x:Name="ByLossAreaChart"  Source="file:///C:/Users/Public/prstory/html/MultilineByLossArea.html" Canvas.Left="10" Canvas.Top="54" Width="892" Height="449" BorderBrush="#FFC3C3C3" BorderThickness="1" Visibility="Hidden" />
-
+-->
                         <Label x:Name="SummaryChartbtn" Content="Overview" Canvas.Left="13" Canvas.Top="10" Width="141" Height="39" Background="#FF68DDFF" Foreground="White" FontFamily="Segoe UI Light" FontSize="16" Padding="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Cursor="Hand" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" MouseDown="ShowSummaryCharts" ToolTip="Overall line results such as PR/Av, PDT, UPDT, MTBF, Stops per day. Click on the legend to show/hide results." ToolTipService.InitialShowDelay="0"/>
                         <Label x:Name="ByLossAreaChartbtn" Content="Loss Comparison" Canvas.Left="168" Canvas.Top="10" Width="141" Height="39" Background="#FFFFA097" Foreground="White" FontFamily="Segoe UI Light" FontSize="16" Padding="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Cursor="Hand" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" MouseDown="ShowByLossAreaCharts" ToolTip="Failure modes or equipment loss comparison by DT%, MTBF, Stops per day, MTTR. Click on the legend to show/hide results" ToolTipService.InitialShowDelay="0"/>
 
@@ -153,8 +155,12 @@
 
                     <Canvas x:Name="Rollupsplashcanvas"  Height="520" Canvas.Left="295" Width="927" Canvas.Top="22" Visibility="Hidden"  >
                         <Rectangle x:Name="Rollupsplashrectangle" Fill="#FF3A3A3A" Height="520" Width="927" Opacity="0.7"  MouseDown="CloseRollupSplashCanvas"/>
+                        <telerik:RadCartesianChart x:Name="RollupChart1"  Canvas.Left="10" Canvas.Top="11" Height="499" Width="907"/>
+                        <telerik:RadCartesianChart x:Name="RollupChart2"  Canvas.Left="10" Canvas.Top="11" Height="499" Width="907" Visibility="Hidden"/>
+<!--
                         <awe:WebControl x:Name="RollupChart1" Source="file:///C:/Users/Public/prstory/html/Multiline_RollupChart1.html"  Canvas.Left="10" Canvas.Top="11" Height="499" Width="907"/>
                         <awe:WebControl x:Name="RollupChart2" Source="file:///C:/Users/Public/prstory/html/Multiline_RollupChart2.html"  Canvas.Left="10" Canvas.Top="11" Height="499" Width="907" Visibility="Hidden"/>
+                    -->   
                         <Image x:Name="Rollupsplashcanvasclosebtn" Height="24" Canvas.Left="897" Canvas.Top="3" Width="30" Source="/img/Losebutton.png" Cursor="Hand" MouseDown="CloseRollupSplashCanvas" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave"/>
                         <RadioButton x:Name="DTpctradio" GroupName="RollupChartsradio"  Content="DT%" Canvas.Left="27" Canvas.Top="26" IsChecked="True" Checked="Rollupradiochecked" Cursor="Hand" Width="63" Foreground="#FF666666" FontFamily="Segoe UI Light" FontSize="13.333"/>
                         <RadioButton x:Name="SPDradio" GroupName="RollupChartsradio"  Content="Stops per day" Canvas.Left="95" Canvas.Top="26"  Checked="Rollupradiochecked" Cursor="Hand" Foreground="#FF666666" FontFamily="Segoe UI Light" FontSize="13.333" Width="113"/>

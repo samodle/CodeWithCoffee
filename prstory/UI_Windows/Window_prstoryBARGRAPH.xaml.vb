@@ -908,6 +908,16 @@ Public Class bargraphreportwindow
 
     Public Shared mybrushverylightgray_forcardbackground As New SolidColorBrush(Windows.Media.Color.FromRgb(248, 248, 248))
 
+    Public multilineGroups As List(Of ProductionLineGroup)
+    Private Sub LaunchMultiLineWindow()
+
+
+        Dim multilinewindow As New Window_MultiLine
+        multilinewindow.InitializeMultilineGroups(multilineGroups)
+        multilinewindow.Owner = Me
+        Me.Visibility = Visibility.Hidden
+        multilinewindow.Show()
+    End Sub
 
     Public Sub LaunchMenu(sender As Object, e As MouseButtonEventArgs)
         MenuCanvas.Visibility = Visibility.Visible
@@ -935,14 +945,14 @@ Public Class bargraphreportwindow
             menuitem = Convert.ToInt32(GlobalFcns.onlyDigits(tempsender.Name))
             If menuitem <> -1 Then
 
-                getMenuItem_Label_fromitemindex(getMenuItem_Canvas_fromitemindex(Menu_InternalInfiniteCanvas, -1, "", "Menu" + menuitem), -1, "", "Menu" + menuitem + "Label").Foreground = Media.Brushes.Orange
-                getMenuItem_Canvas_fromitemindex(Menu_InternalInfiniteCanvas, -1, "", "Menu" + menuitem).Background = mybrushverylightgray_forcardbackground
+                getMenuItem_Label_fromitemindex(getMenuItem_Canvas_fromitemindex(Menu_InternalInfiniteCanvas, -1, "", "Menu" & menuitem), -1, "", "Menu" & menuitem & "Label").Foreground = Media.Brushes.Orange
+                getMenuItem_Canvas_fromitemindex(Menu_InternalInfiniteCanvas, -1, "", "Menu" & menuitem).Background = mybrushverylightgray_forcardbackground
             End If
         ElseIf sender.[GetType]().ToString().IndexOf("Label") > -1 Then
             Dim tempsender As Label = DirectCast(sender, Label)
             menuitem = Convert.ToInt32(GlobalFcns.onlyDigits(tempsender.Name))
             tempsender.Foreground = Media.Brushes.Orange
-            getMenuItem_Canvas_fromitemindex(Menu_InternalInfiniteCanvas, -1, "", "Menu" + menuitem).Background = mybrushverylightgray_forcardbackground
+            getMenuItem_Canvas_fromitemindex(Menu_InternalInfiniteCanvas, -1, "", "Menu" & menuitem).Background = mybrushverylightgray_forcardbackground
         End If
     End Sub
     Public Sub Menuitemmouseleave(sender As Object, e As MouseEventArgs)
@@ -953,8 +963,8 @@ Public Class bargraphreportwindow
             If menuitem <> Menuitemclicked_number Then
                 If menuitem <> -1 Then
 
-                    getMenuItem_Label_fromitemindex(getMenuItem_Canvas_fromitemindex(Menu_InternalInfiniteCanvas, -1, "", "Menu" + menuitem), -1, "", "Menu" + menuitem + "Label").Foreground = BrushColors.mybrushfontgray
-                    getMenuItem_Canvas_fromitemindex(Menu_InternalInfiniteCanvas, -1, "", "Menu" + menuitem).Background = Media.Brushes.White
+                    getMenuItem_Label_fromitemindex(getMenuItem_Canvas_fromitemindex(Menu_InternalInfiniteCanvas, -1, "", "Menu" & menuitem), -1, "", "Menu" & menuitem & "Label").Foreground = BrushColors.mybrushfontgray
+                    getMenuItem_Canvas_fromitemindex(Menu_InternalInfiniteCanvas, -1, "", "Menu" & menuitem).Background = Media.Brushes.White
                 End If
 
             End If
@@ -964,7 +974,7 @@ Public Class bargraphreportwindow
             If menuitem <> Menuitemclicked_number Then
                 tempsender.Foreground = BrushColors.mybrushfontgray
                 '  getMenuItem_Image_fromitemindex(Menu_InternalInfiniteCanvas, menuitem);
-                getMenuItem_Canvas_fromitemindex(Menu_InternalInfiniteCanvas, -1, "", "Menu" + menuitem).Background = Media.Brushes.White
+                getMenuItem_Canvas_fromitemindex(Menu_InternalInfiniteCanvas, -1, "", "Menu" & menuitem).Background = Media.Brushes.White
             End If
         End If
     End Sub
@@ -1010,11 +1020,11 @@ Public Class bargraphreportwindow
         Menu5.Background = Media.Brushes.White
         Menu5Label.Foreground = BrushColors.mybrushfontgray
 
-        Menu6.Background = Media.Brushes.White
-        Menu6Label.Foreground = BrushColors.mybrushfontgray
+        'Menu6.Background = Media.Brushes.White
+        'Menu6Label.Foreground = BrushColors.mybrushfontgray
 
-        Menu7.Background = Media.Brushes.White
-        Menu7Label.Foreground = BrushColors.mybrushfontgray
+        'Menu7.Background = Media.Brushes.White
+        'Menu7Label.Foreground = BrushColors.mybrushfontgray
 
         '     Menu8.Background = Media.Brushes.White
         '    Menu8Label.Foreground = BrushColors.mybrushfontgray
@@ -5657,7 +5667,7 @@ skiptargetfor:
         '  End If
 
         MappingTextLabel.Visibility = Visibility.Hidden
-        WeibullTextLabel.Visibility = Visibility.Hidden
+        'WeibullTextLabel.Visibility = Visibility.Hidden
         MRIdemoTextLabel.Visibility = Visibility.Hidden
 
         ExportTextLabel.Visibility = Visibility.Hidden
@@ -5666,9 +5676,9 @@ skiptargetfor:
 
         exportdataMenuButton.Visibility = Visibility.Hidden
 
-        LaunchDataDRbutton.Visibility = Visibility.Hidden
-        WeibullLaunchButton.Visibility = Visibility.Hidden
-        LiveLineLaunchButton.Visibility = Visibility.Hidden
+        'LaunchDataDRbutton.Visibility = Visibility.Hidden
+        'WeibullLaunchButton.Visibility = Visibility.Hidden
+        'LiveLineLaunchButton.Visibility = Visibility.Hidden
         DependencyLaunchButton.Visibility = Visibility.Hidden
         SKUlistbox.Visibility = Visibility.Hidden
         SKUfilterCancelbutton.Visibility = Visibility.Hidden
@@ -5700,12 +5710,12 @@ skiptargetfor:
         SplashRectangle.Visibility = Visibility.Visible
 
         MappingTextLabel.Visibility = Visibility.Visible
-        WeibullTextLabel.Visibility = Visibility.Visible
+        'WeibullTextLabel.Visibility = Visibility.Visible
         ExportTextLabel.Visibility = Visibility.Visible
 
         MappingIconLabel.Visibility = Visibility.Visible
         exportdataMenuButton.Visibility = Visibility.Visible
-        WeibullLaunchButton.Visibility = Visibility.Visible
+        'WeibullLaunchButton.Visibility = Visibility.Visible
         LiveLineLaunchButton.Visibility = Visibility.Visible
     End Sub
 
@@ -5999,7 +6009,7 @@ Forms.MessageBoxDefaultButton.Button1)
         Try
             ExportLossAllocationtoExcel()
         Catch e As Exception
-            showDefaultErrorMessage("Excel Export Error: " + e.Message)
+            showDefaultErrorMessage("Excel Export Error: " & e.Message)
         End Try
     End Sub
     Sub DownloadLossTree2()
@@ -6007,7 +6017,7 @@ Forms.MessageBoxDefaultButton.Button1)
         Try
             ExportLossAllocationtoExcel2()
         Catch e As Exception
-            showDefaultErrorMessage("CSV Export Error: " + e.Message)
+            showDefaultErrorMessage("CSV Export Error: " & e.Message)
         End Try
     End Sub
     Sub DownloadDowntime()
@@ -8038,7 +8048,7 @@ Err_Handler:
             End If
 
         Catch ex As Exception
-            MessageBox.Show(".CSV Export Failed. " + ex.Message)
+            MessageBox.Show(".CSV Export Failed. " & ex.Message)
 
         End Try
 
@@ -8427,7 +8437,7 @@ Err_Handler:
             appXL = Nothing
 
         Catch ex As Exception
-            MessageBox.Show("Excel Export Failred. " + ex.Message)
+            MessageBox.Show("Excel Export Failred. " & ex.Message)
         End Try
 
 

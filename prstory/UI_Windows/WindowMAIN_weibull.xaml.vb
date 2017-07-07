@@ -252,10 +252,8 @@ Public Class Window_Weibull
             End If
         Next
 
-        ' CreateSurvivalPlot(survivalchartstring)
-
         CreateSurvivalPlot_AMCHarts(survivaltable, actualListsize_ofselectedfailuremodeList, selectedfailuremodeList)
-        weibullplot.Reload(ignoreCache:=True)
+
     End Sub
     
     Private Function CountUptime(uptimegroup As Double) As Integer
@@ -263,12 +261,8 @@ Public Class Window_Weibull
         Dim i As Integer
 
         For i = 0 To AllProdLines(selectedindexofLine_temp).rawDowntimeData.UnplannedData.Count - 1 'AllProductionLines(selectedindexofLine_temp).rawProficyData.GetLength(1) - 1
-            '   If IsDBNull(AllProductionLines(selectedindexofLine_temp).rawProficyData(12, i)) = False Then
-            'If InStr(AllProductionLines(selectedindexofLine_temp).rawProficyData(12, i), "PR In", vbTextCompare) > 0 Then
             If AllProdLines(selectedindexofLine_temp).rawDowntimeData.UnplannedData(i).UT <= uptimegroup Then ' If AllProductionLines(selectedindexofLine_temp).rawProficyData(3, i) <= uptimegroup Then
                 CountUptime = CountUptime + 1
-                'End If
-                '  End If
             End If
 
 

@@ -1,4 +1,4 @@
-﻿<Window
+﻿<Window xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:awe="http://schemas.awesomium.com/winfx" x:Class="Window_Weibull"
@@ -9,7 +9,8 @@
             <Label Content="Competing Cause Analysis" HorizontalAlignment="Left" Margin="196,15,0,0" VerticalAlignment="Top" Width="460" FontSize="15" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Lucida Sans" Padding="1" FontWeight="Bold"/>
             <Label x:Name="LineName" Content="Survival Analysis" HorizontalAlignment="Left" Margin="323,48,0,0" VerticalAlignment="Top" Width="209" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Lucida Sans" Padding="1" BorderBrush="#FF979797" BorderThickness="1"/>
 
-            <awe:WebControl x:Name="weibullplot" Source="file:///C:/Users/Public/prstory/html/weibull.html" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.RowSpan="2" Height="567" Canvas.Left="10" Canvas.Top="76" Width="1050"/>
+            <telerik:RadCartesianChart  x:Name="weibullplot" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.RowSpan="2" Height="567" Canvas.Left="10" Canvas.Top="76" Width="1050"/>
+          <!--  <awe:WebControl x:Name="weibullplot" Source="file:///C:/Users/Public/prstory/html/weibull.html" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.RowSpan="2" Height="567" Canvas.Left="10" Canvas.Top="76" Width="1050"/> -->
             <Label x:Name="RefreshButton1" Content="Show Total Line Survival Only" HorizontalAlignment="Left" VerticalAlignment="Top" Width="146" VerticalContentAlignment="Center" FontFamily="Lucida Sans" Padding="1" BorderThickness="1" FontSize="9" Height="28" Foreground="White" MouseDown="weibull_loaded" Cursor="Hand" HorizontalContentAlignment="Center" Background="#FF78D48D" MouseMove="Generalmouseleave" MouseLeave="Generalmouseleave" Canvas.Left="909" Canvas.Top="48"/>
 
 

@@ -30,6 +30,9 @@
                     </Grid.ColumnDefinitions>
                     <Image x:Name="prstory_Main_icon"  HorizontalAlignment="Left" Height="42" Margin="344,0,0,0" VerticalAlignment="Top" Width="178" Source="/img/lossstory icon.png" RenderTransformOrigin="0.196,0.468" Grid.Column="1" />
 
+           
+
+
                     <Viewbox x:Name="DTviewbox" Visibility="Hidden" Grid.ColumnSpan="4" Margin="0,2,10,8" Grid.RowSpan="4">
 
                         <Canvas x:Name="maincanvas" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="552" Margin="10,114,0,0" VerticalAlignment="Top" Width="1167" Background="#FFEBEBEB" ForceCursor="True" Grid.RowSpan="4">
@@ -1917,80 +1920,11 @@
                    
                     
                     <Canvas x:Name="MenuCanvasA" HorizontalAlignment="Left" Height="47" Margin="14,7,0,0" VerticalAlignment="Top" Width="157">
-                        <Label x:Name="MenuLabel" Content="More tools" Width="69" Height="37" Foreground="#FF969696" FontFamily="Segoe UI Light" VerticalContentAlignment="Center" BorderThickness="1" Background="White" Padding="2" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center" MouseDown="LaunchMenu" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" Cursor="Hand" Canvas.Left="19" Visibility="Hidden"/>
-                        <Image x:Name="MenuIcon" Height="10" Canvas.Left="2" Width="16" Source="/img/menu1.png" Canvas.Top="14" StretchDirection="DownOnly" Stretch="Fill" MouseDown="LaunchMenu" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" Cursor="Hand" Visibility="Hidden"/>
-                        <Image x:Name="MenuIcon_Copy" Height="10" Canvas.Left="190" Width="16" Source="/img/menu1.png" Canvas.Top="14" StretchDirection="DownOnly" Stretch="Fill" MouseDown="showerrorsplashpage" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" Cursor="Hand" Visibility="Hidden" />
                         <Image x:Name="MenuButton_MenuIcon" Height="23" Canvas.Left="4" Width="23" Source="/prStory;component/img/menu icon grid.png" Canvas.Top="6" StretchDirection="DownOnly" Stretch="Fill" Visibility="Visible" Cursor="Hand" MouseMove="Generalmousemove" MouseLeave="GeneralMouseLeave" MouseDown="LaunchMenu" ToolTip="More tools and features" ToolTipService.InitialShowDelay="0"/>
                         <Label x:Name="MenuButton_MenuLabel" Content="Menu" Canvas.Top="29" Foreground="#FF969696" FontSize="9" FontFamily="Segoe UI Light" Padding="0" Cursor="Hand" MouseMove="Generalmousemove" MouseLeave="GeneralMouseLeave" MouseDown="LaunchMenu" ToolTip="More tools and features" ToolTipService.InitialShowDelay="0" Canvas.Left="5"/>
-                        <Image x:Name="TrendsButton_MenuIcon0" Height="23" Canvas.Left="40" Width="23" Source="/prStory;component/img/trends chart icon.png" Canvas.Top="6" StretchDirection="DownOnly" Stretch="Fill" MouseDown="LaunchTrends" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" Cursor="Hand" Visibility="Visible" ToolTip="Explore PR, Stops and Downtime trends over time." ToolTipService.InitialShowDelay="0"/>
-                        <Label x:Name="TrendsButton_MenuLabel0" Content="Trends" Canvas.Left="38" Canvas.Top="29" Foreground="#FF969696" FontSize="9" FontFamily="Segoe UI Light" Padding="0" Cursor="Hand" MouseMove="Generalmousemove" MouseLeave="GeneralMouseLeave"  ToolTip="Explore PR, Stops and Downtime trends over time." ToolTipService.InitialShowDelay="0"/>
-                        <Image x:Name="OverviewButton_MenuIcon" Height="23" Canvas.Left="76" Width="23" Source="/prStory;component/img/Overview icon.png" Canvas.Top="6" StretchDirection="DownOnly" Stretch="Fill"  MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" Cursor="Hand" Visibility="Visible"/>
-                        <Label x:Name="OverviewButton_MenuLabel" Content="Summary" Canvas.Left="71" Canvas.Top="29" Foreground="#FF969696" FontSize="9" FontFamily="Segoe UI Light" Padding="0"/>
-
-
                     </Canvas>
 
-                    <Canvas x:Name="MenuCanvas" Visibility="Visible"
-                    Margin="0,0,938,-4" RenderTransformOrigin="1,0"  Grid.ColumnSpan="2"
-                    >
-                        <Rectangle x:Name="MenuSplashRectangle"  Height="663" Width="1250" Fill="#FF1F1F1F" Opacity="0.5" MouseDown="CloseMenu"/>
-                        <Rectangle x:Name="MenuMainRectangle"  Height="663" Width="305" Fill="White"/>
-
-                        <Image x:Name="MenuHeaderImage_bg" Height="134" Width="310" Source="/img/ExporttoExcel.png" Canvas.Left="-3" Visibility="Hidden" Opacity="0.93"/>
-                        <Image x:Name="Menuheaderimage_logo" Height="91" Width="263" Visibility="Visible" Source="/img/lossstory icon.png" Opacity="1" Canvas.Top="24" Canvas.Left="18"/>
-                        <Image x:Name="MenuClosebutton" Height="19" Canvas.Left="4" Canvas.Top="5" Width="27" Source="/img/ExporttoExcel.png" Cursor="Hand" MouseDown="CloseMenu" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave"/>
-                        <Canvas x:Name="Menu_InternalInfiniteCanvas" Height="455" Canvas.Top="139" Width="307">
-
-
-                            <Canvas x:Name="Menu1"  Height="44"   Width="305" >
-                                <Image x:Name="Menu1Image" Height="34" Width="54" Source="/img/ExporttoExcel.png" Cursor="Hand"  Canvas.Left="5" Canvas.Top="2" MouseMove="Menuitemmousemove" MouseLeave="Menuitemmouseleave" MouseDown="Menuitemclicked"/>
-                                <Label x:Name="Menu1Label" Content="Loss Compass" Canvas.Left="59" Height="44" Width="246" Foreground="#FF666666" FontSize="18.667" FontFamily="Segoe UI Light" VerticalContentAlignment="Center" MouseMove="Menuitemmousemove" MouseLeave="Menuitemmouseleave" MouseDown="Menuitemclicked" Cursor="Hand"/>
-                            </Canvas>
-
-                            <Canvas x:Name="Menu2"  Height="44" Canvas.Top="50" Width="305"   >
-                                <Image x:Name="Menu2Image" Height="34" Width="42" Source="/img/ExporttoExcel.png" Cursor="Hand"  Canvas.Left="10" Canvas.Top="3" MouseMove="Menuitemmousemove" MouseLeave="Menuitemmouseleave" MouseDown="Menuitemclicked"/>
-                                <Label x:Name="Menu2Label" Content="inControl" Canvas.Left="59" Height="44" Width="246" Foreground="#FF666666" FontSize="18.667" FontFamily="Segoe UI Light" VerticalContentAlignment="Center" MouseMove="Menuitemmousemove" MouseLeave="Menuitemmouseleave" MouseDown="Menuitemclicked" Cursor="Hand"/>
-                            </Canvas>
-
-                            <Canvas x:Name="Menu3"  Height="44" Canvas.Top="100" Width="305"   >
-                                <Image x:Name="Menu3Image" Height="36" Width="54" Source="/img/ExporttoExcel.png" Cursor="Hand" Canvas.Top="4" MouseMove="Menuitemmousemove" MouseLeave="Menuitemmouseleave" MouseDown="Menuitemclicked" Canvas.Left="5"/>
-                                <Label x:Name="Menu3Label" Content="Trends" Canvas.Left="59" Height="44" Width="246" Foreground="#FF666666" FontSize="18.667" FontFamily="Segoe UI Light" VerticalContentAlignment="Center" MouseMove="Menuitemmousemove" MouseLeave="Menuitemmouseleave" MouseDown="Menuitemclicked" Cursor="Hand"/>
-                            </Canvas>
-                            <Canvas x:Name="Menu4"  Height="44" Canvas.Top="150" Width="305"   >
-                                <Image x:Name="Menu4Image" Height="36" Width="54" Source="/img/ExporttoExcel.png" Cursor="Hand" Canvas.Top="4" MouseMove="Menuitemmousemove" MouseLeave="Menuitemmouseleave" MouseDown="Menuitemclicked" Canvas.Left="5"/>
-                                <Label x:Name="Menu4Label" Content="Pit Stop" Canvas.Left="59" Height="44" Width="246" Foreground="#FF666666" FontSize="18.667" FontFamily="Segoe UI Light" VerticalContentAlignment="Center" MouseMove="Menuitemmousemove" MouseLeave="Menuitemmouseleave" MouseDown="Menuitemclicked" Cursor="Hand"/>
-                            </Canvas>
-                            <Canvas x:Name="Menu5"  Height="44" Canvas.Top="200" Width="305"  >
-                                <Image x:Name="Menu5Image" Height="36" Width="54" Source="/img/StopsWatch.png" Cursor="Hand" Canvas.Top="4" MouseMove="Menuitemmousemove" MouseLeave="Menuitemmouseleave" MouseDown="Menuitemclicked" Canvas.Left="5"/>
-                                <Label x:Name="Menu5Label" Content="Stops Watch" Canvas.Left="59" Height="44" Width="246" Foreground="#FF666666" FontSize="18.667" FontFamily="Segoe UI Light" VerticalContentAlignment="Center" MouseMove="Menuitemmousemove" MouseLeave="Menuitemmouseleave" MouseDown="Menuitemclicked" Cursor="Hand"/>
-                            </Canvas>
-                            <Canvas x:Name="Menu6"  Height="44" Canvas.Top="250" Width="305"   >
-                                <Image x:Name="Menu6Image" Height="36" Width="54" Source="/img/ExporttoExcel.png" Cursor="Hand" Canvas.Top="4" MouseMove="Menuitemmousemove" MouseLeave="Menuitemmouseleave" MouseDown="Menuitemclicked" Canvas.Left="5"/>
-                                <Label x:Name="Menu6Label" Content="Dependency" Canvas.Left="59" Height="44" Width="246" Foreground="#FF666666" FontSize="18.667" FontFamily="Segoe UI Light" VerticalContentAlignment="Center" MouseMove="Menuitemmousemove" MouseLeave="Menuitemmouseleave" MouseDown="Menuitemclicked" Cursor="Hand"/>
-                            </Canvas>
-                            <Canvas x:Name="Menu7"  Height="44" Canvas.Top="300" Width="305"   >
-                                <Image x:Name="Menu7Image" Height="36" Width="54" Source="/img/ExporttoExcel.png" Cursor="Hand" Canvas.Top="4" MouseMove="Menuitemmousemove" MouseLeave="Menuitemmouseleave" MouseDown="Menuitemclicked" Canvas.Left="5"/>
-                                <Label x:Name="Menu7Label" Content="Live Line" Canvas.Left="59" Height="44" Width="246" Foreground="#FF666666" FontSize="18.667" FontFamily="Segoe UI Light" VerticalContentAlignment="Center" MouseMove="Menuitemmousemove" MouseLeave="Menuitemmouseleave" MouseDown="Menuitemclicked" Cursor="Hand"/>
-                            </Canvas>
-
- 
-                        </Canvas>
-                        <Separator x:Name="MenuSeperator"  Height="11" Margin="0" Canvas.Top="593" Width="305" Background="#FFF0F0F0"/>
-                        <Canvas Height="49" Canvas.Top="609" Width="305" Background="White">
-                            <Image x:Name="Canvasimage" Height="31" Width="49" Source="/img/ExporttoExcel.png" Canvas.Left="204" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave"  Canvas.Top="-3" />
-                            <Image x:Name="Shieldimage" Height="31" Width="50" Source="/img/ExporttoExcel.png" Canvas.Left="47" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" Canvas.Top="-3" />
-                            <Image x:Name="Profileimage" Height="31" Width="50" Source="/img/ExporttoExcel.png" Canvas.Left="124" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" Canvas.Top="-3"/>
-                            <Label x:Name="CanvasMenuItemHeader" Content="Canvas" Canvas.Left="196" Canvas.Top="29" Height="16" Foreground="#FF5A5A5A" Padding="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Segoe UI Light" Width="65"/>
-                            <Label x:Name="ShieldMenuItemHeader" Content="Settings" Canvas.Left="38" Canvas.Top="29" Height="16" Foreground="#FF5A5A5A" Padding="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Segoe UI Light" Width="65" />
-                            <Label x:Name="ProfileMenuItemHeader" Content="Profile" Canvas.Left="117" Canvas.Top="29" Height="16" Foreground="#FF5A5A5A" Padding="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Segoe UI Light" Width="65"/>
-
-
-                        </Canvas>
-                    </Canvas>
-
-
-
-
+                
                     <Canvas x:Name="DateCanvas" HorizontalAlignment="Left" Height="52" Margin="830,7,0,0" VerticalAlignment="Top" Width="169" Grid.Column="1">
                         <Label x:Name="MainDateLabel" Width="134" Height="47" Foreground="#FF858585" FontFamily="Segoe UI" VerticalContentAlignment="Center" FontSize="11" BorderThickness="1" Background="White" Padding="2" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Right" Canvas.Left="-4">
 
@@ -2008,11 +1942,8 @@
 
 
                         <Image x:Name="ExportReasonTreetoExcel" MouseDown="ExportLossAllocationtoExcel" Cursor="Hand" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" Source="/img/ExporttoExcel.png" Height="32" Width="42" Canvas.Left="-67" Canvas.Top="-2" ToolTip="Export loss tree to Excel" Visibility="Hidden"  />
-
-                        <Image x:Name="DataDoctorLaunchIcon" Source="/img/DataDoctorsansborders.png" Height="40" Width="22" Canvas.Left="-157" Canvas.Top="-9" Cursor="Hand" MouseDown="LaunchDataDoctorWindow" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" Visibility="Hidden"/>
-                        <Label x:Name="DataDoctorHeaderLabel" Content="Data Doctor" FontSize="7.5" FontFamily="Segoe UI Light" Height="18" Canvas.Top="19" Canvas.Left="-172"  MouseDown="LaunchDataDoctorWindow" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" Visibility="Hidden" />
-                        <Image x:Name="TeamResultslaunchicon" Source="/img/teamworksmallicon.png" Height="45" Width="30" Canvas.Left="-93" Canvas.Top="-14" Cursor="Hand" MouseDown="LaunchTeamResults" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" ToolTip="See team results side by side"/>
-                        <Image x:Name="TeamResultsHeaderLabel"  Height="18" Canvas.Top="20" Canvas.Left="-109"  MouseDown="LaunchTeamResults" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" Cursor="Hand" ToolTip="See team results side by side" Width="64" Source="/img/teamworkonlytexticon.png"/>
+ <Image x:Name="TeamResultslaunchicon" Source="/img/teamworksmallicon.png" Height="45" Width="30" Canvas.Left="-93" Canvas.Top="-14" Cursor="Hand" MouseDown="LaunchMenu" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" ToolTip="See team results side by side"/>
+                        <Image x:Name="TeamResultsHeaderLabel"  Height="18" Canvas.Top="20" Canvas.Left="-109"  MouseDown="LaunchMenu" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" Cursor="Hand" ToolTip="See team results side by side" Width="64" Source="/img/teamworkonlytexticon.png"/>
 
                     </Canvas>
 
@@ -2123,12 +2054,13 @@
                         <Label x:Name="SKUListViewOK" Content="Ok" Canvas.Left="669" Canvas.Top="213" Width="208" Height="36" Foreground="#FF6C6C6C" FontFamily="Segoe UI Light" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" Cursor="Hand" Background="#FFEEEEEE" BorderBrush="#FF2C99C3" BorderThickness="2" MouseDown="okSKUListBox" Visibility="Hidden"/>
                         <Label x:Name="SKUListViewReset" Content="Clear Filter" Canvas.Left="877" Canvas.Top="213" Width="210" Height="36" Foreground="#FF6C6C6C" FontFamily="Segoe UI Light" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" Cursor="Hand" Background="#FFEEEEEE" BorderBrush="#FF2C99C3" BorderThickness="2" MouseDown="resetSKUListBox"/>
 
+                        <!--
                         <Label x:Name="WeibullTextLabel" Opacity="1" Visibility="Visible" Content="Competing Cause Analysis " Canvas.Left="292" Canvas.Top="350" Width="193" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" Cursor="Hand"  MouseDown="LaunchWeibull"/>
                         <Image x:Name="WeibullLaunchButton" Opacity="1" Visibility="Visible"  Canvas.Left="320" Canvas.Top="260" Width="122" Height="96"  HorizontalAlignment="Center" VerticalAlignment="Center"  MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" Cursor="Hand"  MouseDown="LaunchWeibull" Source="/img/competingcause_circle.png"/>
-
+-->
                         <Label x:Name="DependencyLaunchButton" Content="Dependency Analysis" Canvas.Left="521" Canvas.Top="457" Width="208" Height="36" Foreground="#FF6C6C6C" FontFamily="Segoe UI Light" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" Cursor="Hand" Background="#FFEEEEEE" BorderBrush="#FF2C99C3" BorderThickness="2" MouseDown="LaunchREDEP" Visibility="Hidden"/>
 
-                        <Label x:Name="LiveLineLaunchButton"  Opacity="1" Visibility="Visible" Content="Preview Our Newest Tool By Clicking Here!" Canvas.Left="449" Canvas.Top="492" Width="346" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" Cursor="Hand"  MouseDown="LiveLineLaunchButton_MouseDown"/>
+                        <Label x:Name="LiveLineLaunchButton"  Opacity="1" Visibility="Collapsed" Content="Preview Our Newest Tool By Clicking Here!" Canvas.Left="449" Canvas.Top="492" Width="346" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" Cursor="Hand"  MouseDown="LiveLineLaunchButton_MouseDown"/>
 
                         <local:Control_LiveLine x:Name="LiveLineControl" Visibility="Collapsed" />
 
@@ -2367,6 +2299,56 @@
                 </Ellipse>
                 <Label x:Name="incontrolMTBFminLabel" Content="300min" HorizontalAlignment="Left" Margin="80,417,0,0" VerticalAlignment="Top" Foreground="White" Height="36" Width="55" FontFamily="Segoe UI" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15"/>
                 <Label x:Name="incontrolMTBFlabel" Content="MTBF" HorizontalAlignment="Center" Margin="45,466.831,1014.5,186.169" VerticalAlignment="Center" Foreground="#FF747474" Height="24" Width="134.5" FontFamily="Segoe UI Light" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="1" UseLayoutRounding="False"/>
+
+                <Canvas x:Name="MenuCanvas" Visibility="Collapsed"
+                    Margin="0,0,938,-4" RenderTransformOrigin="1,0"  Grid.ColumnSpan="2">
+                    <Rectangle x:Name="MenuSplashRectangle"  Height="663" Width="1250" Fill="#FF1F1F1F" Opacity="0.5" MouseDown="CloseMenu"/>
+                    <Rectangle x:Name="MenuMainRectangle"  Height="663" Width="305" Fill="White"/>
+
+                    <Image x:Name="MenuHeaderImage_bg" Height="134" Width="310" Source="/img/ExporttoExcel.png" Canvas.Left="-3" Visibility="Hidden" Opacity="0.93"/>
+                    <Image x:Name="Menuheaderimage_logo" Height="91" Width="263" Visibility="Visible" Source="/img/lossstory icon.png" Opacity="1" Canvas.Top="24" Canvas.Left="18"/>
+                    <Image x:Name="MenuClosebutton" Height="19" Canvas.Left="4" Canvas.Top="5" Width="27" Source="/img/XBlack.png" Cursor="Hand" MouseDown="CloseMenu" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave"/>
+                    <Canvas x:Name="Menu_InternalInfiniteCanvas" Height="455" Canvas.Top="139" Width="307">
+
+
+                        <Canvas x:Name="Menu1"  Height="44"   Width="305" MouseDown="LaunchTrends">
+                            <Image x:Name="Menu1Image" Height="34" Width="54" Source="/img/trends chart icon.png" Cursor="Hand"  Canvas.Left="5" Canvas.Top="2" MouseMove="Menuitemmousemove" MouseLeave="Menuitemmouseleave" MouseDown="Menuitemclicked"/>
+                            <Label x:Name="Menu1Label" Content="Trends" Canvas.Left="59" Height="44" Width="246" Foreground="#FF666666" FontSize="18.667" FontFamily="Segoe UI Light" VerticalContentAlignment="Center" MouseMove="Menuitemmousemove" MouseLeave="Menuitemmouseleave" MouseDown="Menuitemclicked" Cursor="Hand"/>
+                        </Canvas>
+
+                        <Canvas x:Name="Menu2"  Height="44" Canvas.Top="50" Width="305" MouseDown="LaunchTeamResults"  >
+                            <Image x:Name="Menu2Image" Height="34" Width="42" Source="/img/teamworksmallicon.png" Cursor="Hand"  Canvas.Left="10" Canvas.Top="3" MouseMove="Menuitemmousemove" MouseLeave="Menuitemmouseleave" MouseDown="Menuitemclicked"/>
+                            <Label x:Name="Menu2Label" Content="Teamwork" Canvas.Left="59" Height="44" Width="246" Foreground="#FF666666" FontSize="18.667" FontFamily="Segoe UI Light" VerticalContentAlignment="Center" MouseMove="Menuitemmousemove" MouseLeave="Menuitemmouseleave" MouseDown="Menuitemclicked" Cursor="Hand"/>
+                        </Canvas>
+
+                        <Canvas x:Name="Menu3"  Height="44" Canvas.Top="100" Width="305" MouseDown="LaunchMultilineWindow"    >
+                            <Image x:Name="Menu3Image" Height="36" Width="54" Source="/img/ExporttoExcel.png" Cursor="Hand" Canvas.Top="4" MouseMove="Menuitemmousemove" MouseLeave="Menuitemmouseleave" MouseDown="Menuitemclicked" Canvas.Left="5"/>
+                            <Label x:Name="Menu3Label" Content="Summary Report" Canvas.Left="59" Height="44" Width="246" Foreground="#FF666666" FontSize="18.667" FontFamily="Segoe UI Light" VerticalContentAlignment="Center" MouseMove="Menuitemmousemove" MouseLeave="Menuitemmouseleave" MouseDown="Menuitemclicked" Cursor="Hand"/>
+                        </Canvas>
+                        <Canvas x:Name="Menu4"  Height="44" Canvas.Top="150" Width="305" MouseDown="LaunchMultilineWindow"   >
+                            <Image x:Name="Menu4Image" Height="36" Width="54" Source="/img/ExporttoExcel.png" Cursor="Hand" Canvas.Top="4" MouseMove="Menuitemmousemove" MouseLeave="Menuitemmouseleave" MouseDown="Menuitemclicked" Canvas.Left="5"/>
+                            <Label x:Name="Menu4Label" Content="Multiline" Canvas.Left="59" Height="44" Width="246" Foreground="#FF666666" FontSize="18.667" FontFamily="Segoe UI Light" VerticalContentAlignment="Center" MouseMove="Menuitemmousemove" MouseLeave="Menuitemmouseleave" MouseDown="Menuitemclicked" Cursor="Hand"/>
+                        </Canvas>
+                        <Canvas x:Name="Menu5"  Height="44" Canvas.Top="200" Width="305" MouseDown="LaunchWeibull"  >
+                            <Image x:Name="Menu5Image" Height="36" Width="54" Source="/img/CompetingCauseIcon.png" Cursor="Hand" Canvas.Top="4" MouseMove="Menuitemmousemove" MouseLeave="Menuitemmouseleave" MouseDown="Menuitemclicked" Canvas.Left="5"/>
+                            <Label x:Name="Menu5Label" Content="Survival" Canvas.Left="59" Height="44" Width="246" Foreground="#FF666666" FontSize="18.667" FontFamily="Segoe UI Light" VerticalContentAlignment="Center" MouseMove="Menuitemmousemove" MouseLeave="Menuitemmouseleave" MouseDown="Menuitemclicked" Cursor="Hand"/>
+                        </Canvas>
+ 
+
+
+                    </Canvas>
+                    <Separator x:Name="MenuSeperator"  Height="11" Margin="0" Canvas.Top="593" Width="305" Background="#FFF0F0F0"/>
+                    <Canvas Height="49" Canvas.Top="609" Width="305" Background="White">
+                        <Image x:Name="Canvasimage" Height="31" Width="49" Source="/img/ExporttoExcel.png" Canvas.Left="204" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave"  Canvas.Top="-3" />
+                        <Image x:Name="Shieldimage" Height="31" Width="50" Source="/img/ExporttoExcel.png" Canvas.Left="47" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" Canvas.Top="-3" />
+                        <Image x:Name="Profileimage" Height="31" Width="50" Source="/img/ExporttoExcel.png" Canvas.Left="124" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" Canvas.Top="-3"/>
+                        <Label x:Name="CanvasMenuItemHeader" Content="Export Data" Canvas.Left="196" Canvas.Top="29" Height="16" Foreground="#FF5A5A5A" Padding="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Segoe UI Light" Width="65"/>
+                        <Label x:Name="ShieldMenuItemHeader" Content="Settings" Canvas.Left="38" Canvas.Top="29" Height="16" Foreground="#FF5A5A5A" Padding="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Segoe UI Light" Width="65" />
+                        <Label x:Name="ProfileMenuItemHeader" Content="Re-Map" Canvas.Left="117" Canvas.Top="29" Height="16" Foreground="#FF5A5A5A" Padding="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Segoe UI Light" Width="65"/>
+
+
+                    </Canvas>
+                </Canvas>
 
             </Grid>
         </telerik:RadBusyIndicator>

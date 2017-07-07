@@ -229,19 +229,13 @@
                                 </Setter>
                             </Style>
                         </telerik:RadCartesianChart.TrackBallInfoStyle>
-                        <!--
-                    <telerik:RadCartesianChart.Behaviors>
-                        <telerik:ChartTrackBallBehavior ShowTrackInfo="True"
-                            				ShowIntersectionPoints="True"
-                            				TrackInfoUpdated="ChartTrackBallBehavior_InfoUpdated"/>
-                    </telerik:RadCartesianChart.Behaviors>
--->
+
                         <telerik:RadCartesianChart.HorizontalAxis>
                             <telerik:CategoricalAxis MajorTickStyle="{StaticResource TransparentTickStyle}" />
                         </telerik:RadCartesianChart.HorizontalAxis>
 
                     </telerik:RadCartesianChart>
-
+<!--
                     <awe:WebControl x:Name="MotionChartD" ClipToBounds="True" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Hidden" FontFamily="Segoe UI" ScrollViewer.HorizontalScrollBarVisibility="Hidden"  Height="425" Canvas.Left="19" Canvas.Top="121" Width="1237"/>
                     <awe:WebControl x:Name="MotionChartD_Weekly" ClipToBounds="True" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Hidden" FontFamily="Segoe UI" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Height="425" Canvas.Left="19" Canvas.Top="121" Width="1237"  Visibility="Hidden"/>
                     <awe:WebControl x:Name="MotionChartD_Monthly" ClipToBounds="True" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Hidden" FontFamily="Segoe UI" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Height="425" Canvas.Left="19" Canvas.Top="121" Width="1237" Visibility="Hidden"/>
@@ -253,7 +247,7 @@
                     <awe:WebControl x:Name="MotionChart_MTBF" ClipToBounds="True" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Hidden" FontFamily="Segoe UI" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Height="425" Canvas.Left="19" Canvas.Top="121" Width="1237"  Visibility="Hidden"/>
                     <awe:WebControl x:Name="MotionChart_MTBF_Weekly" ClipToBounds="True" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Hidden" FontFamily="Segoe UI" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Height="425" Canvas.Left="19" Canvas.Top="121" Width="1237"  Visibility="Hidden"/>
                     <awe:WebControl x:Name="MotionChart_MTBF_Monthly" ClipToBounds="True" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Hidden" FontFamily="Segoe UI" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Height="425" Canvas.Left="19" Canvas.Top="121" Width="1237"  Visibility="Hidden"/>
-
+-->
                     <Label x:Name="losscardnamelabel" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top" Width="810" Height="36" Foreground="#FF615454" FontFamily="Segoe UI Light" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="2" Canvas.Left="240" Canvas.Top="51" />
                     <Label x:Name="stopsbutton" Content="Stops/D" HorizontalAlignment="Left" VerticalAlignment="Top" Width="71" Height="36" Foreground="White" FontFamily="Segoe UI Light" FontSize="14" Background="#FF65DEC8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="2" Cursor="Hand" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" MouseDown="Stopclicked" Opacity="0.2" Canvas.Left="1107" Canvas.Top="27"/>
                     <Label x:Name="prbutton" Content="DT%" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Height="36" Foreground="White" FontFamily="Segoe UI Light" FontSize="14" Background="#FF65DEC8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="2" Cursor="Hand" MouseMove="Generalmousemove" MouseLeave="Generalmouseleave" MouseDown="prclicked" Opacity="0.2" Canvas.Left="1032" Canvas.Top="27"/>

@@ -238,7 +238,7 @@ Public Class Window_Multiline
             Thread.Sleep(300)
 
             ByLossAreaunplannedbtnclicked(LossTreeunplannedbtn, f)
-            SummaryChart.Reload(ignoreCache:=True)
+
             ManageTierComboLabelNames()
             ShowSummaryCharts(SummaryChart, f)
         End If
@@ -498,7 +498,6 @@ Public Class Window_Multiline
             Splash.Visibility = Visibility.Hidden
 
             ByLossAreaunplannedbtnclicked(LossTreeunplannedbtn, f)
-            SummaryChart.Reload(ignoreCache:=True)
             ManageTierComboLabelNames()
             ShowSummaryCharts(SummaryChart, f)
         End If
@@ -508,16 +507,7 @@ Public Class Window_Multiline
     Private Sub multilinewindowclose(ByVal sender As Object, ByVal e As CancelEventArgs)
         If InStr(sender.ToString, "multiline", vbTextCompare) > 0 And IsTeamAnalysisinMultiline = False Then
             Me.Owner.Visibility = Windows.Visibility.Visible
-            Try
-                'SendUserAnalyticsDatatoServer_multiline()
-            Catch ex As Exception
-            End Try
         End If
-        SummaryChart.Dispose()
-        ByLossAreaChart.Dispose()
-        RollupChart1.Dispose()
-        RollupChart2.Dispose()
-
     End Sub
 
 #End Region
@@ -558,17 +548,6 @@ Public Class Window_Multiline
     End Sub
 
     Public Sub AllLinesLossTreeSelectionChanged()
-
-        If System.IO.File.Exists(SERVER_FOLDER_PATH & "pie.js") Then
-            'The file exists
-        Else
-            'the file doesn't exist
-            Try
-                CreatePie_JS()
-            Catch ex As Exception
-                DownloadPieJSFiles()
-            End Try
-        End If
         If AllLinesLossTreeListBox.SelectedItems.Count <> 0 Then
             LaunchRollupSplashCanvas(AllLinesLossTreeListBox.SelectedItems(0).Name.ToString(), AllLinesMappingLevelComboBox.SelectedValue)
         End If
@@ -1587,7 +1566,6 @@ found:
         MultilineHTMLthreas_bylossareachart.Start(paramObj)
 
         Thread.Sleep(200)
-        ByLossAreaChart.Reload(ignoreCache:=True)
     End Sub
 
     Private Sub GenerateByLossAreaCharts(ByVal paramObj As Object)
@@ -2228,27 +2206,24 @@ found:
 
 
         If VolumeWeightedDTpctList.Count > 0 Then
-            RollupChart1.Reload(ignoreCache:=True)
             paramObj(0) = Output_multilinereport.LineNamesList
             paramObj(1) = VolumeWeightedDTpctList
             paramObj(2) = selectedfailuremode
             MultilineHTMLthread_rolluppiechart1 = New Thread(AddressOf CreateHTMLMultiline_RollupChart1_Pie)
             MultilineHTMLthread_rolluppiechart1.Start(paramObj)
             Thread.Sleep(200)
-            RollupChart1.Reload(ignoreCache:=True)
             UseTrack_Multiline_RollupCharts = True
         End If
 
         If VolumeWeightedDTpctList.Count > 0 Then
 
-            RollupChart2.Reload(ignoreCache:=True)
             paramObj(0) = Output_multilinereport.LineNamesList
             paramObj(1) = VolumeWeightedSPDList
             paramObj(2) = selectedfailuremode
             MultilineHTMLthread_rolluppiechart2 = New Thread(AddressOf CreateHTMLMultiline_RollupChart2_Pie)
             MultilineHTMLthread_rolluppiechart2.Start(paramObj)
             Thread.Sleep(200)
-            RollupChart2.Reload(ignoreCache:=True)
+
             UseTrack_Multiline_RollupCharts = True
         End If
 

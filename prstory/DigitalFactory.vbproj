@@ -94,16 +94,8 @@
     <TargetZone>LocalIntranet</TargetZone>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Awesomium.Core, Version=1.7.5.1, Culture=neutral, PublicKeyToken=e1a0d7c8071a5214, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Awesomium Technologies LLC\Awesomium SDK\1.7.5.1\wrappers\Awesomium.NET\Assemblies\Awesomium.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Awesomium.Windows.Controls, Version=1.7.5.1, Culture=neutral, PublicKeyToken=7a34e179b8b61c39, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Awesomium Technologies LLC\Awesomium SDK\1.7.5.1\wrappers\Awesomium.NET\Assemblies\Awesomium.Windows.Controls.dll</HintPath>
-    </Reference>
     <Reference Include="Interop.ADODB">
-      <HintPath>..\..\..\..\..\Public\prstoryDLLS\prstoryDLLS\Interop.ADODB.dll</HintPath>
+      <HintPath>..\..\..\..\..\Downloads\prstoryDLLS\prstoryDLLS\Interop.ADODB.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="Microsoft.Office.Interop.Excel">
@@ -173,11 +165,9 @@
     <Compile Include="CLS_MultiLineReports.vb" />
     <Compile Include="CLS_Targets.vb" />
     <Compile Include="CustomAggregateFcns.vb" />
-    <Compile Include="ExporttoExcel.vb" />
     <Compile Include="Export_XLS.vb" />
     <Compile Include="GlobalBrushes.vb" />
     <Compile Include="Global_AllLines.vb" />
-    <Compile Include="HTML_am.vb" />
     <Compile Include="Import_CSV.vb" />
     <Compile Include="LiveLine\LiveLineHelper.vb" />
     <Compile Include="RawData\DemoData.vb" />
@@ -185,7 +175,6 @@
     <Compile Include="HTML_Multiline.vb" />
     <Compile Include="RawData\PROF_customSQLqueries.vb" />
     <Compile Include="RawData\PROF_pullData.vb" />
-    <Compile Include="Settings.vb" />
     <Compile Include="CLS_DataInterface.vb" />
     <Compile Include="CLS_ErrorHandling.vb" />
     <Compile Include="CLS_MultiConstraint.vb" />
@@ -203,10 +192,8 @@
     <Compile Include="GlobalConsts.vb" />
     <Compile Include="GlobalVars.vb" />
     <Compile Include="GlobalFcns.vb" />
-    <Compile Include="HTML.vb" />
     <Compile Include="HTML_Google.vb" />
     <Compile Include="Analysis_prStory.vb" />
-    <Compile Include="prstory_DataAnalysis.vb" />
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -409,7 +396,6 @@
     <EmbeddedResource Include="Snake.resx">
       <DependentUpon>Snake.vb</DependentUpon>
     </EmbeddedResource>
-    <None Include="DigitalFactory_TemporaryKey.pfx" />
     <None Include="flare.json" />
     <None Include="My Project\app.manifest" />
     <None Include="My Project\Settings.settings">

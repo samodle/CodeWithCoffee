@@ -96,11 +96,7 @@ Title="prstory"  Height="706" Width="1250" Background="White" Foreground="#FF5D5
 
 
 
-                    <awe:WebControl x:Name="speedUpTest" Source="file:///C:/Users/Public/card21.html" ClipToBounds="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Hidden" FontFamily="Segoe UI" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Canvas.Left="974" Canvas.Top="33" Height="132" Width="158" Visibility="Hidden">
-                        <awe:WebControl.Effect>
-                            <DropShadowEffect/>
-                        </awe:WebControl.Effect>
-                    </awe:WebControl>
+
                     <Rectangle Fill="#FF9B9B9B" Height="64" Canvas.Top="510" Width="1167" MouseDown="maincanvasmousedown"/>
                     <Label x:Name="VersionLabel" Content="v6.0.1 November 2016" Canvas.Left="538" Canvas.Top="553" Width="104" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="9" Foreground="White" RenderTransformOrigin="0.543,1.29" Cursor="Hand" />
                     <Label x:Name="NewsFlashLabel" MouseDown="NewsFlashLabel_MouseDown" Content="Learn more on http://prstory.pg.com" Canvas.Left="454" Canvas.Top="515" Width="267" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Foreground="White" RenderTransformOrigin="0.543,1.29" Cursor="Hand" />
@@ -336,7 +332,6 @@ Title="prstory"  Height="706" Width="1250" Background="White" Foreground="#FF5D5
 											
                                              SelectionChanged="LineSelection_AutoCompletechanged" FontSize="18.667" FontFamily="Segoe UI Light" VerticalContentAlignment="Center" Padding="0,0,3,0" Canvas.Left="413" Canvas.Top="21" Width="374" Height="46" HorizontalContentAlignment="Center"/>
                     <TextBlock x:Name="UseLineDropDown_textblock" Canvas.Left="518" TextWrapping="Wrap" Text="Use the drop down menu instead." Canvas.Top="70" Width="184" FontFamily="Segoe UI Light" HorizontalAlignment="Center" Height="16" TextDecorations="Underline" Foreground="#FF37B3CF" Cursor="Hand" MouseDown="ShowDropDownandHideSeachBar" FontSize="10.667" Visibility="Hidden"/>
-                    <awe:WebControl x:Name="About_webcontrol" Height="505" Width="1167"  Visibility="Hidden"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="1"/>
                     <Label x:Name="gobackbutton" Content="GO BACK" Width="78" Height="18" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FFD1D1D1" FontFamily="Segoe UI Light" FontSize="10" Cursor="Hand" MouseLeave="Generalmouseleave" MouseMove="Generalmousemove" MouseDown="hideaboutwebcontrol" Foreground="#FF3E3E3E"/>
 
                 </Canvas>

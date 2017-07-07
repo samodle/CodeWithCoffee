@@ -627,7 +627,7 @@ Class WindowMain_prstory
         Try
             multilineGroups = JSON_Import_LineGroup()
         Catch ex As Exception
-            ' MessageBox.Show("Error Compiling Multiline Groups. " & ex.Message)
+            multilineGroups = New List(Of ProductionLineGroup)
         End Try
     End Sub
 
@@ -1819,7 +1819,6 @@ Class WindowMain_prstory
                             End If
 
                             If fastPull Then
-                                '  lineToAnalyze.ProficyServer_Name, lineToAnalyze.ProficyServer_Username, lineToAnalyze.ProficyServer_Password)
 
                                 Dim threadList As List(Of Thread) = New List(Of Thread)
                                 'find raw data
@@ -2023,11 +2022,12 @@ Class WindowMain_prstory
                 prstory_dateselectionLabel.Content = Format(prstory_datepicker_startdate.SelectedDate, "MMMM dd, yyyy HH:mm").ToString & vbNewLine & Format(prstory_datepicker_enddate.SelectedDate, "MMMM dd, yyyy HH:mm").ToString & vbNewLine
                 prstory_dateselectionLabel.HorizontalContentAlignment = Windows.HorizontalAlignment.Center
 
+                bargraphReportWin.multilineGroups = multilineGroups
+
                 bargraphReportWin.Owner = Me
 
                 datalabelcontent = prstory_dateselectionLabel.Content
                 DeactivateIncontrol = True  ' by default deactivated
-
 
                 If Not IsNothing(rateLossDT) Then
                     AllProdLines(selectedindexofLine_temp).RawRateLossDataArray = rateLossDT
@@ -2172,43 +2172,6 @@ WEREGOINGTONEEDABIGGERBOAT:
             'the file doesn't exist
             imagedownload("lens.png")
         End If
-
-        CreateAMCharts_JS()
-        ' End If
-
-        If System.IO.File.Exists(SERVER_FOLDER_PATH & "serial.js") Then
-            'The file exists
-        Else
-            'the file doesn't exist
-            CreateSerial_JS()
-        End If
-
-
-        If System.IO.File.Exists(SERVER_FOLDER_PATH & "style.css") Then
-            'The file exists
-        Else
-            'the file doesn't exist
-            CreateStyle_CSS()
-        End If
-
-        If System.IO.File.Exists(SERVER_FOLDER_PATH & "pie.js") Then
-            'The file exists
-        Else
-            'the file doesn't exist
-            Try
-                CreatePie_JS()
-            Catch ex As Exception
-                DownloadPieJSFiles()
-            End Try
-        End If
-
-        If System.IO.File.Exists(SERVER_FOLDER_PATH & "export.js") Then
-            'The file exists
-        Else
-            'the file doesn't exist
-            DownloadJSFiles()
-        End If
-
         'we'll try to sneak this in here and see how it goes
         CSV_exportAllRawDataFromArrayObject(AllProdLines(selectedindexofLine_temp))
 
@@ -2269,15 +2232,6 @@ WEREGOINGTONEEDABIGGERBOAT:
         LineSelection_Alert.Visibility = Visibility.Hidden
         Return True
     End Function
-
-
-
-
-
-
-
-
-
 
 
 #Region "Single Unit Data Collection"
